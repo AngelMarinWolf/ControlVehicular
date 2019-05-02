@@ -23,7 +23,7 @@ Partial Class MultasYContribuyentes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MultasYContribuyentes))
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.NavBar = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LocalidadesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,6 +38,11 @@ Partial Class MultasYContribuyentes
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.PictContribuyente = New System.Windows.Forms.PictureBox()
+        Me.PictVehicle = New System.Windows.Forms.PictureBox()
+        Me.PictLicencia = New System.Windows.Forms.PictureBox()
+        Me.PictMulta = New System.Windows.Forms.PictureBox()
+        Me.PictPago = New System.Windows.Forms.PictureBox()
         Me.Footer = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusUser = New System.Windows.Forms.StatusStrip()
         Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
@@ -50,26 +55,31 @@ Partial Class MultasYContribuyentes
         Me.lblHoraData = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutMenuTitle = New System.Windows.Forms.TableLayoutPanel()
         Me.lblMenu = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.MenuStrip1.SuspendLayout()
+        Me.NavBar.SuspendLayout()
         Me.TabInformation.SuspendLayout()
         Me.TableLayoutMenuOptions.SuspendLayout()
+        CType(Me.PictContribuyente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictLicencia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictPago, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Footer.SuspendLayout()
         Me.StatusUser.SuspendLayout()
         Me.StatusDate.SuspendLayout()
         Me.TableLayoutMenuTitle.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'MenuStrip1
+        'NavBar
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.AyudaToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(984, 24)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.NavBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NavBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.NavBar.Dock = System.Windows.Forms.DockStyle.None
+        Me.NavBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.AyudaToolStripMenuItem})
+        Me.NavBar.Location = New System.Drawing.Point(0, 0)
+        Me.NavBar.Name = "NavBar"
+        Me.NavBar.Size = New System.Drawing.Size(130, 24)
+        Me.NavBar.TabIndex = 0
         '
         'MenuToolStripMenuItem
         '
@@ -82,13 +92,13 @@ Partial Class MultasYContribuyentes
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'LocalidadesToolStripMenuItem
         '
         Me.LocalidadesToolStripMenuItem.Name = "LocalidadesToolStripMenuItem"
-        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LocalidadesToolStripMenuItem.Text = "Localidades"
         '
         'AyudaToolStripMenuItem
@@ -102,7 +112,7 @@ Partial Class MultasYContribuyentes
         'ManualToolStripMenuItem
         '
         Me.ManualToolStripMenuItem.Name = "ManualToolStripMenuItem"
-        Me.ManualToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.ManualToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ManualToolStripMenuItem.Text = "Manual"
         '
         'TabInformation
@@ -146,11 +156,15 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutMenuOptions.Controls.Add(Me.Button1, 1, 0)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 1, 4)
         Me.TableLayoutMenuOptions.Controls.Add(Me.Button2, 1, 1)
         Me.TableLayoutMenuOptions.Controls.Add(Me.Button4, 1, 3)
         Me.TableLayoutMenuOptions.Controls.Add(Me.Button3, 1, 2)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictureBox1, 0, 0)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictContribuyente, 0, 0)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictVehicle, 0, 1)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictLicencia, 0, 2)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictMulta, 0, 3)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 1, 5)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictPago, 0, 5)
         Me.TableLayoutMenuOptions.Location = New System.Drawing.Point(784, 63)
         Me.TableLayoutMenuOptions.Name = "TableLayoutMenuOptions"
         Me.TableLayoutMenuOptions.RowCount = 6
@@ -158,8 +172,8 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.Size = New System.Drawing.Size(200, 475)
         Me.TableLayoutMenuOptions.TabIndex = 2
         '
@@ -176,7 +190,7 @@ Partial Class MultasYContribuyentes
         'Button5
         '
         Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(33, 123)
+        Me.Button5.Location = New System.Drawing.Point(33, 448)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(164, 23)
         Me.Button5.TabIndex = 7
@@ -212,6 +226,59 @@ Partial Class MultasYContribuyentes
         Me.Button3.TabIndex = 5
         Me.Button3.Text = "Registrar Licencias"
         Me.Button3.UseVisualStyleBackColor = True
+        '
+        'PictContribuyente
+        '
+        Me.PictContribuyente.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictContribuyente.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.user
+        Me.PictContribuyente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictContribuyente.Location = New System.Drawing.Point(3, 3)
+        Me.PictContribuyente.Name = "PictContribuyente"
+        Me.PictContribuyente.Size = New System.Drawing.Size(24, 24)
+        Me.PictContribuyente.TabIndex = 8
+        Me.PictContribuyente.TabStop = False
+        '
+        'PictVehicle
+        '
+        Me.PictVehicle.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.car
+        Me.PictVehicle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictVehicle.Location = New System.Drawing.Point(3, 33)
+        Me.PictVehicle.Name = "PictVehicle"
+        Me.PictVehicle.Size = New System.Drawing.Size(24, 24)
+        Me.PictVehicle.TabIndex = 9
+        Me.PictVehicle.TabStop = False
+        '
+        'PictLicencia
+        '
+        Me.PictLicencia.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.id_card
+        Me.PictLicencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictLicencia.Location = New System.Drawing.Point(3, 63)
+        Me.PictLicencia.Name = "PictLicencia"
+        Me.PictLicencia.Size = New System.Drawing.Size(24, 24)
+        Me.PictLicencia.TabIndex = 10
+        Me.PictLicencia.TabStop = False
+        '
+        'PictMulta
+        '
+        Me.PictMulta.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.receipt
+        Me.PictMulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictMulta.Location = New System.Drawing.Point(3, 93)
+        Me.PictMulta.Name = "PictMulta"
+        Me.PictMulta.Size = New System.Drawing.Size(24, 24)
+        Me.PictMulta.TabIndex = 11
+        Me.PictMulta.TabStop = False
+        '
+        'PictPago
+        '
+        Me.PictPago.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.purse
+        Me.PictPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictPago.Location = New System.Drawing.Point(3, 448)
+        Me.PictPago.Name = "PictPago"
+        Me.PictPago.Size = New System.Drawing.Size(24, 24)
+        Me.PictPago.TabIndex = 12
+        Me.PictPago.TabStop = False
         '
         'Footer
         '
@@ -335,18 +402,6 @@ Partial Class MultasYContribuyentes
         Me.lblMenu.Text = "Menu"
         Me.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = Global.ControlVehicular.My.Resources.Resources.user
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
-        '
         'MultasYContribuyentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -357,19 +412,24 @@ Partial Class MultasYContribuyentes
         Me.Controls.Add(Me.Footer)
         Me.Controls.Add(Me.TableLayoutMenuOptions)
         Me.Controls.Add(Me.TabInformation)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.NavBar)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.NavBar
         Me.Name = "MultasYContribuyentes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Multas y Contribuyentes"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.NavBar.ResumeLayout(False)
+        Me.NavBar.PerformLayout()
         Me.TabInformation.ResumeLayout(False)
         Me.TableLayoutMenuOptions.ResumeLayout(False)
+        CType(Me.PictContribuyente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictVehicle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictLicencia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictPago, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Footer.ResumeLayout(False)
         Me.Footer.PerformLayout()
         Me.StatusUser.ResumeLayout(False)
@@ -378,13 +438,12 @@ Partial Class MultasYContribuyentes
         Me.StatusDate.PerformLayout()
         Me.TableLayoutMenuTitle.ResumeLayout(False)
         Me.TableLayoutMenuTitle.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents NavBar As MenuStrip
     Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TabInformation As TabControl
@@ -411,5 +470,9 @@ Partial Class MultasYContribuyentes
     Friend WithEvents lblHoraData As ToolStripStatusLabel
     Friend WithEvents TableLayoutMenuTitle As TableLayoutPanel
     Friend WithEvents lblMenu As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictContribuyente As PictureBox
+    Friend WithEvents PictVehicle As PictureBox
+    Friend WithEvents PictLicencia As PictureBox
+    Friend WithEvents PictMulta As PictureBox
+    Friend WithEvents PictPago As PictureBox
 End Class

@@ -22,6 +22,16 @@ ControlVehicular
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
 </summary>
 </member>
+<member name="P:ControlVehicular.My.Resources.Resources.car">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ControlVehicular.My.Resources.Resources.id_card">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ControlVehicular.My.Resources.Resources.MustangIcon">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
@@ -33,6 +43,16 @@ ControlVehicular
 </summary>
 </member>
 <member name="P:ControlVehicular.My.Resources.Resources.MustangWallpaper">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ControlVehicular.My.Resources.Resources.purse">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ControlVehicular.My.Resources.Resources.receipt">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
