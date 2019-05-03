@@ -22,6 +22,9 @@ Partial Class MultasYContribuyentes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MultasYContribuyentes))
         Me.NavBar = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,8 +58,25 @@ Partial Class MultasYContribuyentes
         Me.lblHoraData = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutMenuTitle = New System.Windows.Forms.TableLayoutPanel()
         Me.lblMenu = New System.Windows.Forms.Label()
+        Me.tlSearchBar = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblSearchType = New System.Windows.Forms.Label()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.cbSearchType = New System.Windows.Forms.ComboBox()
+        Me.txbSearch = New System.Windows.Forms.TextBox()
+        Me.DataContribuyentes = New System.Windows.Forms.DataGridView()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.NavBar.SuspendLayout()
         Me.TabInformation.SuspendLayout()
+        Me.TabContribuyentes.SuspendLayout()
         Me.TableLayoutMenuOptions.SuspendLayout()
         CType(Me.PictContribuyente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,6 +87,10 @@ Partial Class MultasYContribuyentes
         Me.StatusUser.SuspendLayout()
         Me.StatusDate.SuspendLayout()
         Me.TableLayoutMenuTitle.SuspendLayout()
+        Me.tlSearchBar.SuspendLayout()
+        CType(Me.DataContribuyentes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'NavBar
@@ -130,6 +154,10 @@ Partial Class MultasYContribuyentes
         '
         'TabContribuyentes
         '
+        Me.TabContribuyentes.Controls.Add(Me.GroupBox2)
+        Me.TabContribuyentes.Controls.Add(Me.GroupBox1)
+        Me.TabContribuyentes.Controls.Add(Me.DataContribuyentes)
+        Me.TabContribuyentes.Controls.Add(Me.tlSearchBar)
         Me.TabContribuyentes.Location = New System.Drawing.Point(4, 22)
         Me.TabContribuyentes.Name = "TabContribuyentes"
         Me.TabContribuyentes.Padding = New System.Windows.Forms.Padding(3)
@@ -402,6 +430,211 @@ Partial Class MultasYContribuyentes
         Me.lblMenu.Text = "Menu"
         Me.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'tlSearchBar
+        '
+        Me.tlSearchBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tlSearchBar.ColumnCount = 4
+        Me.tlSearchBar.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105.0!))
+        Me.tlSearchBar.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.tlSearchBar.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.tlSearchBar.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlSearchBar.Controls.Add(Me.lblSearchType, 0, 0)
+        Me.tlSearchBar.Controls.Add(Me.btnSearch, 2, 0)
+        Me.tlSearchBar.Controls.Add(Me.cbSearchType, 1, 0)
+        Me.tlSearchBar.Controls.Add(Me.txbSearch, 3, 0)
+        Me.tlSearchBar.Location = New System.Drawing.Point(6, 6)
+        Me.tlSearchBar.Name = "tlSearchBar"
+        Me.tlSearchBar.RowCount = 1
+        Me.tlSearchBar.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tlSearchBar.Size = New System.Drawing.Size(746, 30)
+        Me.tlSearchBar.TabIndex = 0
+        '
+        'lblSearchType
+        '
+        Me.lblSearchType.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblSearchType.AutoSize = True
+        Me.lblSearchType.Location = New System.Drawing.Point(3, 8)
+        Me.lblSearchType.Name = "lblSearchType"
+        Me.lblSearchType.Size = New System.Drawing.Size(99, 13)
+        Me.lblSearchType.TabIndex = 0
+        Me.lblSearchType.Text = "Tipo de Busqueda:"
+        Me.lblSearchType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSearch.Location = New System.Drawing.Point(208, 3)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(94, 23)
+        Me.btnSearch.TabIndex = 1
+        Me.btnSearch.Text = "Buscar"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'cbSearchType
+        '
+        Me.cbSearchType.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbSearchType.FormattingEnabled = True
+        Me.cbSearchType.Items.AddRange(New Object() {"Nombre", "Licencia", "Matricula"})
+        Me.cbSearchType.Location = New System.Drawing.Point(108, 4)
+        Me.cbSearchType.Name = "cbSearchType"
+        Me.cbSearchType.Size = New System.Drawing.Size(94, 21)
+        Me.cbSearchType.TabIndex = 2
+        '
+        'txbSearch
+        '
+        Me.txbSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txbSearch.Location = New System.Drawing.Point(308, 5)
+        Me.txbSearch.Name = "txbSearch"
+        Me.txbSearch.Size = New System.Drawing.Size(435, 20)
+        Me.txbSearch.TabIndex = 3
+        '
+        'DataContribuyentes
+        '
+        Me.DataContribuyentes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataContribuyentes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataContribuyentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataContribuyentes.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataContribuyentes.Location = New System.Drawing.Point(6, 42)
+        Me.DataContribuyentes.Name = "DataContribuyentes"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataContribuyentes.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataContribuyentes.Size = New System.Drawing.Size(746, 318)
+        Me.DataContribuyentes.TabIndex = 1
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.RadioButton4)
+        Me.GroupBox1.Controls.Add(Me.RadioButton3)
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 366)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(174, 113)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Opciones"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Checked = True
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(55, 17)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Todos"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(6, 42)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(131, 17)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.Text = "Infractores Pendientes"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(6, 65)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(157, 17)
+        Me.RadioButton3.TabIndex = 2
+        Me.RadioButton3.Text = "Sin Infracciones Pendientes"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Location = New System.Drawing.Point(6, 88)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(101, 17)
+        Me.RadioButton4.TabIndex = 3
+        Me.RadioButton4.Text = "Sin Infracciones"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox2.Location = New System.Drawing.Point(186, 366)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(214, 113)
+        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Periodo"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(6, 39)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 23)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(80, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Fecha de Inicio"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 69)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(80, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Fecha de Corte"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(6, 85)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker2.TabIndex = 3
+        Me.DateTimePicker2.Value = New Date(2019, 5, 2, 23, 32, 9, 0)
+        '
         'MultasYContribuyentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -424,6 +657,7 @@ Partial Class MultasYContribuyentes
         Me.NavBar.ResumeLayout(False)
         Me.NavBar.PerformLayout()
         Me.TabInformation.ResumeLayout(False)
+        Me.TabContribuyentes.ResumeLayout(False)
         Me.TableLayoutMenuOptions.ResumeLayout(False)
         CType(Me.PictContribuyente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictVehicle, System.ComponentModel.ISupportInitialize).EndInit()
@@ -438,6 +672,13 @@ Partial Class MultasYContribuyentes
         Me.StatusDate.PerformLayout()
         Me.TableLayoutMenuTitle.ResumeLayout(False)
         Me.TableLayoutMenuTitle.PerformLayout()
+        Me.tlSearchBar.ResumeLayout(False)
+        Me.tlSearchBar.PerformLayout()
+        CType(Me.DataContribuyentes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -475,4 +716,20 @@ Partial Class MultasYContribuyentes
     Friend WithEvents PictLicencia As PictureBox
     Friend WithEvents PictMulta As PictureBox
     Friend WithEvents PictPago As PictureBox
+    Friend WithEvents tlSearchBar As TableLayoutPanel
+    Friend WithEvents lblSearchType As Label
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents cbSearchType As ComboBox
+    Friend WithEvents txbSearch As TextBox
+    Friend WithEvents DataContribuyentes As DataGridView
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents RadioButton4 As RadioButton
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
