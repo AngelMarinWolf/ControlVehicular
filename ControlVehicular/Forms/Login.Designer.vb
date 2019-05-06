@@ -26,8 +26,8 @@ Partial Class Login
         Me.TableUserPassword = New System.Windows.Forms.TableLayoutPanel()
         Me.LabelUser = New System.Windows.Forms.Label()
         Me.LabelContraseña = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonConfirm = New System.Windows.Forms.Button()
@@ -50,8 +50,8 @@ Partial Class Login
         Me.TableUserPassword.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableUserPassword.Controls.Add(Me.LabelUser, 1, 0)
         Me.TableUserPassword.Controls.Add(Me.LabelContraseña, 1, 1)
-        Me.TableUserPassword.Controls.Add(Me.TextBox1, 2, 0)
-        Me.TableUserPassword.Controls.Add(Me.TextBox2, 2, 1)
+        Me.TableUserPassword.Controls.Add(Me.txtUser, 2, 0)
+        Me.TableUserPassword.Controls.Add(Me.txtPassword, 2, 1)
         Me.TableUserPassword.Controls.Add(Me.TableLayoutPanel1, 2, 2)
         Me.TableUserPassword.Location = New System.Drawing.Point(13, 119)
         Me.TableUserPassword.Margin = New System.Windows.Forms.Padding(4)
@@ -87,27 +87,27 @@ Partial Class Login
         Me.LabelContraseña.TabIndex = 1
         Me.LabelContraseña.Text = "Contraseña:"
         '
-        'TextBox1
+        'txtUser
         '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.Window
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(490, 4)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(235, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.txtUser.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtUser.BackColor = System.Drawing.SystemColors.Window
+        Me.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtUser.Location = New System.Drawing.Point(490, 4)
+        Me.txtUser.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtUser.Name = "txtUser"
+        Me.txtUser.Size = New System.Drawing.Size(235, 22)
+        Me.txtUser.TabIndex = 2
         '
-        'TextBox2
+        'txtPassword
         '
-        Me.TextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Location = New System.Drawing.Point(490, 34)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox2.Size = New System.Drawing.Size(235, 22)
-        Me.TextBox2.TabIndex = 3
+        Me.txtPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtPassword.Location = New System.Drawing.Point(490, 34)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtPassword.Size = New System.Drawing.Size(235, 22)
+        Me.txtPassword.TabIndex = 3
         '
         'TableLayoutPanel1
         '
@@ -222,8 +222,8 @@ Partial Class Login
     Friend WithEvents TableUserPassword As TableLayoutPanel
     Friend WithEvents LabelUser As Label
     Friend WithEvents LabelContraseña As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtUser As TextBox
+    Friend WithEvents txtPassword As TextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents ButtonCancel As Button
     Friend WithEvents ButtonConfirm As Button

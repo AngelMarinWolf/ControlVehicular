@@ -1,23 +1,27 @@
-﻿Imports Oracle.DataAccess.Client
-'Imports System.Data.OleDb
+﻿Imports System.Data
+Imports Oracle.DataAccess.Client
+Imports Oracle.DataAccess.Types
+
 Public Class Oracle
     'En esta clase definimos el método constructor en el cual se establece 
     'la conexión a la base de datos Oracle XE.
     'Variable de instancia del tipo conexion Oracle
-    Dim cnx As OracleConnection
+    Private cnx As OracleConnection
+
+    'Variables para la creacion de la cadena de conexion
+    Private db_datasource As String = "Data Source="
+    Private db_username As String = "User Id="
+    Private db_password As String = "Password="
+
     'Metodo para establecer la conexión a la BD
     Public Sub New()
+        ' Inicializar variables de conexion
+        db_datasource = db_datasource & My.Settings.db_datasource & ";"
+        db_username = db_username & My.Settings.db_username & ";"
+        db_password = db_password & My.Settings.db_password & ";"
+
         ' Con esta cadena preparamos la conexión a Oracle con el Usuario  y contraseña dueño de las tablas 
-        cnx = New OracleConnection("Data Source=XE;User Id=host;Password=host;")
-
-        ' Con esta cadena preparamos la conexión a ACCESS con el Usuario  y contraseña dueño de las tablas 
-        'cnx = New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\Servidor\Usuarios\bd1.mdb")
-
-        'Dim myConnectionString As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=F:\MYAPP\DATABASE.MDB;Persist Security Info=True;Jet OLEDBTongue Tiedystem database=F:\MYAPP\SYSTEM.mdw"
-
-        'Con esta cadena preparamos la conexión a MySQL con el Usuario  y contraseña dueño de las tablas 
-
-        'cnx = New OdbcConnection("DRIVER={MySQL ODBC 5.1 Driver}; SERVER=127.0.0.1; DATABASE=mydatabase; UID=root; PWD=contraseña")
+        cnx = New OracleConnection(db_datasource & db_username & db_password)
 
         If cnx.State <> ConnectionState.Open Then
             Try
@@ -27,6 +31,9 @@ Public Class Oracle
             End Try
         End If
     End Sub
+
+
+
     'METODOS PARA ACCESO A DATOS
     'Método para efectuar consultas a base de datos recibiendo el string del DML
     Public Function objetoDataAdapter(ByVal sqlcmd As String) As DataTable
