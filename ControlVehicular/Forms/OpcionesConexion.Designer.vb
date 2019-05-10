@@ -32,16 +32,16 @@ Partial Class OpcionesConexion
         Me.txtDataSource = New System.Windows.Forms.TextBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.btnAceptar, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.btnCancelar, 1, 3)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.lblDataSource, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.lblUsername, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.lblPassword, 0, 2)
@@ -50,19 +50,18 @@ Partial Class OpcionesConexion
         Me.TableLayoutPanel1.Controls.Add(Me.txtPassword, 1, 2)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 12)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(300, 120)
+        Me.TableLayoutPanel1.RowCount = 3
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(300, 90)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'btnAceptar
         '
         Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAceptar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnAceptar.Location = New System.Drawing.Point(3, 93)
+        Me.btnAceptar.Location = New System.Drawing.Point(3, 3)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(144, 23)
         Me.btnAceptar.TabIndex = 4
@@ -73,7 +72,7 @@ Partial Class OpcionesConexion
         '
         Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnCancelar.Location = New System.Drawing.Point(153, 93)
+        Me.btnCancelar.Location = New System.Drawing.Point(153, 3)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(144, 23)
         Me.btnCancelar.TabIndex = 5
@@ -86,64 +85,80 @@ Partial Class OpcionesConexion
         Me.lblDataSource.AutoSize = True
         Me.lblDataSource.Location = New System.Drawing.Point(3, 8)
         Me.lblDataSource.Name = "lblDataSource"
-        Me.lblDataSource.Size = New System.Drawing.Size(144, 13)
+        Me.lblDataSource.Size = New System.Drawing.Size(79, 13)
         Me.lblDataSource.TabIndex = 2
         Me.lblDataSource.Text = "Data Source:"
-        Me.lblDataSource.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblDataSource.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblUsername
         '
         Me.lblUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(3, 38)
+        Me.lblUsername.Location = New System.Drawing.Point(3, 37)
         Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(144, 13)
+        Me.lblUsername.Size = New System.Drawing.Size(79, 13)
         Me.lblUsername.TabIndex = 3
         Me.lblUsername.Text = "Username:"
-        Me.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblPassword
         '
         Me.lblPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(3, 68)
+        Me.lblPassword.Location = New System.Drawing.Point(3, 67)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(144, 13)
+        Me.lblPassword.Size = New System.Drawing.Size(79, 13)
         Me.lblPassword.TabIndex = 4
         Me.lblPassword.Text = "Password: "
-        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtDataSource
         '
         Me.txtDataSource.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDataSource.Location = New System.Drawing.Point(153, 5)
+        Me.txtDataSource.Location = New System.Drawing.Point(88, 4)
         Me.txtDataSource.Name = "txtDataSource"
-        Me.txtDataSource.Size = New System.Drawing.Size(144, 20)
+        Me.txtDataSource.Size = New System.Drawing.Size(209, 20)
         Me.txtDataSource.TabIndex = 1
         '
         'txtUsername
         '
         Me.txtUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUsername.Location = New System.Drawing.Point(153, 35)
+        Me.txtUsername.Location = New System.Drawing.Point(88, 33)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(144, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(209, 20)
         Me.txtUsername.TabIndex = 2
         '
         'txtPassword
         '
         Me.txtPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPassword.Location = New System.Drawing.Point(153, 65)
+        Me.txtPassword.Location = New System.Drawing.Point(88, 64)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPassword.Size = New System.Drawing.Size(144, 20)
+        Me.txtPassword.Size = New System.Drawing.Size(209, 20)
         Me.txtPassword.TabIndex = 3
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.btnCancelar, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnAceptar, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(12, 102)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(300, 30)
+        Me.TableLayoutPanel2.TabIndex = 1
         '
         'OpcionesConexion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(324, 144)
+        Me.ClientSize = New System.Drawing.Size(324, 141)
+        Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -153,6 +168,7 @@ Partial Class OpcionesConexion
         Me.Text = "OpcionesConexion"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -166,4 +182,5 @@ Partial Class OpcionesConexion
     Friend WithEvents txtDataSource As TextBox
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents txtPassword As TextBox
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
 End Class

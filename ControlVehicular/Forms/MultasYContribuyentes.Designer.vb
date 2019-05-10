@@ -62,6 +62,8 @@ Partial Class MultasYContribuyentes
         Me.PictMulta = New System.Windows.Forms.PictureBox()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.PictPago = New System.Windows.Forms.PictureBox()
+        Me.btnPlacas = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Footer = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusUser = New System.Windows.Forms.StatusStrip()
         Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
@@ -88,6 +90,7 @@ Partial Class MultasYContribuyentes
         CType(Me.PictLicencia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictPago, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Footer.SuspendLayout()
         Me.StatusUser.SuspendLayout()
         Me.StatusDate.SuspendLayout()
@@ -118,13 +121,13 @@ Partial Class MultasYContribuyentes
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'LocalidadesToolStripMenuItem
         '
         Me.LocalidadesToolStripMenuItem.Name = "LocalidadesToolStripMenuItem"
-        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.LocalidadesToolStripMenuItem.Text = "Localidades"
         '
         'AyudaToolStripMenuItem
@@ -398,11 +401,14 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictVehicle, 0, 1)
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictLicencia, 0, 2)
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictMulta, 0, 3)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 1, 5)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictPago, 0, 5)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 1, 6)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictPago, 0, 6)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.btnPlacas, 1, 4)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictureBox1, 0, 4)
         Me.TableLayoutMenuOptions.Location = New System.Drawing.Point(784, 63)
         Me.TableLayoutMenuOptions.Name = "TableLayoutMenuOptions"
-        Me.TableLayoutMenuOptions.RowCount = 6
+        Me.TableLayoutMenuOptions.RowCount = 7
+        Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
@@ -514,6 +520,26 @@ Partial Class MultasYContribuyentes
         Me.PictPago.Size = New System.Drawing.Size(24, 24)
         Me.PictPago.TabIndex = 12
         Me.PictPago.TabStop = False
+        '
+        'btnPlacas
+        '
+        Me.btnPlacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPlacas.Location = New System.Drawing.Point(33, 123)
+        Me.btnPlacas.Name = "btnPlacas"
+        Me.btnPlacas.Size = New System.Drawing.Size(164, 23)
+        Me.btnPlacas.TabIndex = 13
+        Me.btnPlacas.Text = "Registrar Placas"
+        Me.btnPlacas.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.matricula
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 123)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
+        Me.PictureBox1.TabIndex = 14
+        Me.PictureBox1.TabStop = False
         '
         'Footer
         '
@@ -684,6 +710,7 @@ Partial Class MultasYContribuyentes
         CType(Me.PictLicencia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictPago, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Footer.ResumeLayout(False)
         Me.Footer.PerformLayout()
         Me.StatusUser.ResumeLayout(False)
@@ -747,4 +774,6 @@ Partial Class MultasYContribuyentes
     Friend WithEvents Label1 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents container As FlowLayoutPanel
+    Friend WithEvents btnPlacas As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

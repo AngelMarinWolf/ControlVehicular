@@ -53,7 +53,7 @@ CREATE TABLE Contribuyentes (
   materno VARCHAR(45) NULL,
   edad NUMERIC NULL,
   sexo VARCHAR(45) NULL,
-  telefono INTEGER NULL,
+  telefono VARCHAR(12) NOT NULL,
   correoElectronico VARCHAR(45) NULL,
   idDomicilio NUMERIC NULL,
   PRIMARY KEY(curp),
@@ -77,14 +77,13 @@ CREATE TABLE Licencias (
 DROP TABLE Empleados CASCADE CONSTRAINTS;
 CREATE TABLE Empleados (
   curp VARCHAR(18) NOT NULL,
-  idMultas NUMERIC NOT NULL,
   rfc VARCHAR(30) NOT NULL,
   nombre VARCHAR(45) NULL,
   paterno VARCHAR(45) NULL,
   materno VARCHAR(45) NULL,
   sexo VARCHAR(45) NULL,
   correoElectronico VARCHAR(45) NULL,
-  telefono INTEGER NULL,
+  telefono VARCHAR(12) NOT NULL,
   idDomicilio NUMERIC NULL,
   PRIMARY KEY(curp),
   CONSTRAINT fk_domicilio_empleados FOREIGN KEY(idDomicilio) REFERENCES Domicilio(idDomicilio)

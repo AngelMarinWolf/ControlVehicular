@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Oracle.vb" />
+    <Compile Include="Classes\Pais.vb" />
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\control_vehicular.sql" />
+    <None Include="Resources\matricula.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MustangWallpaper.png" />
