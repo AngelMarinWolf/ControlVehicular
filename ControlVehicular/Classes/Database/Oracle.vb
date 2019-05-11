@@ -22,7 +22,6 @@ Public Class Oracle
 
         ' Con esta cadena preparamos la conexión a Oracle con el Usuario  y contraseña dueño de las tablas 
         cnx = New OracleConnection(db_datasource & db_username & db_password)
-        AbrirConexion()
     End Sub
 
     Private Sub AbrirConexion()
@@ -46,9 +45,10 @@ Public Class Oracle
     End Sub
 
     ' Metodo de insercion que retorna un valor booleano cuando la insercion se realizo de forma correcta.
-    Public Function Insert(tabla As String, columnas As String(), valores As String()) As Boolean
-
+    Public Function Insertar(tabla As String, columnas As String(), valores As String()) As Boolean
+        AbrirConexion()
         If columnas.Length <> valores.Length Then
+            CerrarConexion()
             Throw New Exception("Error: Columnas y Valores no corresponden.")
         End If
         Dim queryStr = "INSERT INTO " & tabla & " (" & String.Join(",", columnas) & ") " &
@@ -63,6 +63,7 @@ Public Class Oracle
             Throw New Exception("Error: " & ex.Message)
         Finally
             sqlcmd.Dispose()
+            CerrarConexion()
         End Try
 
         If rows > 0 Then
@@ -74,7 +75,7 @@ Public Class Oracle
 
     ' Metodo de eliminacion que retorna un valor booleano cuando el registro fue eliminado correctamente.
     Public Function Eliminar(tabla As String, condiciones As String()) As Boolean
-
+        AbrirConexion()
         Dim queryStr As String = "DELETE FROM " & tabla & " WHERE " & String.Join(",", condiciones)
         Dim sqlcmd As New OracleCommand(queryStr, cnx)
 
@@ -84,6 +85,8 @@ Public Class Oracle
             rows = sqlcmd.ExecuteNonQuery()
         Catch ex As Exception
             Throw New Exception("Error: " & ex.Message)
+        Finally
+            CerrarConexion()
         End Try
 
         If rows > 0 Then
@@ -95,8 +98,10 @@ Public Class Oracle
 
     ' Metodo que permite actualizar una tabla y retorna un valor booleano en caso de que la ejecucion sea correcta
     Public Function Actualizar(tabla As String, columnas As String(), valores As String(), condiciones As String()) As Boolean
+        AbrirConexion()
         Dim valuesStr(columnas.Length) As String
         If columnas.Length <> valores.Length Then
+            CerrarConexion()
             Throw New Exception("Error: Columnas y Valores no corresponden.")
         Else
             For index = 0 To columnas.Length - 1
@@ -113,7 +118,10 @@ Public Class Oracle
             rows = sqlcmd.ExecuteNonQuery()
         Catch ex As Exception
             Throw New Exception("Error: " & ex.Message)
+        Finally
+            CerrarConexion()
         End Try
+
         If rows > 0 Then
             Return True
         Else
@@ -122,7 +130,35 @@ Public Class Oracle
     End Function
 
     ' Metodo que ejecuta una consulta sobre la base de datos y retorna los valore dentro de un objeto DataTable
+    Public Function Buscar(tabla As String, columnas As String(), condiciones As String()) As DataTable
+        AbrirConexion()
+        Dim dataAdapter As OracleDataAdapter
+        Dim dataTable As DataTable
+
+        Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & tabla
+        If condiciones.Length > 0 Then
+            queryStr += " WHERE " & String.Join(",", condiciones)
+        End If
+
+        Try
+            dataAdapter = New OracleDataAdapter(queryStr, cnx)
+            dataTable = New DataTable
+            dataAdapter.Fill(dataTable)
+            dataAdapter.Dispose()
+            CerrarConexion()
+            Return dataTable 'retorna el conjunto de dato
+        Catch ex As Exception
+            CerrarConexion()
+            Throw New Exception("Error: " & ex.Message)
+            'Finally
+        Finally
+            CerrarConexion()
+        End Try
+    End Function
+
+    '
     Public Function ObjetoDataAdapter(ByVal sqlcmd As String) As DataTable
+        AbrirConexion()
         Dim dataAdapter As OracleDataAdapter
         Dim dataTable As DataTable
 
@@ -131,15 +167,18 @@ Public Class Oracle
             dataTable = New DataTable
             dataAdapter.Fill(dataTable)
             dataAdapter.Dispose()
+            CerrarConexion()
             Return dataTable 'retorna el conjunto de dato
         Catch ex As Exception
             Throw New Exception("Error: " & ex.Message)
-            'Finally
+        Finally
+            CerrarConexion()
         End Try
     End Function
 
     'Método que ejecuta un comando insert, update o delete a base de datos
-    Public Sub objetoCommand(ByVal strcmd As String)
+    Public Sub ObjetoCommand(ByVal strcmd As String)
+        AbrirConexion()
         Dim sqlcmd As New OracleCommand(strcmd, cnx)
 
         Try
@@ -147,12 +186,13 @@ Public Class Oracle
         Catch ex As Exception
             Throw New Exception("Error: " & ex.Message)
         Finally
-            sqlcmd.Dispose()
+            CerrarConexion()
         End Try
     End Sub
 
     'Método para efectuar lecturas y generar recordset de datos
     Function objetoDataReader(ByVal strcmd As String) As OracleDataReader
+        AbrirConexion()
         Dim sqlcmd As New OracleCommand(strcmd, cnx)
         Dim resultadoSQL As OracleDataReader = sqlcmd.ExecuteReader()
         Try
@@ -160,19 +200,20 @@ Public Class Oracle
         Catch ex As Exception
             Throw New Exception("Error: " & ex.Message)
         Finally
-            sqlcmd.Dispose()
+            CerrarConexion()
         End Try
     End Function
 
     'Método que ejecuta una función de grupo a la base de datos
     Public Function objetoScalar(ByVal strcmd As String) As Object
+        AbrirConexion()
         Dim sqlcmd As New OracleCommand(strcmd, cnx)
         Try
             objetoScalar = sqlcmd.ExecuteScalar()
         Catch ex As Exception
             Throw New Exception("Error: " & ex.Message)
         Finally
-            sqlcmd.Dispose()
+            CerrarConexion()
         End Try
     End Function
 End Class

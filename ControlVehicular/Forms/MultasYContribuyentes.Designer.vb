@@ -76,7 +76,7 @@ Partial Class MultasYContribuyentes
         Me.lblHoraData = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutMenuTitle = New System.Windows.Forms.TableLayoutPanel()
         Me.lblMenu = New System.Windows.Forms.Label()
-        Me.container = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Header = New System.Windows.Forms.FlowLayoutPanel()
         Me.NavBar.SuspendLayout()
         Me.TabInformation.SuspendLayout()
         Me.TabContribuyentes.SuspendLayout()
@@ -95,7 +95,7 @@ Partial Class MultasYContribuyentes
         Me.StatusUser.SuspendLayout()
         Me.StatusDate.SuspendLayout()
         Me.TableLayoutMenuTitle.SuspendLayout()
-        Me.container.SuspendLayout()
+        Me.Header.SuspendLayout()
         Me.SuspendLayout()
         '
         'NavBar
@@ -663,16 +663,16 @@ Partial Class MultasYContribuyentes
         Me.lblMenu.Text = "Menu"
         Me.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'container
+        'Header
         '
-        Me.container.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.Header.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.container.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer))
-        Me.container.Controls.Add(Me.NavBar)
-        Me.container.Location = New System.Drawing.Point(0, 0)
-        Me.container.Name = "container"
-        Me.container.Size = New System.Drawing.Size(984, 25)
-        Me.container.TabIndex = 4
+        Me.Header.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer))
+        Me.Header.Controls.Add(Me.NavBar)
+        Me.Header.Location = New System.Drawing.Point(0, 0)
+        Me.Header.Name = "Header"
+        Me.Header.Size = New System.Drawing.Size(984, 25)
+        Me.Header.TabIndex = 4
         '
         'MultasYContribuyentes
         '
@@ -680,7 +680,7 @@ Partial Class MultasYContribuyentes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(984, 561)
-        Me.Controls.Add(Me.container)
+        Me.Controls.Add(Me.Header)
         Me.Controls.Add(Me.TableLayoutMenuTitle)
         Me.Controls.Add(Me.Footer)
         Me.Controls.Add(Me.TableLayoutMenuOptions)
@@ -719,8 +719,8 @@ Partial Class MultasYContribuyentes
         Me.StatusDate.PerformLayout()
         Me.TableLayoutMenuTitle.ResumeLayout(False)
         Me.TableLayoutMenuTitle.PerformLayout()
-        Me.container.ResumeLayout(False)
-        Me.container.PerformLayout()
+        Me.Header.ResumeLayout(False)
+        Me.Header.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -773,7 +773,7 @@ Partial Class MultasYContribuyentes
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents container As FlowLayoutPanel
+    Friend WithEvents Header As FlowLayoutPanel
     Friend WithEvents btnPlacas As Button
     Friend WithEvents PictureBox1 As PictureBox
 End Class

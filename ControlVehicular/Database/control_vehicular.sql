@@ -148,3 +148,102 @@ CREATE TABLE Multas (
   PRIMARY KEY(idMulta),
   CONSTRAINT fk_multa_placas FOREIGN KEY(idPlacas) REFERENCES PlacasVehiculos(idPlacas)
 );
+
+CREATE SEQUENCE id_pais_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_pais
+	BEFORE INSERT ON Pais 
+	FOR EACH ROW
+BEGIN
+	SELECT id_pais_seq.NEXTVAL 
+	INTO   :new.idPais
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_estado_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_estado
+	BEFORE INSERT ON Estado 
+	FOR EACH ROW
+BEGIN
+	SELECT id_estado_seq.NEXTVAL 
+	INTO   :new.idEstado
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_ciudad_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_ciudad
+	BEFORE INSERT ON Ciudad 
+	FOR EACH ROW
+BEGIN
+	SELECT id_ciudad_seq.NEXTVAL 
+	INTO   :new.idCiudad
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_colonia_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_colonia
+	BEFORE INSERT ON Colonia 
+	FOR EACH ROW
+BEGIN
+	SELECT id_colonia_seq.NEXTVAL 
+	INTO   :new.idColonia
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_domicilio_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_domicilio
+	BEFORE INSERT ON Domicilio 
+	FOR EACH ROW
+BEGIN
+	SELECT id_domicilio_seq.NEXTVAL 
+	INTO   :new.idDomicilio
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_licencia_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_licencia
+	BEFORE INSERT ON Licencias 
+	FOR EACH ROW
+BEGIN
+	SELECT id_licencia_seq.NEXTVAL 
+	INTO   :new.idLicencia
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_marca_vehiculo_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_marca_vehiculo
+	BEFORE INSERT ON MarcasVehiculos 
+	FOR EACH ROW
+BEGIN
+	SELECT id_marca_vehiculo_seq.NEXTVAL 
+	INTO   :new.idMarca
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_tipo_vehiculo_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_tipo_vehiculo
+	BEFORE INSERT ON TiposVehiculos 
+	FOR EACH ROW
+BEGIN
+	SELECT id_tipo_vehiculo_seq.NEXTVAL 
+	INTO   :new.idTipo
+	FROM   dual;
+END;
+/
+
+CREATE SEQUENCE id_multa_seq START WITH 1;
+CREATE OR REPLACE TRIGGER insert_multa
+	BEFORE INSERT ON Multas 
+	FOR EACH ROW
+BEGIN
+	SELECT id_multa_seq.NEXTVAL 
+	INTO   :new.idMulta
+	FROM   dual;
+END;
+/
