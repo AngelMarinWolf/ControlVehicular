@@ -101,11 +101,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Oracle.vb" />
+    <Compile Include="Forms\Contribuyentes.Designer.vb">
+      <DependentUpon>Contribuyentes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Contribuyentes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Empleados.Designer.vb">
+      <DependentUpon>Empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Multas.Designer.vb">
+      <DependentUpon>Multas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MultasYContribuyentes.Designer.vb">
@@ -120,10 +138,22 @@
     <Compile Include="Forms\OpcionesConexion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Placas.Designer.vb">
+      <DependentUpon>Placas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Placas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\RegistroMultas.Designer.vb">
       <DependentUpon>RegistroMultas.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\RegistroMultas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vehiculo.Designer.vb">
+      <DependentUpon>Vehiculo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vehiculo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -143,14 +173,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Contribuyentes.resx">
+      <DependentUpon>Contribuyentes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Empleados.resx">
+      <DependentUpon>Empleados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Multas.resx">
+      <DependentUpon>Multas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MultasYContribuyentes.resx">
       <DependentUpon>MultasYContribuyentes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OpcionesConexion.resx">
       <DependentUpon>OpcionesConexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Placas.resx">
+      <DependentUpon>Placas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistroMultas.resx">
+      <DependentUpon>RegistroMultas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vehiculo.resx">
+      <DependentUpon>Vehiculo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
