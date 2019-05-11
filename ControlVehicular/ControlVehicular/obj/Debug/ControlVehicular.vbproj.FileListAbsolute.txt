@@ -1,0 +1,13 @@
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.vbprojAssemblyReference.cache
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.Contribuyentes.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.Empleados.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.Login.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.Multas.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.MultasYContribuyentes.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.OpcionesConexion.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.RegistrarPlacas.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.PagoMultas.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.RegistarVehiculo.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.Resources.resources
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.vbproj.GenerateResource.cache
+C:\Users\Lenovo\Documents\Proyecto\ControlVehicular\ControlVehicular\obj\Debug\ControlVehicular.vbproj.CoreCompileInputs.cache
