@@ -100,6 +100,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Database\Oracle.vb" />
+    <Compile Include="Classes\Entidades\Contribuyente.vb" />
+    <Compile Include="Classes\Entidades\Empleado.vb" />
+    <Compile Include="Classes\Entidades\Licencia.vb" />
+    <Compile Include="Classes\Locaciones\Pais.vb" />
+    <Compile Include="Classes\Locaciones\Estado.vb" />
+    <Compile Include="Classes\Locaciones\Ciudad.vb" />
+    <Compile Include="Classes\Locaciones\Colonia.vb" />
+    <Compile Include="Classes\Locaciones\Domicilio.vb" />
+    <Compile Include="Classes\Multas\Multa.vb" />
+    <Compile Include="Classes\Vehiculos\Padron.vb" />
+    <Compile Include="Classes\Vehiculos\Placas.vb" />
     <Compile Include="Classes\Oracle.vb" />
     <Compile Include="Forms\Contribuyentes.Designer.vb">
       <DependentUpon>Contribuyentes.vb</DependentUpon>
@@ -221,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\control_vehicular.sql" />
+    <None Include="Resources\matricula.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MustangWallpaper.png" />
