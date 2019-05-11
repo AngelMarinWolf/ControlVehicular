@@ -1,5 +1,5 @@
 ﻿Public Class Pais
-    Private Const Tabla As String = "Pais"
+    Private Const Tabla As String = "Paises"
     Private idPais As Integer
     Private nombre As String
 

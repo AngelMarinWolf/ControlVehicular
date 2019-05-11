@@ -1,5 +1,5 @@
 ﻿Public Class Ciudad
-    Private Const Tabla As String = "Ciudad"
+    Private Const Tabla As String = "Ciudades"
 
     Private idEstado As Integer
     Private idCiudad As Integer
@@ -63,7 +63,7 @@
         Return result
     End Function
 
-    Public Sub BuscarCiudadByNombre(nombre As String)
+    Public Function BuscarCiudadByNombre(nombre As String) As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idCiudad", "idEstado", "nombre"}
         Dim condiciones As String() = {"nombre=" & nombre}
@@ -78,15 +78,16 @@
                 SetIdCiudad(CInt(result.Rows(0)("idCiudad")))
                 SetIdEstado(CInt(result.Rows(0)("idEstado")))
                 SetNombreEstado(CStr(result.Rows(0)("nombre")))
+                Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")
             End If
         Else
-            Throw New Exception("Error: No se encontro ningun registro.")
+            Return False
         End If
-    End Sub
+    End Function
 
-    Public Sub BuscarCiudadById(idCiudad As Integer)
+    Public Function BuscarCiudadById(idCiudad As Integer) As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idCiudad", "idEstado", "nombre"}
         Dim condiciones As String() = {"idCiudad=" & idCiudad}
@@ -101,11 +102,12 @@
                 SetIdCiudad(CInt(result.Rows(0)("idCiudad")))
                 SetIdEstado(CInt(result.Rows(0)("idEstado")))
                 SetNombreEstado(CStr(result.Rows(0)("nombre")))
+                Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")
             End If
         Else
-            Throw New Exception("Error: No se encontro ningun registro.")
+            Return False
         End If
-    End Sub
+    End Function
 End Class

@@ -1,5 +1,5 @@
 Public Class Domicilio
-    Private Const Tabla As String = "Domicilio"
+    Private Const Tabla As String = "Domicilios"
 
     Private idColonia As Integer
     Private idDomicilio As Integer
@@ -73,7 +73,7 @@ Public Class Domicilio
         Return result
     End Function
 
-    Public Sub BuscarDomicilioById(idDomicilio As Integer)
+    Public Function BuscarDomicilioById(idDomicilio As Integer) As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idDomicilio", "idColonia", "calle", "numero"}
         Dim condiciones As String() = {"idDomicilio=" & idDomicilio}
@@ -90,11 +90,12 @@ Public Class Domicilio
                 SetIdColonia(CInt(result.Rows(0)("idColonia")))
                 SetCalleDomicilio(CStr(result.Rows(0)("calle")))
                 SetNumeroDomicilio(CStr(result.Rows(0)("numero")))
+                Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")
             End If
         Else
-            Throw New Exception("Error: No se encontro ningun registro.")
+            Return False
         End If
-    End Sub
+    End Function
 End Class

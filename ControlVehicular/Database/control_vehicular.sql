@@ -1,12 +1,12 @@
 ﻿-- Tablas de Locaciones
-DROP TABLE Pais CASCADE CONSTRAINTS;
+DROP TABLE Paises CASCADE CONSTRAINTS;
 CREATE TABLE Pais (
   idPais NUMERIC NOT NULL,
   nombre VARCHAR(45) NULL,
   PRIMARY KEY(idPais)
 );
 
-DROP TABLE Estado CASCADE CONSTRAINTS;
+DROP TABLE Estados CASCADE CONSTRAINTS;
 CREATE TABLE Estado (
   idEstado NUMERIC NOT NULL,
   idPais NUMERIC NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE Estado (
   CONSTRAINT fk_pais FOREIGN KEY(idPais) REFERENCES Pais(idPais)
 );
 
-DROP TABLE Ciudad CASCADE CONSTRAINTS;
+DROP TABLE Ciudades CASCADE CONSTRAINTS;
 CREATE TABLE Ciudad (
   idCiudad NUMERIC NOT NULL,
   idEstado NUMERIC NULL,
@@ -24,7 +24,7 @@ CREATE TABLE Ciudad (
   CONSTRAINT fk_estado FOREIGN KEY(idEstado) REFERENCES Estado(idEstado)
 );
 
-DROP TABLE Colonia CASCADE CONSTRAINTS;
+DROP TABLE Colonias CASCADE CONSTRAINTS;
 CREATE TABLE Colonia (
   idColonia NUMERIC NOT NULL,
   idCiudad NUMERIC NULL,
@@ -33,7 +33,7 @@ CREATE TABLE Colonia (
   CONSTRAINT fk_ciudad FOREIGN KEY(idCiudad) REFERENCES Ciudad(idCiudad)
 );
 
-DROP TABLE Domicilio CASCADE CONSTRAINTS;
+DROP TABLE Domicilios CASCADE CONSTRAINTS;
 CREATE TABLE Domicilio (
   idDomicilio NUMERIC NOT NULL,
   idColonia NUMERIC NOT NULL,
@@ -47,15 +47,15 @@ CREATE TABLE Domicilio (
 DROP TABLE Contribuyentes CASCADE CONSTRAINTS;
 CREATE TABLE Contribuyentes (
   curp VARCHAR(18) NOT NULL,
-  rfc VARCHAR(30) NOT NULL,
-  nombre VARCHAR(45) NULL,
-  paterno VARCHAR(45) NULL,
-  materno VARCHAR(45) NULL,
+  rfc VARCHAR(13) NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
+  paterno VARCHAR(45) NOT NULL,
+  materno VARCHAR(45) NOT NULL,
   edad NUMERIC NULL,
   sexo VARCHAR(45) NULL,
-  telefono VARCHAR(12) NOT NULL,
-  correoElectronico VARCHAR(45) NULL,
-  idDomicilio NUMERIC NULL,
+  telefono VARCHAR(12) NULL,
+  email VARCHAR(45) NULL,
+  idDomicilio NUMERIC NOT NULL,
   PRIMARY KEY(curp),
   CONSTRAINT fk_domicilio_contribuyentes FOREIGN KEY(idDomicilio) REFERENCES Domicilio(idDomicilio)
 );
@@ -63,10 +63,10 @@ CREATE TABLE Contribuyentes (
 DROP TABLE Licencias CASCADE CONSTRAINTS;
 CREATE TABLE Licencias (
   idLicencia NUMERIC NOT NULL,
-  idContribuyente VARCHAR(18) NULL,
-  tipoLicencia VARCHAR(2) NULL,
-  fechaExpedicion DATE NULL,
-  fechaExpiracion DATE NULL,
+  idContribuyente VARCHAR(18) NOT NULL,
+  tipoLicencia VARCHAR(2) NOT NULL,
+  fechaExpedicion DATE NOT NULL,
+  fechaExpiracion DATE NOT NULL,
   donadorOrganos CHAR(1) NOT NULL,
   contactoEmergencia VARCHAR(45) NOT NULL,
   telefonoEmergencia VARCHAR(12) NOT NULL,
@@ -77,12 +77,13 @@ CREATE TABLE Licencias (
 DROP TABLE Empleados CASCADE CONSTRAINTS;
 CREATE TABLE Empleados (
   curp VARCHAR(18) NOT NULL,
-  rfc VARCHAR(30) NOT NULL,
+  rfc VARCHAR(13) NOT NULL,
   nombre VARCHAR(45) NULL,
   paterno VARCHAR(45) NULL,
   materno VARCHAR(45) NULL,
+  edad NUMERIC NULL,
   sexo VARCHAR(45) NULL,
-  correoElectronico VARCHAR(45) NULL,
+  email VARCHAR(45) NULL,
   telefono VARCHAR(12) NOT NULL,
   idDomicilio NUMERIC NULL,
   PRIMARY KEY(curp),
@@ -151,7 +152,7 @@ CREATE TABLE Multas (
 
 CREATE SEQUENCE id_pais_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_pais
-	BEFORE INSERT ON Pais 
+	BEFORE INSERT ON Paises
 	FOR EACH ROW
 BEGIN
 	SELECT id_pais_seq.NEXTVAL 
@@ -162,7 +163,7 @@ END;
 
 CREATE SEQUENCE id_estado_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_estado
-	BEFORE INSERT ON Estado 
+	BEFORE INSERT ON Estados
 	FOR EACH ROW
 BEGIN
 	SELECT id_estado_seq.NEXTVAL 
@@ -173,7 +174,7 @@ END;
 
 CREATE SEQUENCE id_ciudad_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_ciudad
-	BEFORE INSERT ON Ciudad 
+	BEFORE INSERT ON Ciudades 
 	FOR EACH ROW
 BEGIN
 	SELECT id_ciudad_seq.NEXTVAL 
@@ -184,7 +185,7 @@ END;
 
 CREATE SEQUENCE id_colonia_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_colonia
-	BEFORE INSERT ON Colonia 
+	BEFORE INSERT ON Colonias
 	FOR EACH ROW
 BEGIN
 	SELECT id_colonia_seq.NEXTVAL 
@@ -195,7 +196,7 @@ END;
 
 CREATE SEQUENCE id_domicilio_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_domicilio
-	BEFORE INSERT ON Domicilio 
+	BEFORE INSERT ON Domicilios 
 	FOR EACH ROW
 BEGIN
 	SELECT id_domicilio_seq.NEXTVAL 
