@@ -22,6 +22,7 @@ Partial Class MultasYContribuyentes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -77,6 +78,7 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuTitle = New System.Windows.Forms.TableLayoutPanel()
         Me.lblMenu = New System.Windows.Forms.Label()
         Me.Header = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.NavBar.SuspendLayout()
         Me.TabInformation.SuspendLayout()
         Me.TabContribuyentes.SuspendLayout()
@@ -284,6 +286,9 @@ Partial Class MultasYContribuyentes
         '
         'DataContribuyentes
         '
+        Me.DataContribuyentes.AllowUserToAddRows = False
+        Me.DataContribuyentes.AllowUserToDeleteRows = False
+        Me.DataContribuyentes.AllowUserToOrderColumns = True
         Me.DataContribuyentes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -314,6 +319,7 @@ Partial Class MultasYContribuyentes
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataContribuyentes.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataContribuyentes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataContribuyentes.Size = New System.Drawing.Size(746, 314)
         Me.DataContribuyentes.TabIndex = 1
         '
@@ -547,7 +553,7 @@ Partial Class MultasYContribuyentes
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Footer.ColumnCount = 2
         Me.Footer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.Footer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.Footer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230.0!))
         Me.Footer.Controls.Add(Me.StatusUser, 0, 0)
         Me.Footer.Controls.Add(Me.StatusDate, 1, 0)
         Me.Footer.Location = New System.Drawing.Point(0, 541)
@@ -566,7 +572,7 @@ Partial Class MultasYContribuyentes
         Me.StatusUser.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblUser, Me.lblUserData})
         Me.StatusUser.Location = New System.Drawing.Point(0, 0)
         Me.StatusUser.Name = "StatusUser"
-        Me.StatusUser.Size = New System.Drawing.Size(784, 22)
+        Me.StatusUser.Size = New System.Drawing.Size(754, 22)
         Me.StatusUser.TabIndex = 0
         Me.StatusUser.Text = "StatusStrip1"
         '
@@ -592,9 +598,9 @@ Partial Class MultasYContribuyentes
         Me.StatusDate.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(44, Byte), Integer))
         Me.StatusDate.Dock = System.Windows.Forms.DockStyle.None
         Me.StatusDate.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblFecha, Me.lblFechaData, Me.lblSeparatorFecha, Me.lblHora, Me.lblHoraData})
-        Me.StatusDate.Location = New System.Drawing.Point(784, 0)
+        Me.StatusDate.Location = New System.Drawing.Point(754, 0)
         Me.StatusDate.Name = "StatusDate"
-        Me.StatusDate.Size = New System.Drawing.Size(200, 22)
+        Me.StatusDate.Size = New System.Drawing.Size(230, 22)
         Me.StatusDate.TabIndex = 1
         Me.StatusDate.Text = "Fecha"
         '
@@ -632,8 +638,8 @@ Partial Class MultasYContribuyentes
         '
         Me.lblHoraData.ForeColor = System.Drawing.Color.White
         Me.lblHoraData.Name = "lblHoraData"
-        Me.lblHoraData.Size = New System.Drawing.Size(34, 17)
-        Me.lblHoraData.Text = "00:00"
+        Me.lblHoraData.Size = New System.Drawing.Size(60, 17)
+        Me.lblHoraData.Text = "00:00 a.m."
         '
         'TableLayoutMenuTitle
         '
@@ -673,6 +679,9 @@ Partial Class MultasYContribuyentes
         Me.Header.Name = "Header"
         Me.Header.Size = New System.Drawing.Size(984, 25)
         Me.Header.TabIndex = 4
+        '
+        'Timer
+        '
         '
         'MultasYContribuyentes
         '
@@ -776,4 +785,5 @@ Partial Class MultasYContribuyentes
     Friend WithEvents Header As FlowLayoutPanel
     Friend WithEvents btnPlacas As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Timer As Timer
 End Class

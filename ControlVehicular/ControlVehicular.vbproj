@@ -112,11 +112,29 @@
     <Compile Include="Classes\Multas\Multa.vb" />
     <Compile Include="Classes\Vehiculos\Padron.vb" />
     <Compile Include="Classes\Vehiculos\Placas.vb" />
+    <Compile Include="Forms\Contribuyentes.Designer.vb">
+      <DependentUpon>Contribuyentes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Contribuyentes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Empleados.Designer.vb">
+      <DependentUpon>Empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Multas.Designer.vb">
+      <DependentUpon>Multas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MultasYContribuyentes.Designer.vb">
@@ -129,6 +147,24 @@
       <DependentUpon>OpcionesConexion.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\OpcionesConexion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegistrarPlacas.Designer.vb">
+      <DependentUpon>RegistrarPlacas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegistrarPlacas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PagoMultas.Designer.vb">
+      <DependentUpon>PagoMultas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PagoMultas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegistarVehiculo.Designer.vb">
+      <DependentUpon>RegistarVehiculo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegistarVehiculo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -148,14 +184,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Contribuyentes.resx">
+      <DependentUpon>Contribuyentes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Empleados.resx">
+      <DependentUpon>Empleados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Multas.resx">
+      <DependentUpon>Multas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MultasYContribuyentes.resx">
       <DependentUpon>MultasYContribuyentes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OpcionesConexion.resx">
       <DependentUpon>OpcionesConexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistrarPlacas.resx">
+      <DependentUpon>RegistrarPlacas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PagoMultas.resx">
+      <DependentUpon>PagoMultas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistarVehiculo.resx">
+      <DependentUpon>RegistarVehiculo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -178,22 +232,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\control_vehicular.sql" />
-    <None Include="Resources\matricula.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MustangWallpaper.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MustangLogo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\MustangLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MustangLogo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MustangLogoHorse.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MustangShelby.ico" />

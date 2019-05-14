@@ -24,14 +24,14 @@ Partial Class OpcionesConexion
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OpcionesConexion))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.lblDataSource = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.txtDataSource = New System.Windows.Forms.TextBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -57,6 +57,65 @@ Partial Class OpcionesConexion
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(300, 90)
         Me.TableLayoutPanel1.TabIndex = 0
         '
+        'lblDataSource
+        '
+        Me.lblDataSource.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblDataSource.AutoSize = True
+        Me.lblDataSource.Location = New System.Drawing.Point(3, 8)
+        Me.lblDataSource.Name = "lblDataSource"
+        Me.lblDataSource.Size = New System.Drawing.Size(79, 13)
+        Me.lblDataSource.TabIndex = 2
+        Me.lblDataSource.Text = "Data Source:"
+        Me.lblDataSource.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblUsername
+        '
+        Me.lblUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.Location = New System.Drawing.Point(3, 38)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(79, 13)
+        Me.lblUsername.TabIndex = 3
+        Me.lblUsername.Text = "Username:"
+        Me.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblPassword
+        '
+        Me.lblPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblPassword.AutoSize = True
+        Me.lblPassword.Location = New System.Drawing.Point(3, 68)
+        Me.lblPassword.Name = "lblPassword"
+        Me.lblPassword.Size = New System.Drawing.Size(79, 13)
+        Me.lblPassword.TabIndex = 4
+        Me.lblPassword.Text = "Password: "
+        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtDataSource
+        '
+        Me.txtDataSource.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDataSource.Location = New System.Drawing.Point(88, 5)
+        Me.txtDataSource.Name = "txtDataSource"
+        Me.txtDataSource.Size = New System.Drawing.Size(209, 20)
+        Me.txtDataSource.TabIndex = 1
+        '
+        'txtUsername
+        '
+        Me.txtUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtUsername.Location = New System.Drawing.Point(88, 35)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(209, 20)
+        Me.txtUsername.TabIndex = 2
+        Me.txtUsername.UseSystemPasswordChar = True
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPassword.Location = New System.Drawing.Point(88, 65)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtPassword.Size = New System.Drawing.Size(209, 20)
+        Me.txtPassword.TabIndex = 3
+        '
         'btnAceptar
         '
         Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -78,64 +137,6 @@ Partial Class OpcionesConexion
         Me.btnCancelar.TabIndex = 5
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
-        '
-        'lblDataSource
-        '
-        Me.lblDataSource.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblDataSource.AutoSize = True
-        Me.lblDataSource.Location = New System.Drawing.Point(3, 8)
-        Me.lblDataSource.Name = "lblDataSource"
-        Me.lblDataSource.Size = New System.Drawing.Size(79, 13)
-        Me.lblDataSource.TabIndex = 2
-        Me.lblDataSource.Text = "Data Source:"
-        Me.lblDataSource.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblUsername
-        '
-        Me.lblUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblUsername.AutoSize = True
-        Me.lblUsername.Location = New System.Drawing.Point(3, 37)
-        Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(79, 13)
-        Me.lblUsername.TabIndex = 3
-        Me.lblUsername.Text = "Username:"
-        Me.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblPassword
-        '
-        Me.lblPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(3, 67)
-        Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(79, 13)
-        Me.lblPassword.TabIndex = 4
-        Me.lblPassword.Text = "Password: "
-        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtDataSource
-        '
-        Me.txtDataSource.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDataSource.Location = New System.Drawing.Point(88, 4)
-        Me.txtDataSource.Name = "txtDataSource"
-        Me.txtDataSource.Size = New System.Drawing.Size(209, 20)
-        Me.txtDataSource.TabIndex = 1
-        '
-        'txtUsername
-        '
-        Me.txtUsername.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUsername.Location = New System.Drawing.Point(88, 33)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(209, 20)
-        Me.txtUsername.TabIndex = 2
-        '
-        'txtPassword
-        '
-        Me.txtPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPassword.Location = New System.Drawing.Point(88, 64)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPassword.Size = New System.Drawing.Size(209, 20)
-        Me.txtPassword.TabIndex = 3
         '
         'TableLayoutPanel2
         '

@@ -135,8 +135,8 @@ Public Class Oracle
         Dim dataAdapter As OracleDataAdapter
         Dim dataTable As DataTable
 
-        Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & tabla
-        If condiciones.Length > 0 Then
+        Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & My.Settings.db_username & "." & tabla
+        If condiciones.Length > 1 Then
             queryStr += " WHERE " & String.Join(",", condiciones)
         End If
 

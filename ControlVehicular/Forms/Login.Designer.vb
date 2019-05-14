@@ -24,14 +24,14 @@ Partial Class Login
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.TableUserPassword = New System.Windows.Forms.TableLayoutPanel()
-        Me.LabelUser = New System.Windows.Forms.Label()
-        Me.LabelContraseña = New System.Windows.Forms.Label()
+        Me.lblUser = New System.Windows.Forms.Label()
+        Me.lblContraseña = New System.Windows.Forms.Label()
         Me.txtUser = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.ButtonConfirm = New System.Windows.Forms.Button()
-        Me.LabelTitle = New System.Windows.Forms.Label()
+        Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnAceptar = New System.Windows.Forms.Button()
+        Me.lblTitle = New System.Windows.Forms.Label()
         Me.TableLayoutTitle = New System.Windows.Forms.TableLayoutPanel()
         Me.LinkOptions = New System.Windows.Forms.LinkLabel()
         Me.TableUserPassword.SuspendLayout()
@@ -48,8 +48,8 @@ Partial Class Login
         Me.TableUserPassword.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableUserPassword.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableUserPassword.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableUserPassword.Controls.Add(Me.LabelUser, 1, 0)
-        Me.TableUserPassword.Controls.Add(Me.LabelContraseña, 1, 1)
+        Me.TableUserPassword.Controls.Add(Me.lblUser, 1, 0)
+        Me.TableUserPassword.Controls.Add(Me.lblContraseña, 1, 1)
         Me.TableUserPassword.Controls.Add(Me.txtUser, 2, 0)
         Me.TableUserPassword.Controls.Add(Me.txtPassword, 2, 1)
         Me.TableUserPassword.Controls.Add(Me.TableLayoutPanel1, 2, 2)
@@ -63,29 +63,29 @@ Partial Class Login
         Me.TableUserPassword.Size = New System.Drawing.Size(974, 90)
         Me.TableUserPassword.TabIndex = 0
         '
-        'LabelUser
+        'lblUser
         '
-        Me.LabelUser.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.LabelUser.AutoSize = True
-        Me.LabelUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelUser.Location = New System.Drawing.Point(416, 7)
-        Me.LabelUser.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelUser.Name = "LabelUser"
-        Me.LabelUser.Size = New System.Drawing.Size(66, 16)
-        Me.LabelUser.TabIndex = 0
-        Me.LabelUser.Text = "Usuario:"
+        Me.lblUser.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblUser.AutoSize = True
+        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.Location = New System.Drawing.Point(416, 7)
+        Me.lblUser.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(66, 16)
+        Me.lblUser.TabIndex = 0
+        Me.lblUser.Text = "Usuario:"
         '
-        'LabelContraseña
+        'lblContraseña
         '
-        Me.LabelContraseña.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.LabelContraseña.AutoSize = True
-        Me.LabelContraseña.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelContraseña.Location = New System.Drawing.Point(391, 37)
-        Me.LabelContraseña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabelContraseña.Name = "LabelContraseña"
-        Me.LabelContraseña.Size = New System.Drawing.Size(91, 16)
-        Me.LabelContraseña.TabIndex = 1
-        Me.LabelContraseña.Text = "Contraseña:"
+        Me.lblContraseña.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblContraseña.AutoSize = True
+        Me.lblContraseña.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblContraseña.Location = New System.Drawing.Point(391, 37)
+        Me.lblContraseña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblContraseña.Name = "lblContraseña"
+        Me.lblContraseña.Size = New System.Drawing.Size(91, 16)
+        Me.lblContraseña.TabIndex = 1
+        Me.lblContraseña.Text = "Contraseña:"
         '
         'txtUser
         '
@@ -96,7 +96,7 @@ Partial Class Login
         Me.txtUser.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUser.Name = "txtUser"
         Me.txtUser.Size = New System.Drawing.Size(235, 22)
-        Me.txtUser.TabIndex = 2
+        Me.txtUser.TabIndex = 1
         '
         'txtPassword
         '
@@ -107,7 +107,7 @@ Partial Class Login
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtPassword.Size = New System.Drawing.Size(235, 22)
-        Me.txtPassword.TabIndex = 3
+        Me.txtPassword.TabIndex = 2
         '
         'TableLayoutPanel1
         '
@@ -115,8 +115,8 @@ Partial Class Login
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ButtonConfirm, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnCancelar, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnAceptar, 0, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(486, 60)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -126,39 +126,39 @@ Partial Class Login
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(243, 29)
         Me.TableLayoutPanel1.TabIndex = 4
         '
-        'ButtonCancel
+        'btnCancelar
         '
-        Me.ButtonCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonCancel.Location = New System.Drawing.Point(124, 3)
-        Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.Size = New System.Drawing.Size(116, 23)
-        Me.ButtonCancel.TabIndex = 2
-        Me.ButtonCancel.Text = "Cancelar"
-        Me.ButtonCancel.UseVisualStyleBackColor = True
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCancelar.Location = New System.Drawing.Point(124, 3)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(116, 23)
+        Me.btnCancelar.TabIndex = 4
+        Me.btnCancelar.Text = "Cancelar"
+        Me.btnCancelar.UseVisualStyleBackColor = True
         '
-        'ButtonConfirm
+        'btnAceptar
         '
-        Me.ButtonConfirm.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ButtonConfirm.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.ButtonConfirm.Location = New System.Drawing.Point(3, 3)
-        Me.ButtonConfirm.Name = "ButtonConfirm"
-        Me.ButtonConfirm.Size = New System.Drawing.Size(115, 23)
-        Me.ButtonConfirm.TabIndex = 4
-        Me.ButtonConfirm.Text = "Aceptar"
-        Me.ButtonConfirm.UseVisualStyleBackColor = True
+        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.btnAceptar.Location = New System.Drawing.Point(3, 3)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(115, 23)
+        Me.btnAceptar.TabIndex = 3
+        Me.btnAceptar.Text = "Aceptar"
+        Me.btnAceptar.UseVisualStyleBackColor = True
         '
-        'LabelTitle
+        'lblTitle
         '
-        Me.LabelTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelTitle.AutoSize = True
-        Me.LabelTitle.Font = New System.Drawing.Font("Brush Script MT", 60.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTitle.Location = New System.Drawing.Point(3, 3)
-        Me.LabelTitle.Margin = New System.Windows.Forms.Padding(3)
-        Me.LabelTitle.Name = "LabelTitle"
-        Me.LabelTitle.Size = New System.Drawing.Size(968, 98)
-        Me.LabelTitle.TabIndex = 1
-        Me.LabelTitle.Text = "Control Vehicular"
-        Me.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Brush Script MT", 60.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(3, 3)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(3)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(968, 98)
+        Me.lblTitle.TabIndex = 1
+        Me.lblTitle.Text = "Control Vehicular"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TableLayoutTitle
         '
@@ -166,7 +166,7 @@ Partial Class Login
         Me.TableLayoutTitle.ColumnCount = 1
         Me.TableLayoutTitle.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutTitle.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutTitle.Controls.Add(Me.LabelTitle, 0, 0)
+        Me.TableLayoutTitle.Controls.Add(Me.lblTitle, 0, 0)
         Me.TableLayoutTitle.Location = New System.Drawing.Point(13, 12)
         Me.TableLayoutTitle.Name = "TableLayoutTitle"
         Me.TableLayoutTitle.RowCount = 1
@@ -185,7 +185,7 @@ Partial Class Login
         Me.LinkOptions.Location = New System.Drawing.Point(912, 575)
         Me.LinkOptions.Name = "LinkOptions"
         Me.LinkOptions.Size = New System.Drawing.Size(75, 16)
-        Me.LinkOptions.TabIndex = 6
+        Me.LinkOptions.TabIndex = 5
         Me.LinkOptions.TabStop = True
         Me.LinkOptions.Text = "Opciones..."
         Me.LinkOptions.VisitedLinkColor = System.Drawing.Color.White
@@ -220,14 +220,14 @@ Partial Class Login
     End Sub
 
     Friend WithEvents TableUserPassword As TableLayoutPanel
-    Friend WithEvents LabelUser As Label
-    Friend WithEvents LabelContraseña As Label
+    Friend WithEvents lblUser As Label
+    Friend WithEvents lblContraseña As Label
     Friend WithEvents txtUser As TextBox
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents ButtonCancel As Button
-    Friend WithEvents ButtonConfirm As Button
-    Friend WithEvents LabelTitle As Label
+    Friend WithEvents btnCancelar As Button
+    Friend WithEvents btnAceptar As Button
+    Friend WithEvents lblTitle As Label
     Friend WithEvents TableLayoutTitle As TableLayoutPanel
     Friend WithEvents LinkOptions As LinkLabel
 End Class

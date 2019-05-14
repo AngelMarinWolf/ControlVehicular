@@ -1,46 +1,46 @@
 ﻿-- Tablas de Locaciones
 DROP TABLE Paises CASCADE CONSTRAINTS;
-CREATE TABLE Pais (
+CREATE TABLE Paises (
   idPais NUMERIC NOT NULL,
   nombre VARCHAR(45) NULL,
   PRIMARY KEY(idPais)
 );
 
 DROP TABLE Estados CASCADE CONSTRAINTS;
-CREATE TABLE Estado (
+CREATE TABLE Estados (
   idEstado NUMERIC NOT NULL,
   idPais NUMERIC NOT NULL,
   nombre VARCHAR(45) NULL,
   PRIMARY KEY(idEstado),
-  CONSTRAINT fk_pais FOREIGN KEY(idPais) REFERENCES Pais(idPais)
+  CONSTRAINT fk_pais FOREIGN KEY(idPais) REFERENCES Paises(idPais)
 );
 
 DROP TABLE Ciudades CASCADE CONSTRAINTS;
-CREATE TABLE Ciudad (
+CREATE TABLE Ciudades (
   idCiudad NUMERIC NOT NULL,
   idEstado NUMERIC NULL,
   nombre VARCHAR(45) NULL,
   PRIMARY KEY(idCiudad),
-  CONSTRAINT fk_estado FOREIGN KEY(idEstado) REFERENCES Estado(idEstado)
+  CONSTRAINT fk_estado FOREIGN KEY(idEstado) REFERENCES Estados(idEstado)
 );
 
 DROP TABLE Colonias CASCADE CONSTRAINTS;
-CREATE TABLE Colonia (
+CREATE TABLE Colonias (
   idColonia NUMERIC NOT NULL,
-  idCiudad NUMERIC NULL,
-  nombre INTEGER NULL,
+  idCiudad NUMERIC NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
   PRIMARY KEY(idColonia),
-  CONSTRAINT fk_ciudad FOREIGN KEY(idCiudad) REFERENCES Ciudad(idCiudad)
+  CONSTRAINT fk_ciudad FOREIGN KEY(idCiudad) REFERENCES Ciudades(idCiudad)
 );
 
 DROP TABLE Domicilios CASCADE CONSTRAINTS;
-CREATE TABLE Domicilio (
+CREATE TABLE Domicilios (
   idDomicilio NUMERIC NOT NULL,
   idColonia NUMERIC NOT NULL,
   calle VARCHAR(45) NULL,
   No_domicilio VARCHAR(6) NULL,
   PRIMARY KEY(idDomicilio),
-  CONSTRAINT fk_colonia FOREIGN KEY(idColonia) REFERENCES Colonia(idColonia)
+  CONSTRAINT fk_colonia FOREIGN KEY(idColonia) REFERENCES Colonias(idColonia)
 );
 
 -- Tablas de entidades
@@ -57,7 +57,7 @@ CREATE TABLE Contribuyentes (
   email VARCHAR(45) NULL,
   idDomicilio NUMERIC NOT NULL,
   PRIMARY KEY(curp),
-  CONSTRAINT fk_domicilio_contribuyentes FOREIGN KEY(idDomicilio) REFERENCES Domicilio(idDomicilio)
+  CONSTRAINT fk_domicilio_contribuyentes FOREIGN KEY(idDomicilio) REFERENCES Domicilios(idDomicilio)
 );
 
 DROP TABLE Licencias CASCADE CONSTRAINTS;
@@ -78,16 +78,18 @@ DROP TABLE Empleados CASCADE CONSTRAINTS;
 CREATE TABLE Empleados (
   curp VARCHAR(18) NOT NULL,
   rfc VARCHAR(13) NOT NULL,
-  nombre VARCHAR(45) NULL,
-  paterno VARCHAR(45) NULL,
-  materno VARCHAR(45) NULL,
+  nombre VARCHAR(45) NOT NULL,
+  paterno VARCHAR(45) NOT NULL,
+  materno VARCHAR(45) NOT NULL,
+  username VARCHAR(45) NOT NULL,
+  password VARCHAR(200) NOT NULL,
   edad NUMERIC NULL,
   sexo VARCHAR(45) NULL,
   email VARCHAR(45) NULL,
   telefono VARCHAR(12) NOT NULL,
-  idDomicilio NUMERIC NULL,
+  idDomicilio NUMERIC NOT NULL,
   PRIMARY KEY(curp),
-  CONSTRAINT fk_domicilio_empleados FOREIGN KEY(idDomicilio) REFERENCES Domicilio(idDomicilio)
+  CONSTRAINT fk_domicilio_empleados FOREIGN KEY(idDomicilio) REFERENCES Domicilios(idDomicilio)
 );
 
 -- Tablas de Vehiculos
@@ -150,6 +152,7 @@ CREATE TABLE Multas (
   CONSTRAINT fk_multa_placas FOREIGN KEY(idPlacas) REFERENCES PlacasVehiculos(idPlacas)
 );
 
+DROP SEQUENCE id_pais_seq;
 CREATE SEQUENCE id_pais_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_pais
 	BEFORE INSERT ON Paises
@@ -161,6 +164,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_estado_seq;
 CREATE SEQUENCE id_estado_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_estado
 	BEFORE INSERT ON Estados
@@ -172,6 +176,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_ciudad_seq;
 CREATE SEQUENCE id_ciudad_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_ciudad
 	BEFORE INSERT ON Ciudades 
@@ -183,6 +188,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_colonia_seq;
 CREATE SEQUENCE id_colonia_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_colonia
 	BEFORE INSERT ON Colonias
@@ -194,6 +200,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_domicilio_seq;
 CREATE SEQUENCE id_domicilio_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_domicilio
 	BEFORE INSERT ON Domicilios 
@@ -205,6 +212,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_licencia_seq;
 CREATE SEQUENCE id_licencia_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_licencia
 	BEFORE INSERT ON Licencias 
@@ -216,6 +224,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_marca_vehiculo_seq;
 CREATE SEQUENCE id_marca_vehiculo_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_marca_vehiculo
 	BEFORE INSERT ON MarcasVehiculos 
@@ -227,6 +236,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_tipo_vehiculo_seq;
 CREATE SEQUENCE id_tipo_vehiculo_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_tipo_vehiculo
 	BEFORE INSERT ON TiposVehiculos 
@@ -238,6 +248,7 @@ BEGIN
 END;
 /
 
+DROP SEQUENCE id_multa_seq;
 CREATE SEQUENCE id_multa_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_multa
 	BEFORE INSERT ON Multas 
