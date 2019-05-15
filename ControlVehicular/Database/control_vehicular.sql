@@ -200,18 +200,6 @@ BEGIN
 END;
 /
 
-DROP SEQUENCE id_domicilio_seq;
-CREATE SEQUENCE id_domicilio_seq START WITH 1;
-CREATE OR REPLACE TRIGGER insert_domicilio
-	BEFORE INSERT ON Domicilios 
-	FOR EACH ROW
-BEGIN
-	SELECT id_domicilio_seq.NEXTVAL 
-	INTO   :new.idDomicilio
-	FROM   dual;
-END;
-/
-
 DROP SEQUENCE id_licencia_seq;
 CREATE SEQUENCE id_licencia_seq START WITH 1;
 CREATE OR REPLACE TRIGGER insert_licencia

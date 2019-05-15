@@ -77,7 +77,7 @@ Public Class Placas
         Dim condiciones As String() = {"idPlacas=" & idPlacas}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idPlacas")) And

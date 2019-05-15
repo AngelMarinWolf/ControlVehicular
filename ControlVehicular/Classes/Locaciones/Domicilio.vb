@@ -51,22 +51,22 @@ Public Class Domicilio
 
     Public Function RegistrarDomicilio() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"calle", "numero", "idColonia"}
-        Dim valores As String() = {Me.calle, Me.numero, Me.idColonia}
+        Dim columnas As String() = {"idDomicilio", "calle", "No_domicilio", "idColonia"}
+        Dim valores As String() = {Me.idDomicilio, "'" & Me.calle & "'", "'" & Me.numero & "'", Me.idColonia}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
 
     Public Function ActualizarDomicilio() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"calle", "numero", "idColonia"}
-        Dim valores As String() = {Me.calle, Me.numero, Me.idColonia}
+        Dim columnas As String() = {"calle", "No_domicilio", "idColonia"}
+        Dim valores As String() = {"'" & Me.calle & "'", "'" & Me.numero & "'", Me.idColonia}
         Dim condiciones As String() = {"idDomicilio=" & Me.idDomicilio}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
     End Function
 
-    Public Function EliminarColonia() As Boolean
+    Public Function EliminarDomicilio() As Boolean
         Dim database As Oracle = New Oracle()
         Dim condiciones As String() = {"idDomicilio=" & Me.idDomicilio}
         Dim result = database.Eliminar(Tabla, condiciones)
@@ -75,27 +75,41 @@ Public Class Domicilio
 
     Public Function BuscarDomicilioById(idDomicilio As Integer) As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idDomicilio", "idColonia", "calle", "numero"}
+        Dim columnas As String() = {"idDomicilio", "idColonia", "calle", "No_domicilio"}
         Dim condiciones As String() = {"idDomicilio=" & idDomicilio}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idDomicilio")) And
                Not IsDBNull(result.Rows(0)("idColonia")) And
                Not IsDBNull(result.Rows(0)("calle")) And
-               Not IsDBNull(result.Rows(0)("numero")) Then
+               Not IsDBNull(result.Rows(0)("No_domicilio")) Then
                 SetIdDomicilio(CInt(result.Rows(0)("idDomicilio")))
                 SetIdColonia(CInt(result.Rows(0)("idColonia")))
                 SetCalleDomicilio(CStr(result.Rows(0)("calle")))
-                SetNumeroDomicilio(CStr(result.Rows(0)("numero")))
+                SetNumeroDomicilio(CStr(result.Rows(0)("No_domicilio")))
                 Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")
             End If
         Else
             Return False
+        End If
+    End Function
+
+    Public Function BuscarUltimoId() As Integer
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"Max(idDomicilio) AS idDomicilio"}
+
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, {})
+        If result.Rows.Count = 1 Then
+            Return CInt(result.Rows(0)("idDomicilio"))
+        Else
+            Return 0
         End If
     End Function
 End Class

@@ -160,7 +160,7 @@ Public Class Contribuyente
         Dim condiciones As String() = {"nombre=" & nombre, "paterno=" & paterno, "materno=" & materno}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("curp")) And
@@ -194,7 +194,7 @@ Public Class Contribuyente
         Dim condiciones As String() = {"curp=" & curp}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("curp")) And

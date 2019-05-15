@@ -112,16 +112,16 @@
     <Compile Include="Classes\Multas\Multa.vb" />
     <Compile Include="Classes\Vehiculos\Padron.vb" />
     <Compile Include="Classes\Vehiculos\Placas.vb" />
-    <Compile Include="Forms\Contribuyentes.Designer.vb">
-      <DependentUpon>Contribuyentes.vb</DependentUpon>
+    <Compile Include="Forms\RegistrarContribuyentes.Designer.vb">
+      <DependentUpon>RegistrarContribuyentes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Contribuyentes.vb">
+    <Compile Include="Forms\RegistrarContribuyentes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Empleados.Designer.vb">
-      <DependentUpon>Empleados.vb</DependentUpon>
+    <Compile Include="Forms\RegistrarEmpleados.Designer.vb">
+      <DependentUpon>RegistrarEmpleados.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Empleados.vb">
+    <Compile Include="Forms\RegistrarEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.vb">
@@ -184,11 +184,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Contribuyentes.resx">
-      <DependentUpon>Contribuyentes.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistrarContribuyentes.resx">
+      <DependentUpon>RegistrarContribuyentes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Empleados.resx">
-      <DependentUpon>Empleados.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistrarEmpleados.resx">
+      <DependentUpon>RegistrarEmpleados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
@@ -232,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\control_vehicular.sql" />
+    <None Include="Resources\mustang-wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MustangWallpaper.png" />

@@ -91,7 +91,7 @@ Partial Class RegistrarPlacas
         'lbVehiculo
         '
         Me.lbVehiculo.AutoSize = True
-        Me.lbVehiculo.Location = New System.Drawing.Point(406, 130)
+        Me.lbVehiculo.Location = New System.Drawing.Point(444, 295)
         Me.lbVehiculo.Name = "lbVehiculo"
         Me.lbVehiculo.Size = New System.Drawing.Size(48, 13)
         Me.lbVehiculo.TabIndex = 87
@@ -113,12 +113,12 @@ Partial Class RegistrarPlacas
         '
         'idVehiculo
         '
-        Me.idVehiculo.Location = New System.Drawing.Point(458, 127)
+        Me.idVehiculo.Location = New System.Drawing.Point(496, 292)
         Me.idVehiculo.Name = "idVehiculo"
         Me.idVehiculo.Size = New System.Drawing.Size(123, 20)
         Me.idVehiculo.TabIndex = 84
         '
-        'Placas
+        'RegistrarPlacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -133,7 +133,7 @@ Partial Class RegistrarPlacas
         Me.Controls.Add(Me.idPlaca)
         Me.Controls.Add(Me.idLicencia)
         Me.Controls.Add(Me.idVehiculo)
-        Me.Name = "Placas"
+        Me.Name = "RegistrarPlacas"
         Me.Text = "Placas"
         CType(Me.DGVPlacas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

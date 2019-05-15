@@ -69,7 +69,7 @@
         Dim condiciones As String() = {"nombre=" & nombre}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idPais")) And
@@ -93,7 +93,7 @@
         Dim condiciones As String() = {"idEstado=" & idEstado}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idPais")) And
@@ -110,4 +110,27 @@
             Return False
         End If
     End Function
+
+    Public Function BuscarEstadosByPais(idPais As Integer) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idPais", "idEstado", "nombre"}
+        Dim condiciones As String() = {"idPais=" & idPais}
+
+        Return database.Buscar({Tabla}, columnas, condiciones)
+    End Function
+
+    Public Sub PoblarComboEstados(idPais As Integer, cbEstados As ComboBox)
+        cbEstados.DisplayMember = "Value"
+        cbEstados.ValueMember = "Key"
+        Dim estados As DataTable = BuscarEstadosByPais(idPais)
+        If estados.Rows.Count > 0 Then
+            Dim estadosDictionary As New Dictionary(Of Integer, String)
+            For index = 0 To estados.Rows.Count - 1
+                estadosDictionary.Add(estados.Rows(index)("idEstado"), estados.Rows(index)("nombre"))
+            Next
+            cbEstados.DataSource = New BindingSource(estadosDictionary, Nothing)
+        Else
+            cbEstados.DataSource = Nothing
+        End If
+    End Sub
 End Class

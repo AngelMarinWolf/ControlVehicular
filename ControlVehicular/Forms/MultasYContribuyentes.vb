@@ -35,7 +35,7 @@
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
 
-        Me.contribuyentes = database.Buscar("Contribuyentes", columnas, condiciones)
+        Me.contribuyentes = database.Buscar({"Contribuyentes"}, columnas, condiciones)
         Me.DataContribuyentes.DataSource = Me.contribuyentes
 
         For index = 0 To Me.contribuyentes.Columns.Count - 1

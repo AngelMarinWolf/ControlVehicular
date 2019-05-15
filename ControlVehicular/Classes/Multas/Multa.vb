@@ -115,7 +115,7 @@ Public Class Multa
         Dim condiciones As String() = {"idMulta=" & idMulta}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idMulta")) And

@@ -69,7 +69,7 @@
         Dim condiciones As String() = {"nombre=" & nombre}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idCiudad")) And
@@ -93,7 +93,7 @@
         Dim condiciones As String() = {"idColonia=" & idColonia}
         Dim result As DataTable
 
-        result = database.Buscar(Tabla, columnas, condiciones)
+        result = database.Buscar({Tabla}, columnas, condiciones)
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idCiudad")) And
@@ -110,4 +110,27 @@
             Return False
         End If
     End Function
+
+    Public Function BuscarColoniasByCiudad(idCiudad As Integer) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idCiudad", "idColonia", "nombre"}
+        Dim condiciones As String() = {"idCiudad=" & idCiudad}
+
+        Return database.Buscar({Tabla}, columnas, condiciones)
+    End Function
+
+    Public Sub PoblarComboColonias(idEstado As Integer, cbColonias As ComboBox)
+        cbColonias.DisplayMember = "Value"
+        cbColonias.ValueMember = "Key"
+        Dim ciudades As DataTable = BuscarColoniasByCiudad(idEstado)
+        If ciudades.Rows.Count > 0 Then
+            Dim coloniasDictionary As New Dictionary(Of Integer, String)
+            For index = 0 To ciudades.Rows.Count - 1
+                coloniasDictionary.Add(ciudades.Rows(index)("idColonia"), ciudades.Rows(index)("nombre"))
+            Next
+            cbColonias.DataSource = New BindingSource(coloniasDictionary, Nothing)
+        Else
+            cbColonias.DataSource = Nothing
+        End If
+    End Sub
 End Class

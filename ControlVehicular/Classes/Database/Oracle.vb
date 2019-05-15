@@ -99,7 +99,8 @@ Public Class Oracle
     ' Metodo que permite actualizar una tabla y retorna un valor booleano en caso de que la ejecucion sea correcta
     Public Function Actualizar(tabla As String, columnas As String(), valores As String(), condiciones As String()) As Boolean
         AbrirConexion()
-        Dim valuesStr(columnas.Length) As String
+        Console.WriteLine(columnas.Length)
+        Dim valuesStr(columnas.Length - 1) As String
         If columnas.Length <> valores.Length Then
             CerrarConexion()
             Throw New Exception("Error: Columnas y Valores no corresponden.")
@@ -130,13 +131,13 @@ Public Class Oracle
     End Function
 
     ' Metodo que ejecuta una consulta sobre la base de datos y retorna los valore dentro de un objeto DataTable
-    Public Function Buscar(tabla As String, columnas As String(), condiciones As String()) As DataTable
+    Public Function Buscar(tabla As String(), columnas As String(), condiciones As String()) As DataTable
         AbrirConexion()
         Dim dataAdapter As OracleDataAdapter
         Dim dataTable As DataTable
 
-        Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & My.Settings.db_username & "." & tabla
-        If condiciones.Length > 1 Then
+        Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & String.Join(",", tabla)
+        If condiciones.Length > 0 Then
             queryStr += " WHERE " & String.Join(",", condiciones)
         End If
 
