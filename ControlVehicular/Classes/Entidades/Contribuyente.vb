@@ -221,4 +221,11 @@ Public Class Contribuyente
             Return False
         End If
     End Function
+
+    Public Function BuscarContribuyentes() As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
+
+        Return database.Buscar({Tabla}, columnas, {})
+    End Function
 End Class

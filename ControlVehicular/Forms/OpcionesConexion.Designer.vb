@@ -105,7 +105,6 @@ Partial Class OpcionesConexion
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(209, 20)
         Me.txtUsername.TabIndex = 2
-        Me.txtUsername.UseSystemPasswordChar = True
         '
         'txtPassword
         '
@@ -115,6 +114,7 @@ Partial Class OpcionesConexion
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtPassword.Size = New System.Drawing.Size(209, 20)
         Me.txtPassword.TabIndex = 3
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'btnAceptar
         '

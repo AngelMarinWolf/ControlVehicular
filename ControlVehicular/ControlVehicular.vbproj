@@ -149,6 +149,12 @@
     <Compile Include="Forms\OpcionesConexion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\RegistrarLocaciones.Designer.vb">
+      <DependentUpon>RegistrarLocaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegistrarLocaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\RegistrarPlacas.Designer.vb">
       <DependentUpon>RegistrarPlacas.vb</DependentUpon>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OpcionesConexion.resx">
       <DependentUpon>OpcionesConexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistrarLocaciones.resx">
+      <DependentUpon>RegistrarLocaciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrarPlacas.resx">
       <DependentUpon>RegistrarPlacas.vb</DependentUpon>

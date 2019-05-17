@@ -1,5 +1,6 @@
 ﻿Public Class MultasYContribuyentes
     Private user As Empleado
+    Private contribuyente As Contribuyente = New Contribuyente()
     Private contribuyentes As DataTable
 
     Public Sub New(user As Empleado)
@@ -15,7 +16,12 @@
         Me.lblUserData.Text = user.GetNombre & " " & user.GetPaterno
         Me.lblFechaData.Text = Date.Today.ToShortDateString
         Me.lblHoraData.Text = Date.Now.Hour & ":" & Date.Now.Minute
-        BuscarContribuyentes({""})
+        Me.DataContribuyentes.DataSource = Me.contribuyente.BuscarContribuyentes()
+
+        Dim noColumnas = Me.contribuyente.BuscarContribuyentes.Columns.Count
+        For index = 0 To noColumnas - 1
+            Me.DataContribuyentes.Columns(index).Width = CInt(Me.DataContribuyentes.Width / noColumnas)
+        Next
     End Sub
 
     Private Sub MenuToolStripMenuItem_DropDownOpened(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.DropDownOpened
@@ -27,19 +33,15 @@
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        Me.lblFechaData.Text = Date.Today.ToShortDateString
-        Me.lblHoraData.Text = Date.Now.Hour & ":" & Date.Now.Minute
+        Me.lblFechaData.Text = Date.Now.ToShortDateString
+        Me.lblHoraData.Text = Date.Now.ToShortTimeString
     End Sub
 
-    Private Sub BuscarContribuyentes(condiciones As String())
-        Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
+    Private Sub EmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadosToolStripMenuItem.Click
+        RegistrarEmpleados.Show()
+    End Sub
 
-        Me.contribuyentes = database.Buscar({"Contribuyentes"}, columnas, condiciones)
-        Me.DataContribuyentes.DataSource = Me.contribuyentes
-
-        For index = 0 To Me.contribuyentes.Columns.Count - 1
-            Me.DataContribuyentes.Columns(index).Width = CInt(Me.DataContribuyentes.Width / Me.contribuyentes.Columns.Count)
-        Next
+    Private Sub LocalidadesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocalidadesToolStripMenuItem.Click
+        RegistrarLocaciones.Show()
     End Sub
 End Class

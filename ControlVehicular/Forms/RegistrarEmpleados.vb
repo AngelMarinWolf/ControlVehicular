@@ -45,7 +45,7 @@
     End Sub
 
     Private Sub dataEmpleados_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataEmpleados.CellContentClick
-        Dim row As Integer = Me.dataEmpleados.SelectedCells(0).RowIndex
+        Dim row As Integer = Me.dataEmpleados.SelectedRows(0).Index
         poblarDatosEmpleado(Me.dataEmpleados.Rows(row).Cells("curp").Value)
     End Sub
 
@@ -112,6 +112,21 @@
         Dim idDomicilio As Integer = Me.domicilio.BuscarUltimoId + 1
         Dim tmpEmpleado As Empleado = New Empleado()
 
+        If Me.txtCurp.Text.Length <> 18 Then
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If tmpEmpleado.BuscarEmpleadoByUsername(Me.txtUsernamer.Text) Then
+            MsgBox("Nombre de usuario no disponible." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
+            MsgBox("No se pudo registrar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
         Me.empleado = New Empleado()
         Me.empleado.SetCurp(Me.txtCurp.Text)
         Me.empleado.SetRfc(Me.txtRfc.Text)
@@ -132,69 +147,92 @@
         Me.domicilio.SetCalleDomicilio(Me.txtCalle.Text)
         Me.domicilio.SetNumeroDomicilio(Me.txtNumeroDomicilio.Text)
 
-        If Not tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
-            If Me.domicilio.RegistrarDomicilio() And Me.empleado.RegistrarEmpleado() Then
-                MsgBox("Empleado Registrado Exitosamente.", MsgBoxStyle.Information, "Correcto")
-            Else
-                MsgBox("No se pudo registar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
-            End If
-        Else
-            MsgBox("No se pudo registar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+        If Not Me.domicilio.ActualizarDomicilio() Then
+            MsgBox("No se pudo registrar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
         End If
 
+        If Not Me.empleado.ActualizarEmpleado() Then
+            MsgBox("No se pudo registrar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Me.domicilio.EliminarDomicilio()
+            Exit Sub
+        End If
+        limpiarDatos()
+        Me.txtCurp.Text = ""
         Me.dataEmpleados.DataSource = empleado.BuscarEmpleados()
+        MsgBox("Empleado Registrado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim tmpEmpleado As Empleado = New Empleado()
 
-        If tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
-            If Me.empleado.EliminarEmpleado And Me.domicilio.EliminarDomicilio Then
-                MsgBox("Empleado Eliminado Exitosamente.", MsgBoxStyle.Information, "Correcto")
-            Else
-                MsgBox("No se pudo eliminar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
-            End If
-        Else
-            MsgBox("No se pudo eliminar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+        If Me.txtCurp.Text.Length <> 18 Then
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
         End If
 
+        If tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
+            MsgBox("No se pudo eliminar empleado." + vbNewLine + "Empleado inexistente.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.empleado.EliminarEmpleado Then
+            MsgBox("No se pudo eliminar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.domicilio.EliminarDomicilio Then
+            MsgBox("No se pudo eliminar Domicilio." + vbNewLine + "Se requiere eliminacion manual." + vbNewLine + "Utilice ventana de mantenimiento para locaciones.", MsgBoxStyle.Critical, "Error")
+        End If
+
+        limpiarDatos()
+        Me.txtCurp.Text = ""
         Me.dataEmpleados.DataSource = empleado.BuscarEmpleados()
+        MsgBox("Empleado Eliminado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim tmpEmpleado As Empleado = New Empleado()
 
-        If Me.txtCurp.Text.Length = 18 Then
-            Me.empleado.SetCurp(Me.txtCurp.Text)
-            Me.empleado.SetRfc(Me.txtRfc.Text)
-            Me.empleado.SetEdad(Me.txtEdad.Value)
-            Me.empleado.SetNombre(Me.txtNombre.Text)
-            Me.empleado.SetPaterno(Me.txtPaterno.Text)
-            Me.empleado.SetMaterno(Me.txtMaterno.Text)
-            Me.empleado.SetEmail(Me.txtEmail.Text)
-            Me.empleado.SetTelefono(Me.txtTelefono.Text)
-            Me.empleado.SetUsername(Me.txtUsernamer.Text)
-            Me.empleado.SetPassword(Me.txtPassword.Text)
-            Me.empleado.SetSexo(If(Me.chkMasculino.Checked, "M", "F"))
-
-            Me.domicilio.SetIdColonia(Me.cmbColonia.SelectedValue)
-            Me.domicilio.SetCalleDomicilio(Me.txtCalle.Text)
-            Me.domicilio.SetNumeroDomicilio(Me.txtNumeroDomicilio.Text)
-
-            If tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
-                If Me.domicilio.ActualizarDomicilio() And Me.empleado.ActualizarEmpleado() Then
-                    MsgBox("Empleado Actualizado Exitosamente.", MsgBoxStyle.Information, "Correcto")
-                Else
-                    MsgBox("No se pudo actualizar informacion del empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
-                End If
-            Else
-                MsgBox("No se pudo actualizar informacion del empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
-            End If
-        Else
-            MsgBox("No se pudo actualizar informacion del empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+        If Me.txtCurp.Text.Length <> 18 Then
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
         End If
 
+        If Not tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
+            MsgBox("No se pudo actualizar empleado." + vbNewLine + "Empleado inexistente.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
 
+        If tmpEmpleado.BuscarEmpleadoByUsername(Me.txtUsernamer.Text) And tmpEmpleado.GetCurp <> Me.txtCurp.Text Then
+            MsgBox("Nombre de usuario no disponible." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        Me.empleado.SetCurp(Me.txtCurp.Text)
+        Me.empleado.SetRfc(Me.txtRfc.Text)
+        Me.empleado.SetEdad(Me.txtEdad.Value)
+        Me.empleado.SetNombre(Me.txtNombre.Text)
+        Me.empleado.SetPaterno(Me.txtPaterno.Text)
+        Me.empleado.SetMaterno(Me.txtMaterno.Text)
+        Me.empleado.SetEmail(Me.txtEmail.Text)
+        Me.empleado.SetTelefono(Me.txtTelefono.Text)
+        Me.empleado.SetUsername(Me.txtUsernamer.Text)
+        Me.empleado.SetPassword(Me.txtPassword.Text)
+        Me.empleado.SetSexo(If(Me.chkMasculino.Checked, "M", "F"))
+
+        Me.domicilio.SetIdColonia(Me.cmbColonia.SelectedValue)
+        Me.domicilio.SetCalleDomicilio(Me.txtCalle.Text)
+        Me.domicilio.SetNumeroDomicilio(Me.txtNumeroDomicilio.Text)
+
+        If Not Me.domicilio.ActualizarDomicilio() Or Not Me.empleado.ActualizarEmpleado() Then
+            MsgBox("No se pudo actualizar informacion del empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        limpiarDatos()
+        Me.txtCurp.Text = ""
         Me.dataEmpleados.DataSource = empleado.BuscarEmpleados()
+        MsgBox("Empleado Actualizado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
 End Class

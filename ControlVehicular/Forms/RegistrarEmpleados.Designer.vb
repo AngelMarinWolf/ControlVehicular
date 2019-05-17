@@ -256,7 +256,10 @@ Partial Class RegistrarEmpleados
         Me.dataEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dataEmpleados.GridColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.dataEmpleados.Location = New System.Drawing.Point(3, 3)
+        Me.dataEmpleados.MultiSelect = False
         Me.dataEmpleados.Name = "dataEmpleados"
+        Me.dataEmpleados.ReadOnly = True
+        Me.dataEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dataEmpleados.Size = New System.Drawing.Size(477, 258)
         Me.dataEmpleados.TabIndex = 127
         '

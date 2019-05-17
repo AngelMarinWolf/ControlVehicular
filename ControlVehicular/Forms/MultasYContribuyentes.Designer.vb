@@ -123,13 +123,13 @@ Partial Class MultasYContribuyentes
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'LocalidadesToolStripMenuItem
         '
         Me.LocalidadesToolStripMenuItem.Name = "LocalidadesToolStripMenuItem"
-        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LocalidadesToolStripMenuItem.Text = "Localidades"
         '
         'AyudaToolStripMenuItem
@@ -397,20 +397,20 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuOptions.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TableLayoutMenuOptions.ColumnCount = 2
-        Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button1, 1, 0)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button2, 1, 1)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button4, 1, 3)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button3, 1, 2)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictContribuyente, 0, 0)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictVehicle, 0, 1)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictLicencia, 0, 2)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictMulta, 0, 3)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 1, 6)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictPago, 0, 6)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.btnPlacas, 1, 4)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.PictureBox1, 0, 4)
+        Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictContribuyente, 1, 0)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button1, 0, 0)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button2, 0, 1)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictVehicle, 1, 1)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button3, 0, 2)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictLicencia, 1, 2)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictMulta, 1, 3)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button4, 0, 3)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictureBox1, 1, 4)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.btnPlacas, 0, 4)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.PictPago, 1, 6)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 0, 6)
         Me.TableLayoutMenuOptions.Location = New System.Drawing.Point(784, 63)
         Me.TableLayoutMenuOptions.Name = "TableLayoutMenuOptions"
         Me.TableLayoutMenuOptions.RowCount = 7
@@ -427,7 +427,7 @@ Partial Class MultasYContribuyentes
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(33, 3)
+        Me.Button1.Location = New System.Drawing.Point(3, 3)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(164, 23)
         Me.Button1.TabIndex = 3
@@ -437,7 +437,7 @@ Partial Class MultasYContribuyentes
         'Button2
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(33, 33)
+        Me.Button2.Location = New System.Drawing.Point(3, 33)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(164, 23)
         Me.Button2.TabIndex = 4
@@ -447,7 +447,7 @@ Partial Class MultasYContribuyentes
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(33, 93)
+        Me.Button4.Location = New System.Drawing.Point(3, 93)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(164, 23)
         Me.Button4.TabIndex = 6
@@ -457,7 +457,7 @@ Partial Class MultasYContribuyentes
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(33, 63)
+        Me.Button3.Location = New System.Drawing.Point(3, 63)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(164, 23)
         Me.Button3.TabIndex = 5
@@ -471,7 +471,7 @@ Partial Class MultasYContribuyentes
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictContribuyente.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.user
         Me.PictContribuyente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictContribuyente.Location = New System.Drawing.Point(3, 3)
+        Me.PictContribuyente.Location = New System.Drawing.Point(173, 3)
         Me.PictContribuyente.Name = "PictContribuyente"
         Me.PictContribuyente.Size = New System.Drawing.Size(24, 24)
         Me.PictContribuyente.TabIndex = 8
@@ -481,7 +481,7 @@ Partial Class MultasYContribuyentes
         '
         Me.PictVehicle.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.car
         Me.PictVehicle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictVehicle.Location = New System.Drawing.Point(3, 33)
+        Me.PictVehicle.Location = New System.Drawing.Point(173, 33)
         Me.PictVehicle.Name = "PictVehicle"
         Me.PictVehicle.Size = New System.Drawing.Size(24, 24)
         Me.PictVehicle.TabIndex = 9
@@ -491,7 +491,7 @@ Partial Class MultasYContribuyentes
         '
         Me.PictLicencia.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.id_card
         Me.PictLicencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictLicencia.Location = New System.Drawing.Point(3, 63)
+        Me.PictLicencia.Location = New System.Drawing.Point(173, 63)
         Me.PictLicencia.Name = "PictLicencia"
         Me.PictLicencia.Size = New System.Drawing.Size(24, 24)
         Me.PictLicencia.TabIndex = 10
@@ -501,7 +501,7 @@ Partial Class MultasYContribuyentes
         '
         Me.PictMulta.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.receipt
         Me.PictMulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictMulta.Location = New System.Drawing.Point(3, 93)
+        Me.PictMulta.Location = New System.Drawing.Point(173, 93)
         Me.PictMulta.Name = "PictMulta"
         Me.PictMulta.Size = New System.Drawing.Size(24, 24)
         Me.PictMulta.TabIndex = 11
@@ -510,7 +510,7 @@ Partial Class MultasYContribuyentes
         'Button5
         '
         Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(33, 448)
+        Me.Button5.Location = New System.Drawing.Point(3, 448)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(164, 23)
         Me.Button5.TabIndex = 7
@@ -521,7 +521,7 @@ Partial Class MultasYContribuyentes
         '
         Me.PictPago.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.purse
         Me.PictPago.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictPago.Location = New System.Drawing.Point(3, 448)
+        Me.PictPago.Location = New System.Drawing.Point(173, 448)
         Me.PictPago.Name = "PictPago"
         Me.PictPago.Size = New System.Drawing.Size(24, 24)
         Me.PictPago.TabIndex = 12
@@ -530,7 +530,7 @@ Partial Class MultasYContribuyentes
         'btnPlacas
         '
         Me.btnPlacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnPlacas.Location = New System.Drawing.Point(33, 123)
+        Me.btnPlacas.Location = New System.Drawing.Point(3, 123)
         Me.btnPlacas.Name = "btnPlacas"
         Me.btnPlacas.Size = New System.Drawing.Size(164, 23)
         Me.btnPlacas.TabIndex = 13
@@ -541,7 +541,7 @@ Partial Class MultasYContribuyentes
         '
         Me.PictureBox1.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.matricula
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 123)
+        Me.PictureBox1.Location = New System.Drawing.Point(173, 123)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(24, 24)
         Me.PictureBox1.TabIndex = 14

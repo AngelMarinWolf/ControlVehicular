@@ -80,6 +80,7 @@ Public Class Domicilio
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
+        result.DefaultView.Sort = "idDomicilio ASC"
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idDomicilio")) And
@@ -111,5 +112,15 @@ Public Class Domicilio
         Else
             Return 0
         End If
+    End Function
+
+    Public Function BuscarDomiciliosByColonia(idColonia As Integer) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idDomicilio", "idColonia", "calle", "No_domicilio"}
+        Dim condiciones As String() = {"idColonia=" & idColonia}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, condiciones)
+        result.DefaultView.Sort = "idDomicilio ASC"
+
+        Return result
     End Function
 End Class

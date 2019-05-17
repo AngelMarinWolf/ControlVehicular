@@ -41,8 +41,8 @@
 
     Public Function RegistrarEstado() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"nombre", "idPais"}
-        Dim valores As String() = {Me.nombre, Me.idPais}
+        Dim columnas As String() = {"idEstado", "nombre", "idPais"}
+        Dim valores As String() = {BuscarUltimoId() + 1, "'" & Me.nombre & "'", Me.idPais}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
@@ -50,7 +50,7 @@
     Public Function ActualizarEstado() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"nombre", "idPais"}
-        Dim valores As String() = {Me.nombre, Me.idPais}
+        Dim valores As String() = {"'" & Me.nombre & "'", Me.idPais}
         Dim condiciones As String() = {"idEstado=" & Me.idEstado}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
@@ -65,11 +65,12 @@
 
     Public Function BuscarEstadoByNombre(nombre As String) As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idPais", "idEstado", "nombre"}
-        Dim condiciones As String() = {"nombre=" & nombre}
+        Dim columnas As String() = {"idEstado", "idPais", "nombre"}
+        Dim condiciones As String() = {"nombre=" & "'" & nombre & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
+        result.DefaultView.Sort = "idEstado ASC"
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idPais")) And
@@ -89,11 +90,12 @@
 
     Public Function BuscarEstadoById(idEstado As Integer) As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idPais", "idEstado", "nombre"}
+        Dim columnas As String() = {"idEstado", "idPais", "nombre"}
         Dim condiciones As String() = {"idEstado=" & idEstado}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
+        result.DefaultView.Sort = "idEstado ASC"
 
         If result.Rows.Count = 1 Then
             If Not IsDBNull(result.Rows(0)("idPais")) And
@@ -113,16 +115,21 @@
 
     Public Function BuscarEstadosByPais(idPais As Integer) As DataTable
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idPais", "idEstado", "nombre"}
+        Dim columnas As String() = {"idEstado", "idPais", "nombre"}
         Dim condiciones As String() = {"idPais=" & idPais}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, condiciones)
+        result.DefaultView.Sort = "idEstado ASC"
 
-        Return database.Buscar({Tabla}, columnas, condiciones)
+        Return result
     End Function
 
     Public Sub PoblarComboEstados(idPais As Integer, cbEstados As ComboBox)
         cbEstados.DisplayMember = "Value"
         cbEstados.ValueMember = "Key"
         Dim estados As DataTable = BuscarEstadosByPais(idPais)
+        estados.DefaultView.Sort = "idEstado ASC"
+        estados = estados.DefaultView.ToTable()
+
         If estados.Rows.Count > 0 Then
             Dim estadosDictionary As New Dictionary(Of Integer, String)
             For index = 0 To estados.Rows.Count - 1
@@ -133,4 +140,18 @@
             cbEstados.DataSource = Nothing
         End If
     End Sub
+
+    Public Function BuscarUltimoId() As Integer
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"Max(idEstado) AS idEstado"}
+
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, {})
+        If result.Rows.Count = 1 Then
+            Return CInt(result.Rows(0)("idEstado"))
+        Else
+            Return 0
+        End If
+    End Function
 End Class
