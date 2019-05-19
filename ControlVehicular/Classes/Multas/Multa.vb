@@ -6,7 +6,6 @@ Public Class Multa
     Private fechaExpedicionMulta As Date
     Private fechaLiquidacionMulta As Date
     Private importe As Double
-    Private retribuido As Boolean
     Private descripcion As String
 
     Public Sub New()
@@ -18,14 +17,12 @@ Public Class Multa
                    fechaExpedicionMulta As Date,
                    fechaLiquidacionMulta As Date,
                    importe As Double,
-                   retribuido As Boolean,
                    descripcion As String)
         Me.idMulta = idMulta
         Me.idPlacas = idPlacas
         Me.fechaExpedicionMulta = fechaExpedicionMulta
         Me.fechaLiquidacionMulta = fechaLiquidacionMulta
         Me.importe = importe
-        Me.retribuido = retribuido
         Me.descripcion = descripcion
     End Sub
 
@@ -47,10 +44,6 @@ Public Class Multa
 
     Public Sub SetImporte(importe As Double)
         Me.importe = importe
-    End Sub
-
-    Public Sub SetRetribuido(retribuido As Boolean)
-        Me.retribuido = retribuido
     End Sub
 
     Public Sub SetDescripcion(descripcion As String)
@@ -77,26 +70,22 @@ Public Class Multa
         Return Me.importe
     End Function
 
-    Public Function GetRetribuido() As Boolean
-        Return Me.retribuido
-    End Function
-
     Public Function GetDescripcion() As String
         Return Me.descripcion
     End Function
 
     Public Function RegistrarMulta() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "retribuido", "descripcion"}
-        Dim valores As String() = {Me.idMulta, Me.idPlacas, Me.fechaExpedicionMulta, Me.fechaLiquidacionMulta, Me.importe, If(Me.retribuido, "S", "N"), Me.descripcion}
+        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
+        Dim valores As String() = {Me.idMulta, Me.idPlacas, Me.fechaExpedicionMulta, Me.fechaLiquidacionMulta, Me.importe, Me.descripcion}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
 
     Public Function ActualizarMulta() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "retribuido", "descripcion"}
-        Dim valores As String() = {Me.idPlacas, Me.fechaExpedicionMulta, Me.fechaLiquidacionMulta, Me.importe, If(Me.retribuido, "S", "N"), Me.descripcion}
+        Dim columnas As String() = {"idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
+        Dim valores As String() = {Me.idPlacas, Me.fechaExpedicionMulta, Me.fechaLiquidacionMulta, Me.importe, Me.descripcion}
         Dim condiciones As String() = {"idMulta=" & Me.idMulta}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
@@ -111,7 +100,7 @@ Public Class Multa
 
     Public Function BuscarMultaById(idMulta As Integer) As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "retribuido", "descripcion"}
+        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
         Dim condiciones As String() = {"idMulta=" & idMulta}
         Dim result As DataTable
 
@@ -121,14 +110,12 @@ Public Class Multa
             If Not IsDBNull(result.Rows(0)("idMulta")) And
                Not IsDBNull(result.Rows(0)("idPlacas")) And
                Not IsDBNull(result.Rows(0)("fechaExpedicionMulta")) And
-               Not IsDBNull(result.Rows(0)("importe")) And
-               Not IsDBNull(result.Rows(0)("retribuido")) Then
+               Not IsDBNull(result.Rows(0)("importe")) Then
                 SetIdMulta(CInt(result.Rows(0)("idMulta")))
                 SetIdPlacas(CStr(result.Rows(0)("idPlacas")))
                 SetFechaExpedicion(CDate(result.Rows(0)("fechaExpedicionMulta")))
                 SetFechaLiquidacion(CDate(result.Rows(0)("fechaLiquidacionMulta")))
                 SetImporte(CDbl(result.Rows(0)("importe")))
-                SetRetribuido(If(CChar(result.Rows(0)("retribuido")) = "S", True, False))
                 SetDescripcion(CStr(result.Rows(0)("descripcion")))
                 Return True
             Else

@@ -47,7 +47,7 @@ Public Class Contribuyente
     End Sub
 
     Public Sub SetRfc(rfc As String)
-        If rfc.Length = 12 Or rfc.Length = 11 Then
+        If rfc.Length = 12 Or rfc.Length = 13 Then
             Me.rfc = rfc
         Else
             Throw New Exception("Error: El rfc no contiene la cantidad de caracteres especifica.")
@@ -154,10 +154,44 @@ Public Class Contribuyente
         Return result
     End Function
 
-    Public Function BuscarContribuyenteByNombre(nombre As String, paterno As String, materno As String) As Boolean
+    Public Function BuscarContribuyenteByNombre(nombre As String) As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
-        Dim condiciones As String() = {"nombre=" & nombre, "paterno=" & paterno, "materno=" & materno}
+        Dim condiciones As String() = {"nombre='" & nombre & "'"}
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, condiciones)
+
+        If result.Rows.Count = 1 Then
+            If Not IsDBNull(result.Rows(0)("curp")) And
+               Not IsDBNull(result.Rows(0)("rfc")) And
+               Not IsDBNull(result.Rows(0)("nombre")) And
+               Not IsDBNull(result.Rows(0)("paterno")) And
+               Not IsDBNull(result.Rows(0)("materno")) And
+               Not IsDBNull(result.Rows(0)("idDomicilio")) Then
+                SetCurp(CStr(result.Rows(0)("curp")))
+                SetRfc(CStr(result.Rows(0)("rfc")))
+                SetNombre(CStr(result.Rows(0)("nombre")))
+                SetPaterno(CStr(result.Rows(0)("paterno")))
+                SetMaterno(CStr(result.Rows(0)("materno")))
+                SetEdad(If(Not IsDBNull(result.Rows(0)("edad")), CInt(result.Rows(0)("edad")), 0))
+                SetSexo(If(Not IsDBNull(result.Rows(0)("sexo")), CChar(result.Rows(0)("sexo")), ""))
+                SetTelefono(If(Not IsDBNull(result.Rows(0)("telefono")), CStr(result.Rows(0)("telefono")), ""))
+                SetEmail(If(Not IsDBNull(result.Rows(0)("email")), CStr(result.Rows(0)("email")), ""))
+                SetIdDomicilio(CInt(result.Rows(0)("idDomicilio")))
+                Return True
+            Else
+                Throw New Exception("Error: Columna con valores vacios.")
+            End If
+        Else
+            Return False
+        End If
+    End Function
+
+    Public Function BuscarContribuyenteByApellido(paterno As String) As Boolean
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
+        Dim condiciones As String() = {"paterno='" & paterno & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
@@ -188,10 +222,10 @@ Public Class Contribuyente
         End If
     End Function
 
-    Public Function BuscarContribuyenteById(curl As String) As Boolean
+    Public Function BuscarContribuyenteById(curp As String) As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
-        Dim condiciones As String() = {"curp=" & curp}
+        Dim condiciones As String() = {"curp='" & curp & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
@@ -210,7 +244,7 @@ Public Class Contribuyente
                 SetMaterno(CStr(result.Rows(0)("materno")))
                 SetEdad(If(Not IsDBNull(result.Rows(0)("edad")), CInt(result.Rows(0)("edad")), 0))
                 SetSexo(If(Not IsDBNull(result.Rows(0)("sexo")), CChar(result.Rows(0)("sexo")), ""))
-                SetTelefono(If(Not IsDBNull(result.Rows(0)("telefono")), CInt(result.Rows(0)("telefono")), ""))
+                SetTelefono(If(Not IsDBNull(result.Rows(0)("telefono")), CStr(result.Rows(0)("telefono")), ""))
                 SetEmail(If(Not IsDBNull(result.Rows(0)("email")), CStr(result.Rows(0)("email")), ""))
                 SetIdDomicilio(CInt(result.Rows(0)("idDomicilio")))
                 Return True
@@ -227,5 +261,13 @@ Public Class Contribuyente
         Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
 
         Return database.Buscar({Tabla}, columnas, {})
+    End Function
+
+    Public Function BuscarContribuyentesByConditions(joins As String(), condiciones As String()) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {Tabla & ".curp", Tabla & ".rfc", Tabla & ".nombre", Tabla & ".paterno", Tabla & ".materno", Tabla & ".edad",
+                                    Tabla & ".sexo", Tabla & ".telefono", Tabla & ".email", Tabla & ".idDomicilio"}
+
+        Return database.Buscar({Tabla}, columnas, joins, condiciones)
     End Function
 End Class

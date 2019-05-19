@@ -146,7 +146,6 @@ CREATE TABLE Multas (
   fechaExpedicionMulta DATE NOT NULL,
   fechaLiquidacionMulta DATE NULL,
   importe NUMERIC(38,2) NOT NULL,
-  retribuido CHAR(1) NOT NULL,
   descripcion LONG NULL,
   PRIMARY KEY(idMulta),
   CONSTRAINT fk_multa_placas FOREIGN KEY(idPlacas) REFERENCES PlacasVehiculos(idPlacas)

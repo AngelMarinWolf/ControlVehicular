@@ -138,7 +138,36 @@ Public Class Oracle
 
         Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & String.Join(",", tabla)
         If condiciones.Length > 0 Then
-            queryStr += " WHERE " & String.Join(",", condiciones)
+            queryStr += " WHERE " & String.Join(" AND ", condiciones)
+        End If
+
+        Try
+            dataAdapter = New OracleDataAdapter(queryStr, cnx)
+            dataTable = New DataTable
+            dataAdapter.Fill(dataTable)
+            dataAdapter.Dispose()
+            CerrarConexion()
+            Return dataTable 'retorna el conjunto de dato
+        Catch ex As Exception
+            CerrarConexion()
+            Throw New Exception("Error: " & ex.Message)
+            'Finally
+        Finally
+            CerrarConexion()
+        End Try
+    End Function
+
+    Public Function Buscar(tabla As String(), columnas As String(), joins As String(), condiciones As String()) As DataTable
+        AbrirConexion()
+        Dim dataAdapter As OracleDataAdapter
+        Dim dataTable As DataTable
+
+        Dim queryStr As String = "SELECT " & String.Join(",", columnas) & " FROM " & String.Join(",", tabla)
+        If joins.Length > 0 Then
+            queryStr += " " & String.Join(" ", joins)
+        End If
+        If condiciones.Length > 0 Then
+            queryStr += " WHERE " & String.Join(" AND ", condiciones)
         End If
 
         Try
