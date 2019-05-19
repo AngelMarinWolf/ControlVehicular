@@ -131,10 +131,10 @@
       <DependentUpon>Login.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Multas.Designer.vb">
-      <DependentUpon>Multas.vb</DependentUpon>
+    <Compile Include="Forms\RegistrarMultas.Designer.vb">
+      <DependentUpon>RegistrarMultas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Multas.vb">
+    <Compile Include="Forms\RegistrarMultas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MultasYContribuyentes.Designer.vb">
@@ -199,8 +199,8 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Multas.resx">
-      <DependentUpon>Multas.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistrarMultas.resx">
+      <DependentUpon>RegistrarMultas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MultasYContribuyentes.resx">
       <DependentUpon>MultasYContribuyentes.vb</DependentUpon>

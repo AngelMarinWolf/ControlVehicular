@@ -147,12 +147,12 @@
         Me.domicilio.SetCalleDomicilio(Me.txtCalle.Text)
         Me.domicilio.SetNumeroDomicilio(Me.txtNumeroDomicilio.Text)
 
-        If Not Me.domicilio.ActualizarDomicilio() Then
+        If Not Me.domicilio.RegistrarDomicilio() Then
             MsgBox("No se pudo registrar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
-        If Not Me.empleado.ActualizarEmpleado() Then
+        If Not Me.empleado.RegistrarEmpleado() Then
             MsgBox("No se pudo registrar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Me.domicilio.EliminarDomicilio()
             Exit Sub
@@ -171,17 +171,17 @@
             Exit Sub
         End If
 
-        If tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
+        If Not tmpEmpleado.BuscarEmpleadoById(Me.txtCurp.Text) Then
             MsgBox("No se pudo eliminar empleado." + vbNewLine + "Empleado inexistente.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
-        If Me.empleado.EliminarEmpleado Then
+        If Not Me.empleado.EliminarEmpleado Then
             MsgBox("No se pudo eliminar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
-        If Me.domicilio.EliminarDomicilio Then
+        If Not Me.domicilio.EliminarDomicilio Then
             MsgBox("No se pudo eliminar Domicilio." + vbNewLine + "Se requiere eliminacion manual." + vbNewLine + "Utilice ventana de mantenimiento para locaciones.", MsgBoxStyle.Critical, "Error")
         End If
 

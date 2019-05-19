@@ -67,7 +67,7 @@ Public Class Contribuyente
     End Sub
 
     Public Sub SetEdad(edad As Integer)
-        Me.edad = Me.edad
+        Me.edad = edad
     End Sub
 
     Public Sub SetSexo(sexo As Char)
@@ -133,7 +133,8 @@ Public Class Contribuyente
     Public Function RegistrarContribuyente() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"curp", "rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
-        Dim valores As String() = {Me.curp, Me.rfc, Me.nombre, Me.paterno, Me.materno, Me.edad, Me.sexo, Me.telefono, Me.email, Me.idDomicilio}
+        Dim valores As String() = {"'" & Me.curp & "'", "'" & Me.rfc & "'", "'" & Me.nombre & "'", "'" & Me.paterno & "'", "'" & Me.materno & "'",
+                                  Me.edad, "'" & Me.sexo & "'", "'" & Me.telefono & "'", "'" & Me.email & "'", "'" & Me.idDomicilio & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
@@ -141,15 +142,16 @@ Public Class Contribuyente
     Public Function ActualizarContribuyente() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"rfc", "nombre", "paterno", "materno", "edad", "sexo", "telefono", "email", "idDomicilio"}
-        Dim valores As String() = {Me.rfc, Me.nombre, Me.paterno, Me.materno, Me.edad, Me.sexo, Me.telefono, Me.email, Me.idDomicilio}
-        Dim condiciones As String() = {"curp=" & Me.curp}
+        Dim valores As String() = {"'" & Me.rfc & "'", "'" & Me.nombre & "'", "'" & Me.paterno & "'", "'" & Me.materno & "'",
+                                  Me.edad, "'" & Me.sexo & "'", "'" & Me.telefono & "'", "'" & Me.email & "'", "'" & Me.idDomicilio & "'"}
+        Dim condiciones As String() = {"curp='" & Me.curp & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
     End Function
 
     Public Function EliminarContribuyente() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim condiciones As String() = {"curp=" & Me.curp}
+        Dim condiciones As String() = {"curp='" & Me.curp & "'"}
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function

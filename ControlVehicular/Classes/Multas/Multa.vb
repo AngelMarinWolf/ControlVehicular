@@ -125,4 +125,19 @@ Public Class Multa
             Return False
         End If
     End Function
+
+    Public Function BuscarMultas() As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
+
+        Return database.Buscar({Tabla}, columnas, {})
+    End Function
+
+    Public Function BuscarMultasByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {Tabla & ".idMulta", Tabla & ".idPlacas", Tabla & ".fechaExpedicionMulta", Tabla & ".fechaLiquidacionMulta",
+                                    Tabla & ".importe", Tabla & ".descripcion"}
+
+        Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
+    End Function
 End Class

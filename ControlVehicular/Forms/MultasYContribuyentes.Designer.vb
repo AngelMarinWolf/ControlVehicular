@@ -41,7 +41,7 @@ Partial Class MultasYContribuyentes
         Me.grpOpciones = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.grpLocalidades = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -64,15 +64,38 @@ Partial Class MultasYContribuyentes
         Me.lblSearchType = New System.Windows.Forms.Label()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.TabMultas = New System.Windows.Forms.TabPage()
+        Me.grpOpcionesMultas = New System.Windows.Forms.GroupBox()
+        Me.tblOpcionesMultas = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnAgregarMulta = New System.Windows.Forms.Button()
+        Me.btnModificarMulta = New System.Windows.Forms.Button()
+        Me.btnEliminarMultas = New System.Windows.Forms.Button()
+        Me.grpFechas = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblInitDate = New System.Windows.Forms.Label()
+        Me.lblEndDate = New System.Windows.Forms.Label()
+        Me.dateInit = New System.Windows.Forms.DateTimePicker()
+        Me.dateEnd = New System.Windows.Forms.DateTimePicker()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.rbMultasSinPagar = New System.Windows.Forms.RadioButton()
+        Me.rbTodosMultas = New System.Windows.Forms.RadioButton()
+        Me.rbMultasPagadas = New System.Windows.Forms.RadioButton()
+        Me.DataMultas = New System.Windows.Forms.DataGridView()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.cbTiposSearchMultas = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnBuscarMultas = New System.Windows.Forms.Button()
+        Me.txtSearchMultas = New System.Windows.Forms.TextBox()
         Me.TableLayoutMenuOptions = New System.Windows.Forms.TableLayoutPanel()
         Me.PictVehicle = New System.Windows.Forms.PictureBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.PictLicencia = New System.Windows.Forms.PictureBox()
-        Me.PictMulta = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPlacas = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.PictMulta = New System.Windows.Forms.PictureBox()
         Me.Footer = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusUser = New System.Windows.Forms.StatusStrip()
         Me.lblUser = New System.Windows.Forms.ToolStripStatusLabel()
@@ -87,29 +110,6 @@ Partial Class MultasYContribuyentes
         Me.lblMenu = New System.Windows.Forms.Label()
         Me.Header = New System.Windows.Forms.FlowLayoutPanel()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
-        Me.TabMultas = New System.Windows.Forms.TabPage()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.NavBar.SuspendLayout()
         Me.TabInformation.SuspendLayout()
         Me.TabContribuyentes.SuspendLayout()
@@ -120,25 +120,25 @@ Partial Class MultasYContribuyentes
         Me.grpFiltros.SuspendLayout()
         CType(Me.DataContribuyentes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tlSearchBar.SuspendLayout()
+        Me.TabMultas.SuspendLayout()
+        Me.grpOpcionesMultas.SuspendLayout()
+        Me.tblOpcionesMultas.SuspendLayout()
+        Me.grpFechas.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TableLayoutPanel6.SuspendLayout()
+        CType(Me.DataMultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutMenuOptions.SuspendLayout()
         CType(Me.PictVehicle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictLicencia, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Footer.SuspendLayout()
         Me.StatusUser.SuspendLayout()
         Me.StatusDate.SuspendLayout()
         Me.TableLayoutMenuTitle.SuspendLayout()
         Me.Header.SuspendLayout()
-        Me.TabMultas.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
-        Me.TableLayoutPanel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'NavBar
@@ -164,13 +164,13 @@ Partial Class MultasYContribuyentes
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'LocalidadesToolStripMenuItem
         '
         Me.LocalidadesToolStripMenuItem.Name = "LocalidadesToolStripMenuItem"
-        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LocalidadesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.LocalidadesToolStripMenuItem.Text = "Localidades"
         '
         'AyudaToolStripMenuItem
@@ -232,7 +232,7 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.btnAgregar, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button6, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnModificar, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.btnEliminar, 0, 2)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(6, 19)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -255,17 +255,17 @@ Partial Class MultasYContribuyentes
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = False
         '
-        'Button6
+        'btnModificar
         '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.BackColor = System.Drawing.Color.SteelBlue
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(3, 32)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(86, 23)
-        Me.Button6.TabIndex = 1
-        Me.Button6.Text = "Modificar"
-        Me.Button6.UseVisualStyleBackColor = False
+        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificar.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificar.Location = New System.Drawing.Point(3, 32)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(86, 23)
+        Me.btnModificar.TabIndex = 1
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
         '
         'btnEliminar
         '
@@ -555,6 +555,313 @@ Partial Class MultasYContribuyentes
         Me.txtSearch.Size = New System.Drawing.Size(435, 20)
         Me.txtSearch.TabIndex = 3
         '
+        'TabMultas
+        '
+        Me.TabMultas.Controls.Add(Me.grpOpcionesMultas)
+        Me.TabMultas.Controls.Add(Me.grpFechas)
+        Me.TabMultas.Controls.Add(Me.GroupBox1)
+        Me.TabMultas.Controls.Add(Me.DataMultas)
+        Me.TabMultas.Controls.Add(Me.TableLayoutPanel3)
+        Me.TabMultas.Location = New System.Drawing.Point(4, 22)
+        Me.TabMultas.Name = "TabMultas"
+        Me.TabMultas.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabMultas.Size = New System.Drawing.Size(758, 481)
+        Me.TabMultas.TabIndex = 1
+        Me.TabMultas.Text = "Multas"
+        Me.TabMultas.UseVisualStyleBackColor = True
+        '
+        'grpOpcionesMultas
+        '
+        Me.grpOpcionesMultas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpOpcionesMultas.Controls.Add(Me.tblOpcionesMultas)
+        Me.grpOpcionesMultas.Location = New System.Drawing.Point(648, 362)
+        Me.grpOpcionesMultas.Name = "grpOpcionesMultas"
+        Me.grpOpcionesMultas.Size = New System.Drawing.Size(104, 113)
+        Me.grpOpcionesMultas.TabIndex = 5
+        Me.grpOpcionesMultas.TabStop = False
+        Me.grpOpcionesMultas.Text = "Opciones"
+        '
+        'tblOpcionesMultas
+        '
+        Me.tblOpcionesMultas.ColumnCount = 1
+        Me.tblOpcionesMultas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblOpcionesMultas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblOpcionesMultas.Controls.Add(Me.btnAgregarMulta, 0, 0)
+        Me.tblOpcionesMultas.Controls.Add(Me.btnModificarMulta, 0, 1)
+        Me.tblOpcionesMultas.Controls.Add(Me.btnEliminarMultas, 0, 2)
+        Me.tblOpcionesMultas.Location = New System.Drawing.Point(6, 19)
+        Me.tblOpcionesMultas.Name = "tblOpcionesMultas"
+        Me.tblOpcionesMultas.RowCount = 3
+        Me.tblOpcionesMultas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblOpcionesMultas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblOpcionesMultas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.tblOpcionesMultas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblOpcionesMultas.Size = New System.Drawing.Size(92, 88)
+        Me.tblOpcionesMultas.TabIndex = 0
+        '
+        'btnAgregarMulta
+        '
+        Me.btnAgregarMulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregarMulta.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnAgregarMulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarMulta.Location = New System.Drawing.Point(3, 3)
+        Me.btnAgregarMulta.Name = "btnAgregarMulta"
+        Me.btnAgregarMulta.Size = New System.Drawing.Size(86, 23)
+        Me.btnAgregarMulta.TabIndex = 0
+        Me.btnAgregarMulta.Text = "Agregar"
+        Me.btnAgregarMulta.UseVisualStyleBackColor = False
+        '
+        'btnModificarMulta
+        '
+        Me.btnModificarMulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificarMulta.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnModificarMulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificarMulta.Location = New System.Drawing.Point(3, 32)
+        Me.btnModificarMulta.Name = "btnModificarMulta"
+        Me.btnModificarMulta.Size = New System.Drawing.Size(86, 23)
+        Me.btnModificarMulta.TabIndex = 1
+        Me.btnModificarMulta.Text = "Modificar"
+        Me.btnModificarMulta.UseVisualStyleBackColor = False
+        '
+        'btnEliminarMultas
+        '
+        Me.btnEliminarMultas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEliminarMultas.BackColor = System.Drawing.Color.DarkRed
+        Me.btnEliminarMultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarMultas.Location = New System.Drawing.Point(3, 61)
+        Me.btnEliminarMultas.Name = "btnEliminarMultas"
+        Me.btnEliminarMultas.Size = New System.Drawing.Size(86, 23)
+        Me.btnEliminarMultas.TabIndex = 2
+        Me.btnEliminarMultas.Text = "Eliminar"
+        Me.btnEliminarMultas.UseVisualStyleBackColor = False
+        '
+        'grpFechas
+        '
+        Me.grpFechas.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.grpFechas.Controls.Add(Me.TableLayoutPanel4)
+        Me.grpFechas.Location = New System.Drawing.Point(186, 362)
+        Me.grpFechas.Name = "grpFechas"
+        Me.grpFechas.Size = New System.Drawing.Size(250, 113)
+        Me.grpFechas.TabIndex = 4
+        Me.grpFechas.TabStop = False
+        Me.grpFechas.Text = "Fechas de Emision"
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.lblInitDate, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.lblEndDate, 0, 2)
+        Me.TableLayoutPanel4.Controls.Add(Me.dateInit, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.dateEnd, 0, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(6, 19)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 4
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(238, 88)
+        Me.TableLayoutPanel4.TabIndex = 0
+        '
+        'lblInitDate
+        '
+        Me.lblInitDate.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblInitDate.AutoSize = True
+        Me.lblInitDate.Location = New System.Drawing.Point(3, 2)
+        Me.lblInitDate.Name = "lblInitDate"
+        Me.lblInitDate.Size = New System.Drawing.Size(65, 13)
+        Me.lblInitDate.TabIndex = 0
+        Me.lblInitDate.Text = "Fecha Inicio"
+        '
+        'lblEndDate
+        '
+        Me.lblEndDate.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblEndDate.AutoSize = True
+        Me.lblEndDate.Location = New System.Drawing.Point(3, 45)
+        Me.lblEndDate.Name = "lblEndDate"
+        Me.lblEndDate.Size = New System.Drawing.Size(93, 13)
+        Me.lblEndDate.TabIndex = 1
+        Me.lblEndDate.Text = "Fecha de Termino"
+        '
+        'dateInit
+        '
+        Me.dateInit.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dateInit.Location = New System.Drawing.Point(3, 20)
+        Me.dateInit.Name = "dateInit"
+        Me.dateInit.Size = New System.Drawing.Size(232, 20)
+        Me.dateInit.TabIndex = 2
+        '
+        'dateEnd
+        '
+        Me.dateEnd.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dateEnd.Location = New System.Drawing.Point(3, 64)
+        Me.dateEnd.Name = "dateEnd"
+        Me.dateEnd.Size = New System.Drawing.Size(232, 20)
+        Me.dateEnd.TabIndex = 3
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel6)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 362)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(174, 113)
+        Me.GroupBox1.TabIndex = 3
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Filtros"
+        '
+        'TableLayoutPanel6
+        '
+        Me.TableLayoutPanel6.ColumnCount = 1
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel6.Controls.Add(Me.rbMultasSinPagar, 0, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.rbTodosMultas, 0, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.rbMultasPagadas, 0, 1)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(6, 19)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 3
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(162, 88)
+        Me.TableLayoutPanel6.TabIndex = 1
+        '
+        'rbMultasSinPagar
+        '
+        Me.rbMultasSinPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbMultasSinPagar.AutoSize = True
+        Me.rbMultasSinPagar.Location = New System.Drawing.Point(3, 64)
+        Me.rbMultasSinPagar.Name = "rbMultasSinPagar"
+        Me.rbMultasSinPagar.Size = New System.Drawing.Size(156, 17)
+        Me.rbMultasSinPagar.TabIndex = 2
+        Me.rbMultasSinPagar.Text = "Sin Pagar"
+        Me.rbMultasSinPagar.UseVisualStyleBackColor = True
+        '
+        'rbTodosMultas
+        '
+        Me.rbTodosMultas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbTodosMultas.AutoSize = True
+        Me.rbTodosMultas.Checked = True
+        Me.rbTodosMultas.Location = New System.Drawing.Point(3, 6)
+        Me.rbTodosMultas.Name = "rbTodosMultas"
+        Me.rbTodosMultas.Size = New System.Drawing.Size(156, 17)
+        Me.rbTodosMultas.TabIndex = 0
+        Me.rbTodosMultas.TabStop = True
+        Me.rbTodosMultas.Text = "Todos"
+        Me.rbTodosMultas.UseVisualStyleBackColor = True
+        '
+        'rbMultasPagadas
+        '
+        Me.rbMultasPagadas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbMultasPagadas.AutoSize = True
+        Me.rbMultasPagadas.Location = New System.Drawing.Point(3, 35)
+        Me.rbMultasPagadas.Name = "rbMultasPagadas"
+        Me.rbMultasPagadas.Size = New System.Drawing.Size(156, 17)
+        Me.rbMultasPagadas.TabIndex = 1
+        Me.rbMultasPagadas.Text = "Pagadas"
+        Me.rbMultasPagadas.UseVisualStyleBackColor = True
+        '
+        'DataMultas
+        '
+        Me.DataMultas.AllowUserToAddRows = False
+        Me.DataMultas.AllowUserToDeleteRows = False
+        Me.DataMultas.AllowUserToOrderColumns = True
+        Me.DataMultas.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataMultas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.DataMultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataMultas.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataMultas.Location = New System.Drawing.Point(6, 42)
+        Me.DataMultas.Name = "DataMultas"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataMultas.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataMultas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.DataMultas.Size = New System.Drawing.Size(746, 314)
+        Me.DataMultas.TabIndex = 2
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel3.ColumnCount = 4
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.cbTiposSearchMultas, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label5, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnBuscarMultas, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtSearchMultas, 3, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(6, 6)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(746, 30)
+        Me.TableLayoutPanel3.TabIndex = 1
+        '
+        'cbTiposSearchMultas
+        '
+        Me.cbTiposSearchMultas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbTiposSearchMultas.FormattingEnabled = True
+        Me.cbTiposSearchMultas.Items.AddRange(New Object() {"Placas", "Licencia", "Curp"})
+        Me.cbTiposSearchMultas.Location = New System.Drawing.Point(108, 4)
+        Me.cbTiposSearchMultas.Name = "cbTiposSearchMultas"
+        Me.cbTiposSearchMultas.Size = New System.Drawing.Size(94, 21)
+        Me.cbTiposSearchMultas.TabIndex = 4
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(3, 8)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(99, 13)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "Tipo de Busqueda:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btnBuscarMultas
+        '
+        Me.btnBuscarMultas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscarMultas.Location = New System.Drawing.Point(208, 3)
+        Me.btnBuscarMultas.Name = "btnBuscarMultas"
+        Me.btnBuscarMultas.Size = New System.Drawing.Size(94, 23)
+        Me.btnBuscarMultas.TabIndex = 1
+        Me.btnBuscarMultas.Text = "Buscar"
+        Me.btnBuscarMultas.UseVisualStyleBackColor = True
+        '
+        'txtSearchMultas
+        '
+        Me.txtSearchMultas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtSearchMultas.Location = New System.Drawing.Point(308, 5)
+        Me.txtSearchMultas.Name = "txtSearchMultas"
+        Me.txtSearchMultas.Size = New System.Drawing.Size(435, 20)
+        Me.txtSearchMultas.TabIndex = 3
+        '
         'TableLayoutMenuOptions
         '
         Me.TableLayoutMenuOptions.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -612,16 +919,6 @@ Partial Class MultasYContribuyentes
         Me.PictLicencia.TabIndex = 10
         Me.PictLicencia.TabStop = False
         '
-        'PictMulta
-        '
-        Me.PictMulta.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.receipt
-        Me.PictMulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictMulta.Location = New System.Drawing.Point(173, 448)
-        Me.PictMulta.Name = "PictMulta"
-        Me.PictMulta.Size = New System.Drawing.Size(24, 24)
-        Me.PictMulta.TabIndex = 11
-        Me.PictMulta.TabStop = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.matricula
@@ -661,6 +958,16 @@ Partial Class MultasYContribuyentes
         Me.Button2.TabIndex = 4
         Me.Button2.Text = "Registrar Vehiculos"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'PictMulta
+        '
+        Me.PictMulta.BackgroundImage = Global.ControlVehicular.My.Resources.Resources.receipt
+        Me.PictMulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictMulta.Location = New System.Drawing.Point(173, 448)
+        Me.PictMulta.Name = "PictMulta"
+        Me.PictMulta.Size = New System.Drawing.Size(24, 24)
+        Me.PictMulta.TabIndex = 11
+        Me.PictMulta.TabStop = False
         '
         'Footer
         '
@@ -799,317 +1106,6 @@ Partial Class MultasYContribuyentes
         '
         Me.Timer.Enabled = True
         '
-        'TabMultas
-        '
-        Me.TabMultas.Controls.Add(Me.GroupBox3)
-        Me.TabMultas.Controls.Add(Me.GroupBox2)
-        Me.TabMultas.Controls.Add(Me.GroupBox1)
-        Me.TabMultas.Controls.Add(Me.DataGridView1)
-        Me.TabMultas.Controls.Add(Me.TableLayoutPanel3)
-        Me.TabMultas.Location = New System.Drawing.Point(4, 22)
-        Me.TabMultas.Name = "TabMultas"
-        Me.TabMultas.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabMultas.Size = New System.Drawing.Size(758, 481)
-        Me.TabMultas.TabIndex = 1
-        Me.TabMultas.Text = "Multas"
-        Me.TabMultas.UseVisualStyleBackColor = True
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel3.ColumnCount = 4
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.ComboBox1, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label5, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button1, 2, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.TextBox1, 3, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(6, 6)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(746, 30)
-        Me.TableLayoutPanel3.TabIndex = 1
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Placas", "Licencia", "Curp"})
-        Me.ComboBox1.Location = New System.Drawing.Point(108, 4)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(94, 21)
-        Me.ComboBox1.TabIndex = 4
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(3, 8)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(99, 13)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "Tipo de Busqueda:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(208, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(94, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Buscar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(308, 5)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(435, 20)
-        Me.TextBox1.TabIndex = 3
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToOrderColumns = True
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 42)
-        Me.DataGridView1.Name = "DataGridView1"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.DataGridView1.Size = New System.Drawing.Size(746, 314)
-        Me.DataGridView1.TabIndex = 2
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel6)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 362)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(174, 113)
-        Me.GroupBox1.TabIndex = 3
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Filtros"
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(3, 64)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(156, 17)
-        Me.RadioButton2.TabIndex = 2
-        Me.RadioButton2.Text = "Sin Pagar"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(3, 35)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(156, 17)
-        Me.RadioButton3.TabIndex = 1
-        Me.RadioButton3.Text = "Pagadas"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Checked = True
-        Me.RadioButton4.Location = New System.Drawing.Point(3, 6)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(156, 17)
-        Me.RadioButton4.TabIndex = 0
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "Todos"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel4)
-        Me.GroupBox2.Location = New System.Drawing.Point(186, 362)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(200, 113)
-        Me.GroupBox2.TabIndex = 4
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Localidades"
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 1
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.Label6, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label7, 0, 2)
-        Me.TableLayoutPanel4.Controls.Add(Me.ComboBox2, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.ComboBox4, 0, 3)
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(6, 19)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 4
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(188, 88)
-        Me.TableLayoutPanel4.TabIndex = 0
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 2)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(38, 13)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Paises"
-        '
-        'Label7
-        '
-        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(3, 45)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(51, 13)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "Ciudades"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(3, 19)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(182, 21)
-        Me.ComboBox2.TabIndex = 4
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(3, 63)
-        Me.ComboBox4.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(182, 21)
-        Me.ComboBox4.TabIndex = 6
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox3.Controls.Add(Me.TableLayoutPanel5)
-        Me.GroupBox3.Location = New System.Drawing.Point(648, 362)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(104, 113)
-        Me.GroupBox3.TabIndex = 5
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Opciones"
-        '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.ColumnCount = 1
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.Button7, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Button8, 0, 1)
-        Me.TableLayoutPanel5.Controls.Add(Me.Button9, 0, 2)
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(6, 19)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 3
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(92, 88)
-        Me.TableLayoutPanel5.TabIndex = 0
-        '
-        'Button7
-        '
-        Me.Button7.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button7.BackColor = System.Drawing.Color.SteelBlue
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Location = New System.Drawing.Point(3, 3)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(86, 23)
-        Me.Button7.TabIndex = 0
-        Me.Button7.Text = "Agregar"
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button8.BackColor = System.Drawing.Color.SteelBlue
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Location = New System.Drawing.Point(3, 32)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(86, 23)
-        Me.Button8.TabIndex = 1
-        Me.Button8.Text = "Modificar"
-        Me.Button8.UseVisualStyleBackColor = False
-        '
-        'Button9
-        '
-        Me.Button9.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button9.BackColor = System.Drawing.Color.DarkRed
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Location = New System.Drawing.Point(3, 61)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(86, 23)
-        Me.Button9.TabIndex = 2
-        Me.Button9.Text = "Eliminar"
-        Me.Button9.UseVisualStyleBackColor = False
-        '
-        'TableLayoutPanel6
-        '
-        Me.TableLayoutPanel6.ColumnCount = 1
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel6.Controls.Add(Me.RadioButton2, 0, 2)
-        Me.TableLayoutPanel6.Controls.Add(Me.RadioButton4, 0, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.RadioButton3, 0, 1)
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(6, 19)
-        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
-        Me.TableLayoutPanel6.RowCount = 3
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(162, 88)
-        Me.TableLayoutPanel6.TabIndex = 1
-        '
         'MultasYContribuyentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1143,11 +1139,23 @@ Partial Class MultasYContribuyentes
         CType(Me.DataContribuyentes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tlSearchBar.ResumeLayout(False)
         Me.tlSearchBar.PerformLayout()
+        Me.TabMultas.ResumeLayout(False)
+        Me.grpOpcionesMultas.ResumeLayout(False)
+        Me.tblOpcionesMultas.ResumeLayout(False)
+        Me.grpFechas.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.TableLayoutPanel6.ResumeLayout(False)
+        Me.TableLayoutPanel6.PerformLayout()
+        CType(Me.DataMultas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.TableLayoutMenuOptions.ResumeLayout(False)
         CType(Me.PictVehicle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictLicencia, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictMulta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Footer.ResumeLayout(False)
         Me.Footer.PerformLayout()
         Me.StatusUser.ResumeLayout(False)
@@ -1158,18 +1166,6 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuTitle.PerformLayout()
         Me.Header.ResumeLayout(False)
         Me.Header.PerformLayout()
-        Me.TabMultas.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.TableLayoutPanel6.ResumeLayout(False)
-        Me.TableLayoutPanel6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1229,29 +1225,29 @@ Partial Class MultasYContribuyentes
     Friend WithEvents cbColonias As ComboBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents btnAgregar As Button
-    Friend WithEvents Button6 As Button
+    Friend WithEvents btnModificar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents TabMultas As TabPage
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton4 As RadioButton
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents rbMultasSinPagar As RadioButton
+    Friend WithEvents rbMultasPagadas As RadioButton
+    Friend WithEvents rbTodosMultas As RadioButton
+    Friend WithEvents DataMultas As DataGridView
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbTiposSearchMultas As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnBuscarMultas As Button
+    Friend WithEvents txtSearchMultas As TextBox
+    Friend WithEvents grpOpcionesMultas As GroupBox
+    Friend WithEvents tblOpcionesMultas As TableLayoutPanel
+    Friend WithEvents btnAgregarMulta As Button
+    Friend WithEvents btnModificarMulta As Button
+    Friend WithEvents btnEliminarMultas As Button
+    Friend WithEvents grpFechas As GroupBox
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents lblInitDate As Label
+    Friend WithEvents lblEndDate As Label
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
+    Friend WithEvents dateInit As DateTimePicker
+    Friend WithEvents dateEnd As DateTimePicker
 End Class

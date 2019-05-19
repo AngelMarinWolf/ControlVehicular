@@ -1,11 +1,15 @@
 ﻿Public Class MultasYContribuyentes
     Private user As Empleado
     Private contribuyente As Contribuyente = New Contribuyente()
+    Private multa As Multa = New Multa()
 
     Private pais As Pais = New Pais()
     Private estado As Estado = New Estado()
     Private ciudad As Ciudad = New Ciudad()
     Private colonia As Colonia = New Colonia()
+
+    Private rowContribuyente As Integer
+    Private rowMulta As Integer
 
     Public Sub New(user As Empleado)
         ' Esta llamada es exigida por el diseñador.
@@ -19,9 +23,13 @@
         Me.lblFechaData.Text = Date.Now.ToShortDateString
         Me.lblHoraData.Text = Date.Now.Hour & ":" & Date.Now.Minute
         Me.cbTipoBusqueda.SelectedItem = "CURP"
+        Me.cbTiposSearchMultas.SelectedItem = "Placas"
         Me.pais.PoblarComboPaises(Me.cbPaises)
+        Me.dateInit.Value = Date.Now.AddMonths(-7)
+        Me.dateEnd.Value = Date.Now
 
         buscarContribuyentes()
+        buscarMultas()
     End Sub
 
     Private Sub buscarContribuyentes()
@@ -57,6 +65,30 @@
             Dim noColumnas = Me.contribuyente.BuscarContribuyentes.Columns.Count - 1
             For index = 0 To noColumnas - 1
                 Me.DataContribuyentes.Columns(index).Width = CInt(Me.DataContribuyentes.Width / noColumnas)
+            Next
+        End If
+    End Sub
+
+    Private Sub buscarMultas()
+        Dim columnas As String() = {"Contribuyentes.curp", "Contribuyentes.nombre", "Contribuyentes.paterno", "Licencias.idLicencia"}
+        Dim joins As String() = {"INNER JOIN PlacasVehiculos ON PlacasVehiculos.idPlacas=Multas.idPlacas",
+                                 "INNER JOIN Licencias ON Licencias.idLicencia=PlacasVehiculos.idLicencia",
+                                 "INNER JOIN Contribuyentes ON Licencias.idContribuyente=Contribuyentes.curp"}
+        Dim condiciones As String() = {"Multas.fechaExpedicionMulta > TO_DATE('" & Me.dateInit.Value.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                       "Multas.fechaExpedicionMulta < TO_DATE('" & Me.dateEnd.Value.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')"}
+
+        If Me.rbMultasPagadas.Checked Then
+            condiciones = condiciones.Union({"NOT Multas.fechaLiquidacionMulta IS NULL"}).ToArray
+        End If
+        If Me.rbMultasSinPagar.Checked Then
+            condiciones = condiciones.Union({"Multas.fechaLiquidacionMulta IS NULL"}).ToArray
+        End If
+        Me.DataMultas.DataSource = Me.multa.BuscarMultasByConditions(columnas, joins, condiciones)
+
+        If Me.DataMultas.Rows.Count > 0 Then
+            Dim noColumnas = Me.multa.BuscarMultasByConditions(columnas, joins, condiciones).Columns.Count
+            For index = 0 To noColumnas - 1
+                Me.DataMultas.Columns(index).Width = CInt(Me.DataMultas.Width / noColumnas)
             Next
         End If
     End Sub
@@ -141,6 +173,32 @@
         End If
     End Sub
 
+    Private Sub buscarMultasBySearchBar()
+        Dim columnas As String() = {"Contribuyentes.curp", "Contribuyentes.nombre", "Contribuyentes.paterno", "Licencias.idLicencia"}
+        Dim joins As String() = {"INNER JOIN PlacasVehiculos ON PlacasVehiculos.idPlacas=Multas.idPlacas",
+                                 "INNER JOIN Licencias ON Licencias.idLicencia=PlacasVehiculos.idLicencia",
+                                 "INNER JOIN Contribuyentes ON Licencias.idContribuyente=Contribuyentes.curp"}
+        Dim condiciones As String()
+
+        Select Case Me.cbTiposSearchMultas.SelectedItem
+            Case "Placas"
+                condiciones = {"PlacasVehiculos.idPlacas LIKE '%" & Me.txtSearchMultas.Text & "%'"}
+            Case "Licencia"
+                condiciones = {"Licencias.idLicencia LIKE '%" & Me.txtSearchMultas.Text & "%'"}
+            Case "Curp"
+                condiciones = {"Contribuyentes.curp LIKE '%" & Me.txtSearchMultas.Text & "%'"}
+            Case Else
+                condiciones = {}
+        End Select
+
+        Me.DataMultas.DataSource = Me.multa.BuscarMultasByConditions(columnas, joins, condiciones)
+
+        Dim noColumnas = Me.multa.BuscarMultasByConditions(columnas, joins, condiciones).Columns.Count
+        For index = 0 To noColumnas - 1
+            Me.DataMultas.Columns(index).Width = CInt(Me.DataMultas.Width / noColumnas)
+        Next
+    End Sub
+
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         buscarContribuyenteBySearchBar()
     End Sub
@@ -149,5 +207,90 @@
         If e.KeyCode = Keys.Enter Then
             buscarContribuyenteBySearchBar()
         End If
+    End Sub
+
+    Private Sub rbTodosMultas_CheckedChanged(sender As Object, e As EventArgs) Handles rbTodosMultas.CheckedChanged
+        buscarMultas()
+    End Sub
+
+    Private Sub rbMultasPagadas_CheckedChanged(sender As Object, e As EventArgs) Handles rbMultasPagadas.CheckedChanged
+        buscarMultas()
+    End Sub
+
+    Private Sub rbMultasSinPagar_CheckedChanged(sender As Object, e As EventArgs) Handles rbMultasSinPagar.CheckedChanged
+        buscarMultas()
+    End Sub
+
+    Private Sub dateInit_ValueChanged(sender As Object, e As EventArgs) Handles dateInit.ValueChanged
+        buscarMultas()
+    End Sub
+
+    Private Sub dateEnd_ValueChanged(sender As Object, e As EventArgs) Handles dateEnd.ValueChanged
+        buscarMultas()
+    End Sub
+
+    Private Sub btnBuscarMultas_Click(sender As Object, e As EventArgs) Handles btnBuscarMultas.Click
+        buscarMultasBySearchBar()
+    End Sub
+
+    Private Sub btnBuscarMultas_KeyDown(sender As Object, e As KeyEventArgs) Handles btnBuscarMultas.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            buscarMultasBySearchBar()
+        End If
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        RegistrarContribuyentes.Show()
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        If Me.rowContribuyente >= 0 And Me.rowContribuyente < Me.DataContribuyentes.Rows.Count Then
+            Dim contribuyentesForm = New RegistrarContribuyentes(Me.DataContribuyentes.Rows(rowContribuyente).Cells("curp").Value)
+            contribuyentesForm.Show()
+        Else
+            MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
+        End If
+    End Sub
+
+    Private Sub DataContribuyentes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataContribuyentes.CellContentClick
+        Me.rowContribuyente = Me.DataContribuyentes.SelectedCells(0).RowIndex
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Dim tmpContribuyente As Contribuyente = New Contribuyente()
+        Dim tmpDomicilio As Domicilio = New Domicilio()
+
+        If Not Me.rowContribuyente >= 0 And Not Me.rowContribuyente < Me.DataContribuyentes.Rows.Count Then
+            MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
+            Exit Sub
+        End If
+
+        If MsgBox("Desea eliminar registro?." + vbNewLine + "Por favor confirme.", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.No Then
+            Exit Sub
+        End If
+
+        If Me.DataContribuyentes.Rows(rowContribuyente).Cells("curp").Value.Length <> 18 Then
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Not tmpContribuyente.BuscarContribuyenteById(Me.DataContribuyentes.Rows(rowContribuyente).Cells("curp").Value) Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "Contribuyente inexistente.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        tmpDomicilio.BuscarDomicilioById(tmpContribuyente.GetIdDomicilio)
+
+        If Not tmpContribuyente.EliminarContribuyente Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Not tmpDomicilio.EliminarDomicilio Then
+            MsgBox("No se pudo eliminar Domicilio." + vbNewLine + "Se requiere eliminacion manual." + vbNewLine + "Utilice ventana de mantenimiento para locaciones.", MsgBoxStyle.Critical, "Error")
+        End If
+
+        MsgBox("Contribuyente Eliminado Exitosamente.", MsgBoxStyle.Information, "Correcto")
+        buscarContribuyentes()
     End Sub
 End Class

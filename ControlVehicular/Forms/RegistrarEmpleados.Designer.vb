@@ -52,7 +52,7 @@ Partial Class RegistrarEmpleados
         Me.cmbColonia = New System.Windows.Forms.ComboBox()
         Me.cmbPais = New System.Windows.Forms.ComboBox()
         Me.txtTelefono = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblRfc = New System.Windows.Forms.TableLayoutPanel()
         Me.txtEdad = New System.Windows.Forms.NumericUpDown()
         Me.tblHeader = New System.Windows.Forms.TableLayoutPanel()
         Me.tblApellidos = New System.Windows.Forms.TableLayoutPanel()
@@ -80,7 +80,7 @@ Partial Class RegistrarEmpleados
         Me.tblBotones = New System.Windows.Forms.TableLayoutPanel()
         Me.tblGridEmpleados = New System.Windows.Forms.FlowLayoutPanel()
         CType(Me.dataEmpleados, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tblRfc.SuspendLayout()
         CType(Me.txtEdad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tblHeader.SuspendLayout()
         Me.tblApellidos.SuspendLayout()
@@ -114,6 +114,7 @@ Partial Class RegistrarEmpleados
         'txtRfc
         '
         Me.txtRfc.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtRfc.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtRfc.Location = New System.Drawing.Point(63, 3)
         Me.txtRfc.MaxLength = 13
         Me.txtRfc.Name = "txtRfc"
@@ -187,6 +188,7 @@ Partial Class RegistrarEmpleados
         'txtCurp
         '
         Me.txtCurp.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCurp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCurp.Location = New System.Drawing.Point(63, 3)
         Me.txtCurp.MaxLength = 18
         Me.txtCurp.Name = "txtCurp"
@@ -380,29 +382,29 @@ Partial Class RegistrarEmpleados
         Me.txtTelefono.Size = New System.Drawing.Size(176, 20)
         Me.txtTelefono.TabIndex = 8
         '
-        'TableLayoutPanel1
+        'tblRfc
         '
-        Me.TableLayoutPanel1.ColumnCount = 4
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.txtEdad, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.lblRfc, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.txtRfc, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.lblEdad, 2, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(483, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(483, 25)
-        Me.TableLayoutPanel1.TabIndex = 161
+        Me.tblRfc.ColumnCount = 4
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblRfc.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblRfc.Controls.Add(Me.txtEdad, 3, 0)
+        Me.tblRfc.Controls.Add(Me.lblRfc, 0, 0)
+        Me.tblRfc.Controls.Add(Me.txtRfc, 1, 0)
+        Me.tblRfc.Controls.Add(Me.lblEdad, 2, 0)
+        Me.tblRfc.Location = New System.Drawing.Point(483, 0)
+        Me.tblRfc.Margin = New System.Windows.Forms.Padding(0)
+        Me.tblRfc.Name = "tblRfc"
+        Me.tblRfc.RowCount = 1
+        Me.tblRfc.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.tblRfc.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.tblRfc.Size = New System.Drawing.Size(483, 25)
+        Me.tblRfc.TabIndex = 161
         '
         'txtEdad
         '
@@ -421,7 +423,7 @@ Partial Class RegistrarEmpleados
         Me.tblHeader.Controls.Add(Me.tblApellidos, 1, 1)
         Me.tblHeader.Controls.Add(Me.tblNombre, 0, 1)
         Me.tblHeader.Controls.Add(Me.tblCurp, 0, 0)
-        Me.tblHeader.Controls.Add(Me.TableLayoutPanel1, 1, 0)
+        Me.tblHeader.Controls.Add(Me.tblRfc, 1, 0)
         Me.tblHeader.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.tblHeader.Location = New System.Drawing.Point(9, 9)
         Me.tblHeader.Margin = New System.Windows.Forms.Padding(0)
@@ -793,8 +795,8 @@ Partial Class RegistrarEmpleados
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registrar Empleados"
         CType(Me.dataEmpleados, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.tblRfc.ResumeLayout(False)
+        Me.tblRfc.PerformLayout()
         CType(Me.txtEdad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tblHeader.ResumeLayout(False)
         Me.tblApellidos.ResumeLayout(False)
@@ -853,7 +855,7 @@ Partial Class RegistrarEmpleados
     Friend WithEvents cmbColonia As ComboBox
     Friend WithEvents cmbPais As ComboBox
     Friend WithEvents txtTelefono As TextBox
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents tblRfc As TableLayoutPanel
     Friend WithEvents tblCurp As TableLayoutPanel
     Friend WithEvents tblHeader As TableLayoutPanel
     Friend WithEvents tblApellidos As TableLayoutPanel
