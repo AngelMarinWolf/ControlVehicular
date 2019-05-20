@@ -156,8 +156,9 @@ Public Class Padron
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"noSerie", "noFactura", "fechaFactura", "importeFactura", "implementacion", "color",
                                     "combustible", "pasajeros", "idTipo", "idMarca", "idContribuyente", "idEmpleado"}
-        Dim valores As String() = {Me.noSerie, Me.noFactura, Me.fechaFactura, Me.importeFactura, Me.implementacion, Me.color,
-                                   Me.combustible, Me.pasajeros, Me.idTipo, Me.idMarca, Me.idContribuyente, Me.idEmpleado}
+        Dim valores As String() = {"'" & Me.noSerie & "'", "'" & Me.noFactura & "'", "TO_DATE('" & Me.fechaFactura.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   Me.importeFactura, "'" & Me.implementacion & "'", "'" & Me.color & "'", "'" & Me.combustible & "'", Me.pasajeros, Me.idTipo, Me.idMarca,
+                                   "'" & Me.idContribuyente & "'", "'" & Me.idEmpleado & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
@@ -166,16 +167,17 @@ Public Class Padron
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"noFactura", "fechaFactura", "importeFactura", "implementacion", "color",
                                     "combustible", "pasajeros", "idTipo", "idMarca", "idContribuyente", "idEmpleado"}
-        Dim valores As String() = {Me.noFactura, Me.fechaFactura, Me.importeFactura, Me.implementacion, Me.color,
-                                   Me.combustible, Me.pasajeros, Me.idTipo, Me.idMarca, Me.idContribuyente, Me.idEmpleado}
-        Dim condiciones As String() = {"noSerie=" & Me.noSerie}
+        Dim valores As String() = {"'" & Me.noFactura & "'", "TO_DATE('" & Me.fechaFactura.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   Me.importeFactura, "'" & Me.implementacion & "'", "'" & Me.color & "'", "'" & Me.combustible & "'", Me.pasajeros, Me.idTipo, Me.idMarca,
+                                   "'" & Me.idContribuyente & "'", "'" & Me.idEmpleado & "'"}
+        Dim condiciones As String() = {"noSerie='" & Me.noSerie & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
     End Function
 
     Public Function EliminarVehiculo() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim condiciones As String() = {"noSerie=" & Me.noSerie}
+        Dim condiciones As String() = {"noSerie='" & Me.noSerie & "'"}
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
@@ -184,7 +186,7 @@ Public Class Padron
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"noSerie", "noFactura", "fechaFactura", "importeFactura", "implementacion", "color",
                                     "combustible", "pasajeros", "idTipo", "idMarca", "idContribuyente", "idEmpleado"}
-        Dim condiciones As String() = {"noSerie=" & noSerie}
+        Dim condiciones As String() = {"noSerie='" & noSerie & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
@@ -222,4 +224,46 @@ Public Class Padron
             Return False
         End If
     End Function
+
+    Public Sub PoblarComboMarcas(cbMarcas As ComboBox)
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idMarca", "nombre"}
+        Dim result As DataTable = database.Buscar({"MarcasVehiculos"}, columnas, {})
+        result.DefaultView.Sort = "idMarca ASC"
+        result = result.DefaultView.ToTable()
+
+        cbMarcas.DisplayMember = "Value"
+        cbMarcas.ValueMember = "Key"
+
+        If result.Rows.Count > 0 Then
+            Dim marcasDictionary As New Dictionary(Of Integer, String)
+            For index = 0 To result.Rows.Count - 1
+                marcasDictionary.Add(result.Rows(index)("idMarca"), result.Rows(index)("nombre"))
+            Next
+            cbMarcas.DataSource = New BindingSource(marcasDictionary, Nothing)
+        Else
+            cbMarcas.DataSource = Nothing
+        End If
+    End Sub
+
+    Public Sub PoblarComboTipos(cbTipo As ComboBox)
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idTipo", "tipo"}
+        Dim result As DataTable = database.Buscar({"TiposVehiculos"}, columnas, {})
+        result.DefaultView.Sort = "idTipo ASC"
+        result = result.DefaultView.ToTable()
+
+        cbTipo.DisplayMember = "Value"
+        cbTipo.ValueMember = "Key"
+
+        If result.Rows.Count > 0 Then
+            Dim tiposDictionary As New Dictionary(Of Integer, String)
+            For index = 0 To result.Rows.Count - 1
+                tiposDictionary.Add(result.Rows(index)("idTipo"), result.Rows(index)("tipo"))
+            Next
+            cbTipo.DataSource = New BindingSource(tiposDictionary, Nothing)
+        Else
+            cbTipo.DataSource = Nothing
+        End If
+    End Sub
 End Class

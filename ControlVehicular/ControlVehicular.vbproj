@@ -167,10 +167,10 @@
     <Compile Include="Forms\RegistrarPlacas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RegistarVehiculo.Designer.vb">
-      <DependentUpon>RegistarVehiculo.vb</DependentUpon>
+    <Compile Include="Forms\RegistrarVehiculo.Designer.vb">
+      <DependentUpon>RegistrarVehiculo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RegistarVehiculo.vb">
+    <Compile Include="Forms\RegistrarVehiculo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -217,8 +217,8 @@
     <EmbeddedResource Include="Forms\RegistrarPlacas.resx">
       <DependentUpon>RegistrarPlacas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RegistarVehiculo.resx">
-      <DependentUpon>RegistarVehiculo.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistrarVehiculo.resx">
+      <DependentUpon>RegistrarVehiculo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

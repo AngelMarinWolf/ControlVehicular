@@ -347,4 +347,9 @@
             MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
         End If
     End Sub
+
+    Private Sub btnVehiculos_Click(sender As Object, e As EventArgs) Handles btnVehiculos.Click
+        Dim formVehiculo As New RegistrarVehiculo(Me.user.GetCurp)
+        formVehiculo.Show()
+    End Sub
 End Class

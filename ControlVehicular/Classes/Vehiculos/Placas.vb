@@ -94,4 +94,13 @@ Public Class Placas
             Return False
         End If
     End Function
+
+    Public Function BuscarPlacasByVehiculo(idVehiculo As String) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idPlacas", "idLicencia", "idVehiculo"}
+        Dim condiciones As String() = {"idVehiculo='" & idVehiculo & "'"}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, condiciones)
+
+        Return result
+    End Function
 End Class
