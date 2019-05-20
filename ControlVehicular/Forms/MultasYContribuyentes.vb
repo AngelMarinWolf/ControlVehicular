@@ -32,7 +32,7 @@
         buscarMultas()
     End Sub
 
-    Private Sub buscarContribuyentes()
+    Public Sub buscarContribuyentes()
         ' Condiciones de consulta para mostrar contribuyentes por localidad
         Dim joins As String() = {"INNER JOIN Domicilios ON Contribuyentes.idDomicilio=Domicilios.idDomicilio"}
         Dim condiciones As String() = {"Domicilios.idColonia=" & If(Me.cbColonias.SelectedValue = Nothing, 0, Me.cbColonias.SelectedValue)}
@@ -69,7 +69,7 @@
         End If
     End Sub
 
-    Private Sub buscarMultas()
+    Public Sub buscarMultas()
         Dim columnas As String() = {"Contribuyentes.curp", "Contribuyentes.nombre", "Contribuyentes.paterno", "Licencias.idLicencia"}
         Dim joins As String() = {"INNER JOIN PlacasVehiculos ON PlacasVehiculos.idPlacas=Multas.idPlacas",
                                  "INNER JOIN Licencias ON Licencias.idLicencia=PlacasVehiculos.idLicencia",
@@ -337,5 +337,14 @@
 
     Private Sub DataMultas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataMultas.CellContentClick
         Me.rowMulta = Me.DataMultas.SelectedCells(0).RowIndex
+    End Sub
+
+    Private Sub btnPago_Click(sender As Object, e As EventArgs) Handles btnPago.Click
+        If Me.rowMulta >= 0 And Me.rowMulta < Me.DataMultas.Rows.Count Then
+            Dim multasForm = New RegistrarMultas(Me.DataMultas.Rows(rowMulta).Cells("idMulta").Value)
+            multasForm.Show()
+        Else
+            MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
+        End If
     End Sub
 End Class

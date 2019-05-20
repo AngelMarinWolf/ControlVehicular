@@ -39,7 +39,7 @@ Public Class Multa
     End Sub
 
     Public Sub SetFechaLiquidacion(fechaLiquidacion As Date)
-        Me.fechaLiquidacionMulta = fechaLiquidacionMulta
+        Me.fechaLiquidacionMulta = fechaLiquidacion
     End Sub
 
     Public Sub SetImporte(importe As Double)
@@ -85,8 +85,10 @@ Public Class Multa
 
     Public Function ActualizarMulta() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idPlacas", "fechaExpedicionMulta", "importe", "descripcion"}
-        Dim valores As String() = {"'" & Me.idPlacas & "'", "TO_DATE('" & Me.fechaExpedicionMulta.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+        Dim columnas As String() = {"idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
+        Dim valores As String() = {"'" & Me.idPlacas & "'",
+                                   "TO_DATE('" & Me.fechaExpedicionMulta.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   If(Me.fechaLiquidacionMulta <> Nothing, "TO_DATE('" & Me.fechaLiquidacionMulta.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')", "NULL"),
                                    Me.importe, "'" & Me.descripcion & "'"}
         Dim condiciones As String() = {"idMulta=" & Me.idMulta}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)

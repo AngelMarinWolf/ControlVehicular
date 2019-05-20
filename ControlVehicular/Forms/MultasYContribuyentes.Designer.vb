@@ -89,12 +89,12 @@ Partial Class MultasYContribuyentes
         Me.txtSearchMultas = New System.Windows.Forms.TextBox()
         Me.TableLayoutMenuOptions = New System.Windows.Forms.TableLayoutPanel()
         Me.PictVehicle = New System.Windows.Forms.PictureBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnLicencias = New System.Windows.Forms.Button()
         Me.PictLicencia = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnPlacas = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnPago = New System.Windows.Forms.Button()
+        Me.btnVehiculos = New System.Windows.Forms.Button()
         Me.PictMulta = New System.Windows.Forms.PictureBox()
         Me.Footer = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusUser = New System.Windows.Forms.StatusStrip()
@@ -870,12 +870,12 @@ Partial Class MultasYContribuyentes
         Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutMenuOptions.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictVehicle, 1, 0)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button3, 0, 1)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.btnLicencias, 0, 1)
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictLicencia, 1, 1)
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictureBox1, 1, 2)
         Me.TableLayoutMenuOptions.Controls.Add(Me.btnPlacas, 0, 2)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button5, 0, 4)
-        Me.TableLayoutMenuOptions.Controls.Add(Me.Button2, 0, 0)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.btnPago, 0, 4)
+        Me.TableLayoutMenuOptions.Controls.Add(Me.btnVehiculos, 0, 0)
         Me.TableLayoutMenuOptions.Controls.Add(Me.PictMulta, 1, 4)
         Me.TableLayoutMenuOptions.Location = New System.Drawing.Point(784, 63)
         Me.TableLayoutMenuOptions.Name = "TableLayoutMenuOptions"
@@ -899,15 +899,15 @@ Partial Class MultasYContribuyentes
         Me.PictVehicle.TabIndex = 9
         Me.PictVehicle.TabStop = False
         '
-        'Button3
+        'btnLicencias
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(3, 33)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(164, 23)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "Registrar Licencias"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnLicencias.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLicencias.Location = New System.Drawing.Point(3, 33)
+        Me.btnLicencias.Name = "btnLicencias"
+        Me.btnLicencias.Size = New System.Drawing.Size(164, 23)
+        Me.btnLicencias.TabIndex = 5
+        Me.btnLicencias.Text = "Registrar Licencias"
+        Me.btnLicencias.UseVisualStyleBackColor = True
         '
         'PictLicencia
         '
@@ -939,25 +939,25 @@ Partial Class MultasYContribuyentes
         Me.btnPlacas.Text = "Registrar Placas"
         Me.btnPlacas.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnPago
         '
-        Me.Button5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button5.Location = New System.Drawing.Point(3, 448)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(164, 23)
-        Me.Button5.TabIndex = 7
-        Me.Button5.Text = "Pago Multa"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnPago.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPago.Location = New System.Drawing.Point(3, 448)
+        Me.btnPago.Name = "btnPago"
+        Me.btnPago.Size = New System.Drawing.Size(164, 23)
+        Me.btnPago.TabIndex = 7
+        Me.btnPago.Text = "Pago Multa"
+        Me.btnPago.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnVehiculos
         '
-        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(3, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(164, 23)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "Registrar Vehiculos"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnVehiculos.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnVehiculos.Location = New System.Drawing.Point(3, 3)
+        Me.btnVehiculos.Name = "btnVehiculos"
+        Me.btnVehiculos.Size = New System.Drawing.Size(164, 23)
+        Me.btnVehiculos.TabIndex = 4
+        Me.btnVehiculos.Text = "Registrar Vehiculos"
+        Me.btnVehiculos.UseVisualStyleBackColor = True
         '
         'PictMulta
         '
@@ -1179,9 +1179,9 @@ Partial Class MultasYContribuyentes
     Friend WithEvents LocalidadesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ManualToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TableLayoutMenuOptions As TableLayoutPanel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnVehiculos As Button
+    Friend WithEvents btnLicencias As Button
+    Friend WithEvents btnPago As Button
     Friend WithEvents Footer As TableLayoutPanel
     Friend WithEvents StatusUser As StatusStrip
     Friend WithEvents lblUser As ToolStripStatusLabel

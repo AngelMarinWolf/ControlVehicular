@@ -31,17 +31,18 @@ Partial Class RegistrarMultas
         Me.Fecha = New System.Windows.Forms.Label()
         Me.dateExpedicion = New System.Windows.Forms.DateTimePicker()
         Me.tblHeader = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtIdMulta = New System.Windows.Forms.NumericUpDown()
+        Me.txtImporte = New System.Windows.Forms.NumericUpDown()
         Me.tblBotones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.grpDescripcion = New System.Windows.Forms.GroupBox()
-        Me.txtIdMulta = New System.Windows.Forms.NumericUpDown()
-        Me.txtImporte = New System.Windows.Forms.NumericUpDown()
+        Me.btnPagar = New System.Windows.Forms.Button()
         Me.tblHeader.SuspendLayout()
-        Me.tblBotones.SuspendLayout()
-        Me.grpDescripcion.SuspendLayout()
         CType(Me.txtIdMulta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtImporte, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tblBotones.SuspendLayout()
+        Me.grpDescripcion.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblPlacas
@@ -150,62 +151,6 @@ Partial Class RegistrarMultas
         Me.tblHeader.Size = New System.Drawing.Size(610, 68)
         Me.tblHeader.TabIndex = 127
         '
-        'tblBotones
-        '
-        Me.tblBotones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblBotones.ColumnCount = 5
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tblBotones.Controls.Add(Me.btnAgregar, 1, 0)
-        Me.tblBotones.Controls.Add(Me.btnModificar, 3, 0)
-        Me.tblBotones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.tblBotones.Location = New System.Drawing.Point(12, 237)
-        Me.tblBotones.Name = "tblBotones"
-        Me.tblBotones.RowCount = 1
-        Me.tblBotones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblBotones.Size = New System.Drawing.Size(610, 25)
-        Me.tblBotones.TabIndex = 128
-        '
-        'btnAgregar
-        '
-        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAgregar.Location = New System.Drawing.Point(55, 1)
-        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(221, 23)
-        Me.btnAgregar.TabIndex = 19
-        Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
-        '
-        'btnModificar
-        '
-        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnModificar.Location = New System.Drawing.Point(331, 1)
-        Me.btnModificar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(221, 23)
-        Me.btnModificar.TabIndex = 20
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = True
-        '
-        'grpDescripcion
-        '
-        Me.grpDescripcion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grpDescripcion.Controls.Add(Me.txtDescripcion)
-        Me.grpDescripcion.Location = New System.Drawing.Point(12, 86)
-        Me.grpDescripcion.Name = "grpDescripcion"
-        Me.grpDescripcion.Size = New System.Drawing.Size(610, 145)
-        Me.grpDescripcion.TabIndex = 129
-        Me.grpDescripcion.TabStop = False
-        Me.grpDescripcion.Text = "Motivo de la Infraccion"
-        '
         'txtIdMulta
         '
         Me.txtIdMulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -225,6 +170,74 @@ Partial Class RegistrarMultas
         Me.txtImporte.Size = New System.Drawing.Size(207, 20)
         Me.txtImporte.TabIndex = 128
         '
+        'tblBotones
+        '
+        Me.tblBotones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tblBotones.ColumnCount = 7
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.250195!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00078!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.250195!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.00078!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.250195!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.99828!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.24957!))
+        Me.tblBotones.Controls.Add(Me.btnAgregar, 1, 0)
+        Me.tblBotones.Controls.Add(Me.btnModificar, 3, 0)
+        Me.tblBotones.Controls.Add(Me.btnPagar, 5, 0)
+        Me.tblBotones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.tblBotones.Location = New System.Drawing.Point(12, 237)
+        Me.tblBotones.Name = "tblBotones"
+        Me.tblBotones.RowCount = 1
+        Me.tblBotones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblBotones.Size = New System.Drawing.Size(610, 25)
+        Me.tblBotones.TabIndex = 128
+        '
+        'btnAgregar
+        '
+        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregar.Location = New System.Drawing.Point(38, 1)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(152, 23)
+        Me.btnAgregar.TabIndex = 19
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = True
+        '
+        'btnModificar
+        '
+        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnModificar.Location = New System.Drawing.Point(228, 1)
+        Me.btnModificar.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(152, 23)
+        Me.btnModificar.TabIndex = 20
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'grpDescripcion
+        '
+        Me.grpDescripcion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpDescripcion.Controls.Add(Me.txtDescripcion)
+        Me.grpDescripcion.Location = New System.Drawing.Point(12, 86)
+        Me.grpDescripcion.Name = "grpDescripcion"
+        Me.grpDescripcion.Size = New System.Drawing.Size(610, 145)
+        Me.grpDescripcion.TabIndex = 129
+        Me.grpDescripcion.TabStop = False
+        Me.grpDescripcion.Text = "Motivo de la Infraccion"
+        '
+        'btnPagar
+        '
+        Me.btnPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPagar.Location = New System.Drawing.Point(418, 1)
+        Me.btnPagar.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(152, 23)
+        Me.btnPagar.TabIndex = 21
+        Me.btnPagar.Text = "Pagar"
+        Me.btnPagar.UseVisualStyleBackColor = True
+        '
         'RegistrarMultas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -241,11 +254,11 @@ Partial Class RegistrarMultas
         Me.Text = "Registrar Multas"
         Me.tblHeader.ResumeLayout(False)
         Me.tblHeader.PerformLayout()
+        CType(Me.txtIdMulta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtImporte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tblBotones.ResumeLayout(False)
         Me.grpDescripcion.ResumeLayout(False)
         Me.grpDescripcion.PerformLayout()
-        CType(Me.txtIdMulta, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtImporte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -264,4 +277,5 @@ Partial Class RegistrarMultas
     Friend WithEvents grpDescripcion As GroupBox
     Friend WithEvents txtIdMulta As NumericUpDown
     Friend WithEvents txtImporte As NumericUpDown
+    Friend WithEvents btnPagar As Button
 End Class

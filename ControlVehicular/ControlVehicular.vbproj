@@ -167,12 +167,6 @@
     <Compile Include="Forms\RegistrarPlacas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PagoMultas.Designer.vb">
-      <DependentUpon>PagoMultas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PagoMultas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\RegistarVehiculo.Designer.vb">
       <DependentUpon>RegistarVehiculo.vb</DependentUpon>
     </Compile>
@@ -205,6 +199,9 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistrarLicencias.resx">
+      <DependentUpon>RegistrarLicencias.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrarMultas.resx">
       <DependentUpon>RegistrarMultas.vb</DependentUpon>
     </EmbeddedResource>
@@ -219,9 +216,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrarPlacas.resx">
       <DependentUpon>RegistrarPlacas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PagoMultas.resx">
-      <DependentUpon>PagoMultas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistarVehiculo.resx">
       <DependentUpon>RegistarVehiculo.vb</DependentUpon>
