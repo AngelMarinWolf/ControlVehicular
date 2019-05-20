@@ -293,4 +293,49 @@
         MsgBox("Contribuyente Eliminado Exitosamente.", MsgBoxStyle.Information, "Correcto")
         buscarContribuyentes()
     End Sub
+
+    Private Sub btnAgregarMulta_Click(sender As Object, e As EventArgs) Handles btnAgregarMulta.Click
+        RegistrarMultas.Show()
+    End Sub
+
+    Private Sub btnModificarMulta_Click(sender As Object, e As EventArgs) Handles btnModificarMulta.Click
+        If Me.rowMulta >= 0 And Me.rowMulta < Me.DataMultas.Rows.Count Then
+            Dim multasForm = New RegistrarMultas(Me.DataMultas.Rows(rowMulta).Cells("idMulta").Value)
+            multasForm.Show()
+        Else
+            MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
+        End If
+    End Sub
+
+    Private Sub btnEliminarMultas_Click(sender As Object, e As EventArgs) Handles btnEliminarMultas.Click
+        Dim tmpMulta As Multa = New Multa()
+
+        If Not Me.rowMulta >= 0 And Not Me.rowMulta < Me.DataMultas.Rows.Count Then
+            MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
+            Exit Sub
+        End If
+
+        If MsgBox("Desea eliminar registro?." + vbNewLine + "No se deben eliminar multas de esta forma. (metodo solo para uso academico)", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.No Then
+            Exit Sub
+        End If
+
+        If Not tmpMulta.BuscarMultaById(Me.DataMultas.Rows(rowMulta).Cells("idMulta").Value) Then
+            MsgBox("No se pudo eliminar multa." + vbNewLine + "Multa inexistente.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        tmpMulta.BuscarMultaById(Me.DataMultas.Rows(rowMulta).Cells("idMulta").Value)
+
+        If Not tmpMulta.EliminarMulta Then
+            MsgBox("No se pudo eliminar multa." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        MsgBox("Multa Eliminada Exitosamente.", MsgBoxStyle.Information, "Correcto")
+        buscarMultas()
+    End Sub
+
+    Private Sub DataMultas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataMultas.CellContentClick
+        Me.rowMulta = Me.DataMultas.SelectedCells(0).RowIndex
+    End Sub
 End Class

@@ -50,7 +50,7 @@ Public Class Placas
     Public Function RegistrarPlacas() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idPlacas", "idLicencia", "idVehiculo"}
-        Dim valores As String() = {Me.idPlacas, Me.idLicencia, Me.idVehiculo}
+        Dim valores As String() = {"'" & Me.idPlacas & "'", Me.idLicencia, "'" & Me.idVehiculo & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
@@ -58,23 +58,23 @@ Public Class Placas
     Public Function ActualizarPlacas() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idLicencia", "idVehiculo"}
-        Dim valores As String() = {Me.idLicencia, Me.idVehiculo}
-        Dim condiciones As String() = {"idPlacas=" & Me.idPlacas}
+        Dim valores As String() = {Me.idLicencia, "'" & Me.idVehiculo & "'"}
+        Dim condiciones As String() = {"idPlacas='" & Me.idPlacas & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
     End Function
 
     Public Function EliminarPlacas() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim condiciones As String() = {"idPlacas=" & Me.idPlacas}
+        Dim condiciones As String() = {"idPlacas='" & Me.idPlacas & "'"}
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
 
-    Public Function BuscarPlacasById(idPlacas As Integer) As Boolean
+    Public Function BuscarPlacasById(idPlacas As String) As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idPlacas", "idLicencia", "idVehiculo"}
-        Dim condiciones As String() = {"idPlacas=" & idPlacas}
+        Dim condiciones As String() = {"idPlacas='" & idPlacas & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)

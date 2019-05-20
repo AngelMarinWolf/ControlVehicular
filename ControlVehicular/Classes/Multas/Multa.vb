@@ -76,16 +76,18 @@ Public Class Multa
 
     Public Function RegistrarMulta() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
-        Dim valores As String() = {Me.idMulta, Me.idPlacas, Me.fechaExpedicionMulta, Me.fechaLiquidacionMulta, Me.importe, Me.descripcion}
+        Dim columnas As String() = {"idMulta", "idPlacas", "fechaExpedicionMulta", "importe", "descripcion"}
+        Dim valores As String() = {Me.idMulta, "'" & Me.idPlacas & "'", "TO_DATE('" & Me.fechaExpedicionMulta.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   Me.importe, "'" & Me.descripcion & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
 
     Public Function ActualizarMulta() As Boolean
         Dim database As Oracle = New Oracle()
-        Dim columnas As String() = {"idPlacas", "fechaExpedicionMulta", "fechaLiquidacionMulta", "importe", "descripcion"}
-        Dim valores As String() = {Me.idPlacas, Me.fechaExpedicionMulta, Me.fechaLiquidacionMulta, Me.importe, Me.descripcion}
+        Dim columnas As String() = {"idPlacas", "fechaExpedicionMulta", "importe", "descripcion"}
+        Dim valores As String() = {"'" & Me.idPlacas & "'", "TO_DATE('" & Me.fechaExpedicionMulta.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   Me.importe, "'" & Me.descripcion & "'"}
         Dim condiciones As String() = {"idMulta=" & Me.idMulta}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
@@ -114,7 +116,7 @@ Public Class Multa
                 SetIdMulta(CInt(result.Rows(0)("idMulta")))
                 SetIdPlacas(CStr(result.Rows(0)("idPlacas")))
                 SetFechaExpedicion(CDate(result.Rows(0)("fechaExpedicionMulta")))
-                SetFechaLiquidacion(CDate(result.Rows(0)("fechaLiquidacionMulta")))
+                SetFechaLiquidacion(If(Not IsDBNull(result.Rows(0)("fechaLiquidacionMulta")), CDate(result.Rows(0)("fechaLiquidacionMulta")), Nothing))
                 SetImporte(CDbl(result.Rows(0)("importe")))
                 SetDescripcion(CStr(result.Rows(0)("descripcion")))
                 Return True
@@ -139,5 +141,19 @@ Public Class Multa
                                     Tabla & ".importe", Tabla & ".descripcion"}
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
+    End Function
+
+    Public Function BuscarUltimoId() As Integer
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"Max(idMulta) AS idMulta"}
+
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, {})
+        If result.Rows.Count = 1 Then
+            Return CInt(result.Rows(0)("idMulta"))
+        Else
+            Return 0
+        End If
     End Function
 End Class

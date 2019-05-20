@@ -23,96 +23,84 @@ Partial Class RegistrarMultas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegistrarMultas))
-        Me.Placas = New System.Windows.Forms.Label()
-        Me.idPlacas = New System.Windows.Forms.TextBox()
-        Me.Importe = New System.Windows.Forms.TextBox()
-        Me.MontoPagar = New System.Windows.Forms.Label()
-        Me.txtDescricion = New System.Windows.Forms.TextBox()
-        Me.idMulta = New System.Windows.Forms.TextBox()
-        Me.Folio = New System.Windows.Forms.Label()
+        Me.lblPlacas = New System.Windows.Forms.Label()
+        Me.txtIdPlacas = New System.Windows.Forms.TextBox()
+        Me.lblImporte = New System.Windows.Forms.Label()
+        Me.txtDescripcion = New System.Windows.Forms.TextBox()
+        Me.lblFolio = New System.Windows.Forms.Label()
         Me.Fecha = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dateExpedicion = New System.Windows.Forms.DateTimePicker()
         Me.tblHeader = New System.Windows.Forms.TableLayoutPanel()
         Me.tblBotones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.grpDescripcion = New System.Windows.Forms.GroupBox()
+        Me.txtIdMulta = New System.Windows.Forms.NumericUpDown()
+        Me.txtImporte = New System.Windows.Forms.NumericUpDown()
         Me.tblHeader.SuspendLayout()
         Me.tblBotones.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.grpDescripcion.SuspendLayout()
+        CType(Me.txtIdMulta, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtImporte, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Placas
+        'lblPlacas
         '
-        Me.Placas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Placas.AutoSize = True
-        Me.Placas.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Placas.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Placas.Location = New System.Drawing.Point(307, 10)
-        Me.Placas.Name = "Placas"
-        Me.Placas.Size = New System.Drawing.Size(85, 13)
-        Me.Placas.TabIndex = 125
-        Me.Placas.Text = "Placas"
+        Me.lblPlacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblPlacas.AutoSize = True
+        Me.lblPlacas.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblPlacas.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.lblPlacas.Location = New System.Drawing.Point(307, 10)
+        Me.lblPlacas.Name = "lblPlacas"
+        Me.lblPlacas.Size = New System.Drawing.Size(85, 13)
+        Me.lblPlacas.TabIndex = 125
+        Me.lblPlacas.Text = "Placas"
         '
-        'idPlacas
+        'txtIdPlacas
         '
-        Me.idPlacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.idPlacas.Location = New System.Drawing.Point(398, 7)
-        Me.idPlacas.Name = "idPlacas"
-        Me.idPlacas.Size = New System.Drawing.Size(209, 20)
-        Me.idPlacas.TabIndex = 124
+        Me.txtIdPlacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtIdPlacas.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtIdPlacas.Location = New System.Drawing.Point(398, 7)
+        Me.txtIdPlacas.MaxLength = 8
+        Me.txtIdPlacas.Name = "txtIdPlacas"
+        Me.txtIdPlacas.Size = New System.Drawing.Size(209, 20)
+        Me.txtIdPlacas.TabIndex = 124
         '
-        'Importe
+        'lblImporte
         '
-        Me.Importe.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Importe.Location = New System.Drawing.Point(94, 41)
-        Me.Importe.Name = "Importe"
-        Me.Importe.Size = New System.Drawing.Size(207, 20)
-        Me.Importe.TabIndex = 116
+        Me.lblImporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblImporte.AutoSize = True
+        Me.lblImporte.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblImporte.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.lblImporte.Location = New System.Drawing.Point(3, 44)
+        Me.lblImporte.Name = "lblImporte"
+        Me.lblImporte.Size = New System.Drawing.Size(85, 13)
+        Me.lblImporte.TabIndex = 115
+        Me.lblImporte.Text = "Monto a pagar"
         '
-        'MontoPagar
+        'txtDescripcion
         '
-        Me.MontoPagar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MontoPagar.AutoSize = True
-        Me.MontoPagar.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.MontoPagar.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.MontoPagar.Location = New System.Drawing.Point(3, 44)
-        Me.MontoPagar.Name = "MontoPagar"
-        Me.MontoPagar.Size = New System.Drawing.Size(85, 13)
-        Me.MontoPagar.TabIndex = 115
-        Me.MontoPagar.Text = "Monto a pagar"
-        '
-        'txtDescricion
-        '
-        Me.txtDescricion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.txtDescripcion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDescricion.Location = New System.Drawing.Point(6, 18)
-        Me.txtDescricion.Multiline = True
-        Me.txtDescricion.Name = "txtDescricion"
-        Me.txtDescricion.Size = New System.Drawing.Size(598, 121)
-        Me.txtDescricion.TabIndex = 112
+        Me.txtDescripcion.Location = New System.Drawing.Point(6, 18)
+        Me.txtDescripcion.MaxLength = 400
+        Me.txtDescripcion.Multiline = True
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.Size = New System.Drawing.Size(598, 121)
+        Me.txtDescripcion.TabIndex = 112
         '
-        'idMulta
+        'lblFolio
         '
-        Me.idMulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.idMulta.Location = New System.Drawing.Point(94, 7)
-        Me.idMulta.Name = "idMulta"
-        Me.idMulta.Size = New System.Drawing.Size(207, 20)
-        Me.idMulta.TabIndex = 111
-        '
-        'Folio
-        '
-        Me.Folio.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Folio.AutoSize = True
-        Me.Folio.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Folio.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Folio.Location = New System.Drawing.Point(3, 10)
-        Me.Folio.Name = "Folio"
-        Me.Folio.Size = New System.Drawing.Size(85, 13)
-        Me.Folio.TabIndex = 109
-        Me.Folio.Text = "Folio"
+        Me.lblFolio.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblFolio.AutoSize = True
+        Me.lblFolio.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblFolio.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.lblFolio.Location = New System.Drawing.Point(3, 10)
+        Me.lblFolio.Name = "lblFolio"
+        Me.lblFolio.Size = New System.Drawing.Size(85, 13)
+        Me.lblFolio.TabIndex = 109
+        Me.lblFolio.Text = "Folio"
         '
         'Fecha
         '
@@ -126,15 +114,15 @@ Partial Class RegistrarMultas
         Me.Fecha.TabIndex = 108
         Me.Fecha.Text = "Fecha Expedición"
         '
-        'DateTimePicker1
+        'dateExpedicion
         '
-        Me.DateTimePicker1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DateTimePicker1.CustomFormat = ""
-        Me.DateTimePicker1.Location = New System.Drawing.Point(398, 41)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(209, 20)
-        Me.DateTimePicker1.TabIndex = 126
-        Me.DateTimePicker1.Value = New Date(2019, 5, 19, 17, 14, 47, 0)
+        Me.dateExpedicion.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dateExpedicion.CustomFormat = ""
+        Me.dateExpedicion.Location = New System.Drawing.Point(398, 41)
+        Me.dateExpedicion.Name = "dateExpedicion"
+        Me.dateExpedicion.Size = New System.Drawing.Size(209, 20)
+        Me.dateExpedicion.TabIndex = 126
+        Me.dateExpedicion.Value = New Date(2019, 5, 19, 17, 14, 47, 0)
         '
         'tblHeader
         '
@@ -145,14 +133,14 @@ Partial Class RegistrarMultas
         Me.tblHeader.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.tblHeader.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.tblHeader.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
-        Me.tblHeader.Controls.Add(Me.Folio, 0, 0)
-        Me.tblHeader.Controls.Add(Me.DateTimePicker1, 3, 1)
-        Me.tblHeader.Controls.Add(Me.Placas, 2, 0)
-        Me.tblHeader.Controls.Add(Me.idPlacas, 3, 0)
-        Me.tblHeader.Controls.Add(Me.idMulta, 1, 0)
-        Me.tblHeader.Controls.Add(Me.MontoPagar, 0, 1)
-        Me.tblHeader.Controls.Add(Me.Importe, 1, 1)
+        Me.tblHeader.Controls.Add(Me.lblFolio, 0, 0)
+        Me.tblHeader.Controls.Add(Me.dateExpedicion, 3, 1)
+        Me.tblHeader.Controls.Add(Me.lblPlacas, 2, 0)
+        Me.tblHeader.Controls.Add(Me.txtIdPlacas, 3, 0)
+        Me.tblHeader.Controls.Add(Me.lblImporte, 0, 1)
         Me.tblHeader.Controls.Add(Me.Fecha, 2, 1)
+        Me.tblHeader.Controls.Add(Me.txtIdMulta, 1, 0)
+        Me.tblHeader.Controls.Add(Me.txtImporte, 1, 1)
         Me.tblHeader.Location = New System.Drawing.Point(12, 12)
         Me.tblHeader.Name = "tblHeader"
         Me.tblHeader.RowCount = 2
@@ -166,16 +154,15 @@ Partial Class RegistrarMultas
         '
         Me.tblBotones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblBotones.ColumnCount = 7
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25!))
+        Me.tblBotones.ColumnCount = 5
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblBotones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tblBotones.Controls.Add(Me.btnAgregar, 1, 0)
-        Me.tblBotones.Controls.Add(Me.btnEliminar, 5, 0)
         Me.tblBotones.Controls.Add(Me.btnModificar, 3, 0)
         Me.tblBotones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.tblBotones.Location = New System.Drawing.Point(12, 237)
@@ -188,48 +175,55 @@ Partial Class RegistrarMultas
         'btnAgregar
         '
         Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAgregar.Location = New System.Drawing.Point(38, 1)
+        Me.btnAgregar.Location = New System.Drawing.Point(55, 1)
         Me.btnAgregar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(152, 23)
+        Me.btnAgregar.Size = New System.Drawing.Size(221, 23)
         Me.btnAgregar.TabIndex = 19
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'btnEliminar
-        '
-        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnEliminar.Location = New System.Drawing.Point(418, 1)
-        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(152, 23)
-        Me.btnEliminar.TabIndex = 21
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
-        '
         'btnModificar
         '
         Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnModificar.Location = New System.Drawing.Point(228, 1)
+        Me.btnModificar.Location = New System.Drawing.Point(331, 1)
         Me.btnModificar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(152, 23)
+        Me.btnModificar.Size = New System.Drawing.Size(221, 23)
         Me.btnModificar.TabIndex = 20
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'grpDescripcion
         '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.grpDescripcion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.txtDescricion)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 86)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(610, 145)
-        Me.GroupBox1.TabIndex = 129
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Motivo de la Infraccion"
+        Me.grpDescripcion.Controls.Add(Me.txtDescripcion)
+        Me.grpDescripcion.Location = New System.Drawing.Point(12, 86)
+        Me.grpDescripcion.Name = "grpDescripcion"
+        Me.grpDescripcion.Size = New System.Drawing.Size(610, 145)
+        Me.grpDescripcion.TabIndex = 129
+        Me.grpDescripcion.TabStop = False
+        Me.grpDescripcion.Text = "Motivo de la Infraccion"
+        '
+        'txtIdMulta
+        '
+        Me.txtIdMulta.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtIdMulta.Location = New System.Drawing.Point(94, 7)
+        Me.txtIdMulta.Maximum = New Decimal(New Integer() {1215752191, 23, 0, 0})
+        Me.txtIdMulta.Name = "txtIdMulta"
+        Me.txtIdMulta.Size = New System.Drawing.Size(207, 20)
+        Me.txtIdMulta.TabIndex = 127
+        '
+        'txtImporte
+        '
+        Me.txtImporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtImporte.DecimalPlaces = 2
+        Me.txtImporte.Location = New System.Drawing.Point(94, 41)
+        Me.txtImporte.Maximum = New Decimal(New Integer() {1215752191, 23, 0, 0})
+        Me.txtImporte.Name = "txtImporte"
+        Me.txtImporte.Size = New System.Drawing.Size(207, 20)
+        Me.txtImporte.TabIndex = 128
         '
         'RegistrarMultas
         '
@@ -237,36 +231,37 @@ Partial Class RegistrarMultas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(634, 274)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.grpDescripcion)
         Me.Controls.Add(Me.tblBotones)
         Me.Controls.Add(Me.tblHeader)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "RegistrarMultas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Multas"
+        Me.Text = "Registrar Multas"
         Me.tblHeader.ResumeLayout(False)
         Me.tblHeader.PerformLayout()
         Me.tblBotones.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.grpDescripcion.ResumeLayout(False)
+        Me.grpDescripcion.PerformLayout()
+        CType(Me.txtIdMulta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtImporte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Placas As Label
-    Friend WithEvents idPlacas As TextBox
-    Friend WithEvents Importe As TextBox
-    Friend WithEvents MontoPagar As Label
-    Friend WithEvents txtDescricion As TextBox
-    Friend WithEvents idMulta As TextBox
-    Friend WithEvents Folio As Label
+    Friend WithEvents lblPlacas As Label
+    Friend WithEvents txtIdPlacas As TextBox
+    Friend WithEvents lblImporte As Label
+    Friend WithEvents txtDescripcion As TextBox
+    Friend WithEvents lblFolio As Label
     Friend WithEvents Fecha As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dateExpedicion As DateTimePicker
     Friend WithEvents tblHeader As TableLayoutPanel
     Friend WithEvents tblBotones As TableLayoutPanel
     Friend WithEvents btnAgregar As Button
-    Friend WithEvents btnEliminar As Button
     Friend WithEvents btnModificar As Button
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents grpDescripcion As GroupBox
+    Friend WithEvents txtIdMulta As NumericUpDown
+    Friend WithEvents txtImporte As NumericUpDown
 End Class

@@ -131,6 +131,12 @@
       <DependentUpon>Login.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\RegistrarLicencias.Designer.vb">
+      <DependentUpon>RegistrarLicencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegistrarLicencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\RegistrarMultas.Designer.vb">
       <DependentUpon>RegistrarMultas.vb</DependentUpon>
     </Compile>

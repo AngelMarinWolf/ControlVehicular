@@ -229,5 +229,4 @@
         Me.txtCurp.Text = ""
         MsgBox("Empleado Actualizado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
-
 End Class
