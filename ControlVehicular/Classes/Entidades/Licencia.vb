@@ -56,7 +56,7 @@ Public Class Licencia
         Me.donadorOrganos = donadorOrganos
     End Sub
 
-    Public Sub SetContactoEmergencia(contacoEmergencia As String)
+    Public Sub SetContactoEmergencia(contactoEmergencia As String)
         Me.contactoEmergencia = contactoEmergencia
     End Sub
 
@@ -103,7 +103,10 @@ Public Class Licencia
     Public Function RegistrarLicencia() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idLicencia", "idContribuyente", "tipoLicencia", "fechaExpedicion", "fechaExpiracion", "donadorOrganos", "contactoEmergencia", "telefonoEmergencia"}
-        Dim valores As String() = {Me.idLicencia, Me.idContribuyente, Me.tipoLicencia, Me.fechaExpedicion, Me.fechaExpiracion, If(Me.donadorOrganos, "S", "N"), Me.contactoEmergencia, Me.telefonoEmergencia}
+        Dim valores As String() = {Me.idLicencia, "'" & Me.idContribuyente & "'", "'" & Me.tipoLicencia & "'",
+                                   "TO_DATE('" & Me.fechaExpedicion.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   "TO_DATE('" & Me.fechaExpiracion.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   If(Me.donadorOrganos, "'S'", "'N'"), "'" & Me.contactoEmergencia & "'", "'" & Me.telefonoEmergencia & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
@@ -111,7 +114,10 @@ Public Class Licencia
     Public Function ActualizarLicencia() As Boolean
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"idContribuyente", "tipoLicencia", "fechaExpedicion", "fechaExpiracion", "donadorOrganos", "contactoEmergencia", "telefonoEmergencia"}
-        Dim valores As String() = {Me.idContribuyente, Me.tipoLicencia, Me.fechaExpedicion, Me.fechaExpiracion, If(Me.donadorOrganos, "S", "N"), Me.contactoEmergencia, Me.telefonoEmergencia}
+        Dim valores As String() = {"'" & Me.idContribuyente & "'", "'" & Me.tipoLicencia & "'",
+                                   "TO_DATE('" & Me.fechaExpedicion.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   "TO_DATE('" & Me.fechaExpiracion.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
+                                   If(Me.donadorOrganos, "'S'", "'N'"), "'" & Me.contactoEmergencia & "'", "'" & Me.telefonoEmergencia & "'"}
         Dim condiciones As String() = {"idLicencia=" & Me.idLicencia}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
@@ -155,6 +161,20 @@ Public Class Licencia
             End If
         Else
             Return False
+        End If
+    End Function
+
+    Public Function BuscarUltimoId() As Integer
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"Max(idLicencia) AS idLicencia"}
+
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, {})
+        If result.Rows.Count = 1 Then
+            Return CInt(result.Rows(0)("idLicencia"))
+        Else
+            Return 0
         End If
     End Function
 End Class

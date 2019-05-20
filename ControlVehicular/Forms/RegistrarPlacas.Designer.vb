@@ -26,23 +26,17 @@ Partial Class RegistrarPlacas
         Me.lbPlaca = New System.Windows.Forms.Label()
         Me.lbPropietario = New System.Windows.Forms.Label()
         Me.lbVehiculo = New System.Windows.Forms.Label()
-        Me.idPlaca = New System.Windows.Forms.TextBox()
-        Me.idVehiculo = New System.Windows.Forms.TextBox()
+        Me.txtIdPlacas = New System.Windows.Forms.TextBox()
+        Me.txtIdVehiculo = New System.Windows.Forms.TextBox()
         Me.tblLocalidades = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblPais = New System.Windows.Forms.Label()
-        Me.cmbEstado = New System.Windows.Forms.ComboBox()
-        Me.cmbPais = New System.Windows.Forms.ComboBox()
-        Me.lblEstado = New System.Windows.Forms.Label()
-        Me.lblCiudad = New System.Windows.Forms.Label()
-        Me.cmbCiudad = New System.Windows.Forms.ComboBox()
+        Me.txtIdLicencia = New System.Windows.Forms.NumericUpDown()
         Me.tblBotones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
-        Me.txtIdLicencia = New System.Windows.Forms.NumericUpDown()
         Me.tblLocalidades.SuspendLayout()
-        Me.tblBotones.SuspendLayout()
         CType(Me.txtIdLicencia, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tblBotones.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbPlaca
@@ -50,7 +44,7 @@ Partial Class RegistrarPlacas
         Me.lbPlaca.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbPlaca.AutoSize = True
         Me.lbPlaca.ForeColor = System.Drawing.Color.White
-        Me.lbPlaca.Location = New System.Drawing.Point(3, 88)
+        Me.lbPlaca.Location = New System.Drawing.Point(3, 6)
         Me.lbPlaca.Name = "lbPlaca"
         Me.lbPlaca.Size = New System.Drawing.Size(91, 13)
         Me.lbPlaca.TabIndex = 89
@@ -61,7 +55,7 @@ Partial Class RegistrarPlacas
         Me.lbPropietario.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbPropietario.AutoSize = True
         Me.lbPropietario.ForeColor = System.Drawing.Color.White
-        Me.lbPropietario.Location = New System.Drawing.Point(3, 115)
+        Me.lbPropietario.Location = New System.Drawing.Point(3, 31)
         Me.lbPropietario.Name = "lbPropietario"
         Me.lbPropietario.Size = New System.Drawing.Size(91, 13)
         Me.lbPropietario.TabIndex = 88
@@ -72,28 +66,30 @@ Partial Class RegistrarPlacas
         Me.lbVehiculo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbVehiculo.AutoSize = True
         Me.lbVehiculo.ForeColor = System.Drawing.Color.White
-        Me.lbVehiculo.Location = New System.Drawing.Point(3, 143)
+        Me.lbVehiculo.Location = New System.Drawing.Point(3, 56)
         Me.lbVehiculo.Name = "lbVehiculo"
         Me.lbVehiculo.Size = New System.Drawing.Size(91, 13)
         Me.lbVehiculo.TabIndex = 87
         Me.lbVehiculo.Text = "No de Serie"
         '
-        'idPlaca
+        'txtIdPlacas
         '
-        Me.idPlaca.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.idPlaca.Location = New System.Drawing.Point(100, 84)
-        Me.idPlaca.MaxLength = 7
-        Me.idPlaca.Name = "idPlaca"
-        Me.idPlaca.Size = New System.Drawing.Size(222, 20)
-        Me.idPlaca.TabIndex = 3
+        Me.txtIdPlacas.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtIdPlacas.Location = New System.Drawing.Point(100, 3)
+        Me.txtIdPlacas.MaxLength = 7
+        Me.txtIdPlacas.Name = "txtIdPlacas"
+        Me.txtIdPlacas.Size = New System.Drawing.Size(222, 20)
+        Me.txtIdPlacas.TabIndex = 3
         '
-        'idVehiculo
+        'txtIdVehiculo
         '
-        Me.idVehiculo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.idVehiculo.Location = New System.Drawing.Point(100, 139)
-        Me.idVehiculo.Name = "idVehiculo"
-        Me.idVehiculo.Size = New System.Drawing.Size(222, 20)
-        Me.idVehiculo.TabIndex = 5
+        Me.txtIdVehiculo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtIdVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtIdVehiculo.Location = New System.Drawing.Point(100, 53)
+        Me.txtIdVehiculo.MaxLength = 18
+        Me.txtIdVehiculo.Name = "txtIdVehiculo"
+        Me.txtIdVehiculo.Size = New System.Drawing.Size(222, 20)
+        Me.txtIdVehiculo.TabIndex = 5
         '
         'tblLocalidades
         '
@@ -102,89 +98,31 @@ Partial Class RegistrarPlacas
         Me.tblLocalidades.ColumnCount = 2
         Me.tblLocalidades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.tblLocalidades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.tblLocalidades.Controls.Add(Me.lblPais, 0, 0)
-        Me.tblLocalidades.Controls.Add(Me.cmbPais, 1, 0)
-        Me.tblLocalidades.Controls.Add(Me.cmbCiudad, 1, 2)
-        Me.tblLocalidades.Controls.Add(Me.lblCiudad, 0, 2)
-        Me.tblLocalidades.Controls.Add(Me.lbVehiculo, 0, 5)
-        Me.tblLocalidades.Controls.Add(Me.lbPropietario, 0, 4)
-        Me.tblLocalidades.Controls.Add(Me.idVehiculo, 1, 5)
-        Me.tblLocalidades.Controls.Add(Me.lbPlaca, 0, 3)
-        Me.tblLocalidades.Controls.Add(Me.lblEstado, 0, 1)
-        Me.tblLocalidades.Controls.Add(Me.cmbEstado, 1, 1)
-        Me.tblLocalidades.Controls.Add(Me.idPlaca, 1, 3)
-        Me.tblLocalidades.Controls.Add(Me.txtIdLicencia, 1, 4)
+        Me.tblLocalidades.Controls.Add(Me.lbVehiculo, 0, 2)
+        Me.tblLocalidades.Controls.Add(Me.lbPropietario, 0, 1)
+        Me.tblLocalidades.Controls.Add(Me.txtIdVehiculo, 1, 2)
+        Me.tblLocalidades.Controls.Add(Me.lbPlaca, 0, 0)
+        Me.tblLocalidades.Controls.Add(Me.txtIdPlacas, 1, 0)
+        Me.tblLocalidades.Controls.Add(Me.txtIdLicencia, 1, 1)
         Me.tblLocalidades.Location = New System.Drawing.Point(12, 12)
         Me.tblLocalidades.Name = "tblLocalidades"
-        Me.tblLocalidades.RowCount = 6
-        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.tblLocalidades.Size = New System.Drawing.Size(325, 164)
+        Me.tblLocalidades.RowCount = 3
+        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
+        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
+        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
+        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblLocalidades.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tblLocalidades.Size = New System.Drawing.Size(325, 75)
         Me.tblLocalidades.TabIndex = 93
         '
-        'lblPais
+        'txtIdLicencia
         '
-        Me.lblPais.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblPais.AutoSize = True
-        Me.lblPais.ForeColor = System.Drawing.Color.White
-        Me.lblPais.Location = New System.Drawing.Point(3, 7)
-        Me.lblPais.Name = "lblPais"
-        Me.lblPais.Size = New System.Drawing.Size(91, 13)
-        Me.lblPais.TabIndex = 158
-        Me.lblPais.Text = "Pais:"
-        '
-        'cmbEstado
-        '
-        Me.cmbEstado.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbEstado.FormattingEnabled = True
-        Me.cmbEstado.Location = New System.Drawing.Point(100, 30)
-        Me.cmbEstado.Name = "cmbEstado"
-        Me.cmbEstado.Size = New System.Drawing.Size(222, 21)
-        Me.cmbEstado.TabIndex = 1
-        '
-        'cmbPais
-        '
-        Me.cmbPais.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbPais.FormattingEnabled = True
-        Me.cmbPais.Location = New System.Drawing.Point(100, 3)
-        Me.cmbPais.Name = "cmbPais"
-        Me.cmbPais.Size = New System.Drawing.Size(222, 21)
-        Me.cmbPais.TabIndex = 0
-        '
-        'lblEstado
-        '
-        Me.lblEstado.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblEstado.AutoSize = True
-        Me.lblEstado.ForeColor = System.Drawing.Color.White
-        Me.lblEstado.Location = New System.Drawing.Point(3, 34)
-        Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(91, 13)
-        Me.lblEstado.TabIndex = 157
-        Me.lblEstado.Text = "Estado:"
-        '
-        'lblCiudad
-        '
-        Me.lblCiudad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblCiudad.AutoSize = True
-        Me.lblCiudad.ForeColor = System.Drawing.Color.White
-        Me.lblCiudad.Location = New System.Drawing.Point(3, 61)
-        Me.lblCiudad.Name = "lblCiudad"
-        Me.lblCiudad.Size = New System.Drawing.Size(91, 13)
-        Me.lblCiudad.TabIndex = 159
-        Me.lblCiudad.Text = "Ciudad:"
-        '
-        'cmbCiudad
-        '
-        Me.cmbCiudad.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbCiudad.FormattingEnabled = True
-        Me.cmbCiudad.Location = New System.Drawing.Point(100, 57)
-        Me.cmbCiudad.Name = "cmbCiudad"
-        Me.cmbCiudad.Size = New System.Drawing.Size(222, 21)
-        Me.cmbCiudad.TabIndex = 2
+        Me.txtIdLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtIdLicencia.Location = New System.Drawing.Point(100, 28)
+        Me.txtIdLicencia.Name = "txtIdLicencia"
+        Me.txtIdLicencia.Size = New System.Drawing.Size(222, 20)
+        Me.txtIdLicencia.TabIndex = 4
         '
         'tblBotones
         '
@@ -202,7 +140,7 @@ Partial Class RegistrarPlacas
         Me.tblBotones.Controls.Add(Me.btnEliminar, 5, 0)
         Me.tblBotones.Controls.Add(Me.btnModificar, 3, 0)
         Me.tblBotones.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.tblBotones.Location = New System.Drawing.Point(12, 182)
+        Me.tblBotones.Location = New System.Drawing.Point(12, 93)
         Me.tblBotones.Name = "tblBotones"
         Me.tblBotones.RowCount = 1
         Me.tblBotones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -243,45 +181,32 @@ Partial Class RegistrarPlacas
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
         '
-        'txtIdLicencia
-        '
-        Me.txtIdLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtIdLicencia.Location = New System.Drawing.Point(100, 111)
-        Me.txtIdLicencia.Name = "txtIdLicencia"
-        Me.txtIdLicencia.Size = New System.Drawing.Size(222, 20)
-        Me.txtIdLicencia.TabIndex = 4
-        '
         'RegistrarPlacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(349, 219)
+        Me.ClientSize = New System.Drawing.Size(349, 135)
         Me.Controls.Add(Me.tblBotones)
         Me.Controls.Add(Me.tblLocalidades)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "RegistrarPlacas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Placas"
         Me.tblLocalidades.ResumeLayout(False)
         Me.tblLocalidades.PerformLayout()
-        Me.tblBotones.ResumeLayout(False)
         CType(Me.txtIdLicencia, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tblBotones.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents lbPlaca As Label
     Friend WithEvents lbPropietario As Label
     Friend WithEvents lbVehiculo As Label
-    Friend WithEvents idPlaca As TextBox
-    Friend WithEvents idVehiculo As TextBox
+    Friend WithEvents txtIdPlacas As TextBox
+    Friend WithEvents txtIdVehiculo As TextBox
     Friend WithEvents tblLocalidades As TableLayoutPanel
-    Friend WithEvents lblPais As Label
-    Friend WithEvents cmbPais As ComboBox
-    Friend WithEvents cmbCiudad As ComboBox
-    Friend WithEvents lblCiudad As Label
-    Friend WithEvents lblEstado As Label
-    Friend WithEvents cmbEstado As ComboBox
     Friend WithEvents tblBotones As TableLayoutPanel
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnEliminar As Button

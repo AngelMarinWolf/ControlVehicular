@@ -352,4 +352,12 @@
         Dim formVehiculo As New RegistrarVehiculo(Me.user.GetCurp)
         formVehiculo.Show()
     End Sub
+
+    Private Sub btnLicencias_Click(sender As Object, e As EventArgs) Handles btnLicencias.Click
+        RegistrarLicencias.Show()
+    End Sub
+
+    Private Sub btnPlacas_Click(sender As Object, e As EventArgs) Handles btnPlacas.Click
+        RegistrarPlacas.Show()
+    End Sub
 End Class

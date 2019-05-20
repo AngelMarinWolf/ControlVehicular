@@ -36,20 +36,20 @@ Partial Class RegistrarLicencias
         Me.txtCurp = New System.Windows.Forms.TextBox()
         Me.dateExpedicion = New System.Windows.Forms.DateTimePicker()
         Me.dateExpiracion = New System.Windows.Forms.DateTimePicker()
-        Me.chkSiDonador = New System.Windows.Forms.CheckBox()
-        Me.chkNoDonador = New System.Windows.Forms.CheckBox()
         Me.txtContactoEmergencia = New System.Windows.Forms.TextBox()
         Me.txtNumeroEmergencia = New System.Windows.Forms.TextBox()
+        Me.tblDonador = New System.Windows.Forms.TableLayoutPanel()
+        Me.chkSiDonador = New System.Windows.Forms.CheckBox()
+        Me.chkNoDonador = New System.Windows.Forms.CheckBox()
+        Me.cbTipoLicencia = New System.Windows.Forms.ComboBox()
         Me.tblBotones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
-        Me.tblDonador = New System.Windows.Forms.TableLayoutPanel()
-        Me.cbTipoLicencia = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.txtIdLicencia, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tblBotones.SuspendLayout()
         Me.tblDonador.SuspendLayout()
+        Me.tblBotones.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblIdLicencia
@@ -57,7 +57,7 @@ Partial Class RegistrarLicencias
         Me.lblIdLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblIdLicencia.AutoSize = True
         Me.lblIdLicencia.ForeColor = System.Drawing.Color.White
-        Me.lblIdLicencia.Location = New System.Drawing.Point(3, 5)
+        Me.lblIdLicencia.Location = New System.Drawing.Point(3, 6)
         Me.lblIdLicencia.Name = "lblIdLicencia"
         Me.lblIdLicencia.Size = New System.Drawing.Size(126, 13)
         Me.lblIdLicencia.TabIndex = 0
@@ -68,7 +68,7 @@ Partial Class RegistrarLicencias
         Me.lblCurp.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblCurp.AutoSize = True
         Me.lblCurp.ForeColor = System.Drawing.Color.White
-        Me.lblCurp.Location = New System.Drawing.Point(3, 30)
+        Me.lblCurp.Location = New System.Drawing.Point(3, 31)
         Me.lblCurp.Name = "lblCurp"
         Me.lblCurp.Size = New System.Drawing.Size(126, 13)
         Me.lblCurp.TabIndex = 1
@@ -79,7 +79,7 @@ Partial Class RegistrarLicencias
         Me.lblTipoLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTipoLicencia.AutoSize = True
         Me.lblTipoLicencia.ForeColor = System.Drawing.Color.White
-        Me.lblTipoLicencia.Location = New System.Drawing.Point(3, 55)
+        Me.lblTipoLicencia.Location = New System.Drawing.Point(3, 56)
         Me.lblTipoLicencia.Name = "lblTipoLicencia"
         Me.lblTipoLicencia.Size = New System.Drawing.Size(126, 13)
         Me.lblTipoLicencia.TabIndex = 2
@@ -90,7 +90,7 @@ Partial Class RegistrarLicencias
         Me.lblDateExpedicion.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblDateExpedicion.AutoSize = True
         Me.lblDateExpedicion.ForeColor = System.Drawing.Color.White
-        Me.lblDateExpedicion.Location = New System.Drawing.Point(3, 80)
+        Me.lblDateExpedicion.Location = New System.Drawing.Point(3, 81)
         Me.lblDateExpedicion.Name = "lblDateExpedicion"
         Me.lblDateExpedicion.Size = New System.Drawing.Size(126, 13)
         Me.lblDateExpedicion.TabIndex = 3
@@ -101,7 +101,7 @@ Partial Class RegistrarLicencias
         Me.lblDateExpiracion.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblDateExpiracion.AutoSize = True
         Me.lblDateExpiracion.ForeColor = System.Drawing.Color.White
-        Me.lblDateExpiracion.Location = New System.Drawing.Point(3, 105)
+        Me.lblDateExpiracion.Location = New System.Drawing.Point(3, 106)
         Me.lblDateExpiracion.Name = "lblDateExpiracion"
         Me.lblDateExpiracion.Size = New System.Drawing.Size(126, 13)
         Me.lblDateExpiracion.TabIndex = 4
@@ -112,7 +112,7 @@ Partial Class RegistrarLicencias
         Me.lblDonador.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblDonador.AutoSize = True
         Me.lblDonador.ForeColor = System.Drawing.Color.White
-        Me.lblDonador.Location = New System.Drawing.Point(3, 130)
+        Me.lblDonador.Location = New System.Drawing.Point(3, 131)
         Me.lblDonador.Name = "lblDonador"
         Me.lblDonador.Size = New System.Drawing.Size(126, 13)
         Me.lblDonador.TabIndex = 5
@@ -123,7 +123,7 @@ Partial Class RegistrarLicencias
         Me.lblContactoEmergencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblContactoEmergencia.AutoSize = True
         Me.lblContactoEmergencia.ForeColor = System.Drawing.Color.White
-        Me.lblContactoEmergencia.Location = New System.Drawing.Point(3, 155)
+        Me.lblContactoEmergencia.Location = New System.Drawing.Point(3, 156)
         Me.lblContactoEmergencia.Name = "lblContactoEmergencia"
         Me.lblContactoEmergencia.Size = New System.Drawing.Size(126, 13)
         Me.lblContactoEmergencia.TabIndex = 6
@@ -134,7 +134,7 @@ Partial Class RegistrarLicencias
         Me.lblTelefonoEmergencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTelefonoEmergencia.AutoSize = True
         Me.lblTelefonoEmergencia.ForeColor = System.Drawing.Color.White
-        Me.lblTelefonoEmergencia.Location = New System.Drawing.Point(3, 180)
+        Me.lblTelefonoEmergencia.Location = New System.Drawing.Point(3, 181)
         Me.lblTelefonoEmergencia.Name = "lblTelefonoEmergencia"
         Me.lblTelefonoEmergencia.Size = New System.Drawing.Size(126, 13)
         Me.lblTelefonoEmergencia.TabIndex = 7
@@ -188,7 +188,7 @@ Partial Class RegistrarLicencias
         'txtCurp
         '
         Me.txtCurp.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCurp.Location = New System.Drawing.Point(135, 27)
+        Me.txtCurp.Location = New System.Drawing.Point(135, 28)
         Me.txtCurp.MaxLength = 18
         Me.txtCurp.Name = "txtCurp"
         Me.txtCurp.Size = New System.Drawing.Size(302, 20)
@@ -197,7 +197,7 @@ Partial Class RegistrarLicencias
         'dateExpedicion
         '
         Me.dateExpedicion.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dateExpedicion.Location = New System.Drawing.Point(135, 77)
+        Me.dateExpedicion.Location = New System.Drawing.Point(135, 78)
         Me.dateExpedicion.Name = "dateExpedicion"
         Me.dateExpedicion.Size = New System.Drawing.Size(302, 20)
         Me.dateExpedicion.TabIndex = 11
@@ -205,10 +205,45 @@ Partial Class RegistrarLicencias
         'dateExpiracion
         '
         Me.dateExpiracion.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dateExpiracion.Location = New System.Drawing.Point(135, 102)
+        Me.dateExpiracion.Location = New System.Drawing.Point(135, 103)
         Me.dateExpiracion.Name = "dateExpiracion"
         Me.dateExpiracion.Size = New System.Drawing.Size(302, 20)
         Me.dateExpiracion.TabIndex = 12
+        '
+        'txtContactoEmergencia
+        '
+        Me.txtContactoEmergencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtContactoEmergencia.Location = New System.Drawing.Point(135, 153)
+        Me.txtContactoEmergencia.Name = "txtContactoEmergencia"
+        Me.txtContactoEmergencia.Size = New System.Drawing.Size(302, 20)
+        Me.txtContactoEmergencia.TabIndex = 14
+        '
+        'txtNumeroEmergencia
+        '
+        Me.txtNumeroEmergencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNumeroEmergencia.Location = New System.Drawing.Point(135, 178)
+        Me.txtNumeroEmergencia.Name = "txtNumeroEmergencia"
+        Me.txtNumeroEmergencia.Size = New System.Drawing.Size(302, 20)
+        Me.txtNumeroEmergencia.TabIndex = 15
+        '
+        'tblDonador
+        '
+        Me.tblDonador.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tblDonador.ColumnCount = 2
+        Me.tblDonador.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblDonador.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tblDonador.Controls.Add(Me.chkSiDonador, 0, 0)
+        Me.tblDonador.Controls.Add(Me.chkNoDonador, 1, 0)
+        Me.tblDonador.Location = New System.Drawing.Point(132, 125)
+        Me.tblDonador.Margin = New System.Windows.Forms.Padding(0)
+        Me.tblDonador.Name = "tblDonador"
+        Me.tblDonador.RowCount = 1
+        Me.tblDonador.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblDonador.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.tblDonador.Size = New System.Drawing.Size(308, 25)
+        Me.tblDonador.TabIndex = 16
         '
         'chkSiDonador
         '
@@ -234,21 +269,15 @@ Partial Class RegistrarLicencias
         Me.chkNoDonador.Text = "No"
         Me.chkNoDonador.UseVisualStyleBackColor = True
         '
-        'txtContactoEmergencia
+        'cbTipoLicencia
         '
-        Me.txtContactoEmergencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtContactoEmergencia.Location = New System.Drawing.Point(135, 152)
-        Me.txtContactoEmergencia.Name = "txtContactoEmergencia"
-        Me.txtContactoEmergencia.Size = New System.Drawing.Size(302, 20)
-        Me.txtContactoEmergencia.TabIndex = 14
-        '
-        'txtNumeroEmergencia
-        '
-        Me.txtNumeroEmergencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNumeroEmergencia.Location = New System.Drawing.Point(135, 177)
-        Me.txtNumeroEmergencia.Name = "txtNumeroEmergencia"
-        Me.txtNumeroEmergencia.Size = New System.Drawing.Size(302, 20)
-        Me.txtNumeroEmergencia.TabIndex = 15
+        Me.cbTipoLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbTipoLicencia.FormattingEnabled = True
+        Me.cbTipoLicencia.Items.AddRange(New Object() {"A", "B", "C", "D", "E"})
+        Me.cbTipoLicencia.Location = New System.Drawing.Point(135, 53)
+        Me.cbTipoLicencia.Name = "cbTipoLicencia"
+        Me.cbTipoLicencia.Size = New System.Drawing.Size(302, 21)
+        Me.cbTipoLicencia.TabIndex = 10
         '
         'tblBotones
         '
@@ -307,35 +336,6 @@ Partial Class RegistrarLicencias
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
         '
-        'tblDonador
-        '
-        Me.tblDonador.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tblDonador.ColumnCount = 2
-        Me.tblDonador.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblDonador.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tblDonador.Controls.Add(Me.chkSiDonador, 0, 0)
-        Me.tblDonador.Controls.Add(Me.chkNoDonador, 1, 0)
-        Me.tblDonador.Location = New System.Drawing.Point(132, 124)
-        Me.tblDonador.Margin = New System.Windows.Forms.Padding(0)
-        Me.tblDonador.Name = "tblDonador"
-        Me.tblDonador.RowCount = 1
-        Me.tblDonador.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tblDonador.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tblDonador.Size = New System.Drawing.Size(308, 25)
-        Me.tblDonador.TabIndex = 16
-        '
-        'cbTipoLicencia
-        '
-        Me.cbTipoLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbTipoLicencia.FormattingEnabled = True
-        Me.cbTipoLicencia.Items.AddRange(New Object() {"A1", "A2", "A3", "A4", "A5", "B", "C", "D", "E", "F"})
-        Me.cbTipoLicencia.Location = New System.Drawing.Point(135, 52)
-        Me.cbTipoLicencia.Name = "cbTipoLicencia"
-        Me.cbTipoLicencia.Size = New System.Drawing.Size(302, 21)
-        Me.cbTipoLicencia.TabIndex = 10
-        '
         'RegistrarLicencias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -352,9 +352,9 @@ Partial Class RegistrarLicencias
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.txtIdLicencia, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tblBotones.ResumeLayout(False)
         Me.tblDonador.ResumeLayout(False)
         Me.tblDonador.PerformLayout()
+        Me.tblBotones.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
