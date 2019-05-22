@@ -49,7 +49,7 @@ Public Class Empleado
     End Sub
 
     Public Sub SetRfc(rfc As String)
-        If rfc.Length = 12 Or rfc.Length = 13 Then
+        If rfc.Length > 11 And rfc.Length < 14 Then
             Me.rfc = rfc
         Else
             Throw New Exception("Error: El rfc no contiene la cantidad de caracteres especifica.")

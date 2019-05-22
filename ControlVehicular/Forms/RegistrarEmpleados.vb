@@ -12,10 +12,6 @@
         Me.pais.PoblarComboPaises(Me.cmbPais)
     End Sub
 
-    Private Sub txtCurp_Leave(sender As Object, e As EventArgs) Handles txtCurp.Leave
-        poblarDatosEmpleado(Me.txtCurp.Text)
-    End Sub
-
     Private Sub chkFemenino_Click(sender As Object, e As EventArgs) Handles chkFemenino.Click
         If Me.chkFemenino.Checked Then
             Me.chkMasculino.Checked = False
@@ -117,6 +113,11 @@
             Exit Sub
         End If
 
+        If Me.txtRfc.Text.Length < 12 Then
+            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
         If tmpEmpleado.BuscarEmpleadoByUsername(Me.txtUsernamer.Text) Then
             MsgBox("Nombre de usuario no disponible." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
@@ -165,9 +166,19 @@
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim tmpEmpleado As Empleado = New Empleado()
+        Dim vehiculo As New Padron()
+
+        If MsgBox("Desea eliminar registro?." + vbNewLine + "Por favor confirme.", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.No Then
+            Exit Sub
+        End If
 
         If Me.txtCurp.Text.Length <> 18 Then
             MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If vehiculo.BuscarPadronByEmpleado(Me.txtCurp.Text).Rows.Count > 0 Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "Hay padrones registrados con el usuario.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -196,6 +207,11 @@
 
         If Me.txtCurp.Text.Length <> 18 Then
             MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.txtRfc.Text.Length < 12 Then
+            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -234,5 +250,9 @@
         Me.txtCurp.Text = ""
         Me.dataEmpleados.DataSource = empleado.BuscarEmpleados()
         MsgBox("Empleado Actualizado Exitosamente.", MsgBoxStyle.Information, "Correcto")
+    End Sub
+
+    Private Sub txtCurp_TextChanged(sender As Object, e As EventArgs) Handles txtCurp.TextChanged
+        poblarDatosEmpleado(Me.txtCurp.Text)
     End Sub
 End Class

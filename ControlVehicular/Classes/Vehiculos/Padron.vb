@@ -266,4 +266,24 @@ Public Class Padron
             cbTipo.DataSource = Nothing
         End If
     End Sub
+
+    Public Function BuscarPadronByContribuyente(idContribuyente As String) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"noSerie", "noFactura", "fechaFactura", "importeFactura", "implementacion", "color",
+                                    "combustible", "pasajeros", "idTipo", "idMarca", "idContribuyente", "idEmpleado"}
+        Dim condiciones As String() = {"idContribuyente='" & idContribuyente & "'"}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, condiciones)
+
+        Return result
+    End Function
+
+    Public Function BuscarPadronByEmpleado(idEmpleado As String) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"noSerie", "noFactura", "fechaFactura", "importeFactura", "implementacion", "color",
+                                    "combustible", "pasajeros", "idTipo", "idMarca", "idContribuyente", "idEmpleado"}
+        Dim condiciones As String() = {"idEmpleado='" & idEmpleado & "'"}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, condiciones)
+
+        Return result
+    End Function
 End Class

@@ -177,4 +177,13 @@ Public Class Licencia
             Return 0
         End If
     End Function
+
+    Public Function BuscarLicenciaByContribuyente(idContribuyente As String) As DataTable
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"idLicencia", "idContribuyente", "tipoLicencia", "fechaExpedicion", "fechaExpiracion", "donadorOrganos", "contactoEmergencia", "telefonoEmergencia"}
+        Dim condiciones As String() = {"idContribuyente='" & idContribuyente & "'"}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, condiciones)
+
+        Return result
+    End Function
 End Class

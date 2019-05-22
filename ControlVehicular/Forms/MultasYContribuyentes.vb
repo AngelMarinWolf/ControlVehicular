@@ -259,6 +259,8 @@
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim tmpContribuyente As Contribuyente = New Contribuyente()
         Dim tmpDomicilio As Domicilio = New Domicilio()
+        Dim licencia As New Licencia()
+        Dim vehiculo As New Padron()
 
         If Not Me.rowContribuyente >= 0 And Not Me.rowContribuyente < Me.DataContribuyentes.Rows.Count Then
             MsgBox("Seleccione un registro primero.", MsgBoxStyle.MsgBoxHelp)
@@ -271,6 +273,16 @@
 
         If Me.DataContribuyentes.Rows(rowContribuyente).Cells("curp").Value.Length <> 18 Then
             MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If licencia.BuscarLicenciaByContribuyente(Me.DataContribuyentes.Rows(rowContribuyente).Cells("curp").Value).Rows.Count > 0 Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "Hay Licencias Activas.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If vehiculo.BuscarPadronByContribuyente(Me.DataContribuyentes.Rows(rowContribuyente).Cells("curp").Value).Rows.Count > 0 Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "Hay Licencias Activas.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 

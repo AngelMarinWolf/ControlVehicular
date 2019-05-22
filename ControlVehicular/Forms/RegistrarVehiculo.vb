@@ -17,7 +17,7 @@ Public Class RegistrarVehiculo
         Me.vehiculo.PoblarComboTipos(Me.cbTipoVehiculo)
     End Sub
 
-    Private Sub txtNoSerie_Leave(sender As Object, e As EventArgs) Handles txtNoSerie.Leave
+    Private Sub txtNoSerie_TextChanged(sender As Object, e As EventArgs) Handles txtNoSerie.TextChanged
         poblarDatosVehiculo(Me.txtNoSerie.Text)
     End Sub
 
@@ -161,4 +161,5 @@ Public Class RegistrarVehiculo
 
         MsgBox("Vehiculo Eliminado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
+
 End Class

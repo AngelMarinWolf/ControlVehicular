@@ -50,7 +50,7 @@
         Me.colonia.PoblarComboColonias(Me.cmbCiudad.SelectedValue, cmbColonia)
     End Sub
 
-    Private Sub txtCurp_Leave(sender As Object, e As EventArgs) Handles txtCurp.Leave
+    Private Sub txtCurp_TextChanged(sender As Object, e As EventArgs) Handles txtCurp.TextChanged
         poblarDatosContribuyente(Me.txtCurp.Text)
     End Sub
 
@@ -118,8 +118,13 @@
             Exit Sub
         End If
 
+        If Me.txtRfc.Text.Length < 12 Then
+            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
         If tmpContribuyente.BuscarContribuyenteById(Me.txtCurp.Text) Then
-            MsgBox("No se pudo registrar empleado." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            MsgBox("No se pudo registrar contribuyente." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -153,11 +158,13 @@
         End If
         limpiarDatos()
         Me.txtCurp.Text = ""
-        MsgBox("Empleado Registrado Exitosamente.", MsgBoxStyle.Information, "Correcto")
+        MsgBox("Contribuyente Registrado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim tmpContribuyente As Contribuyente = New Contribuyente()
+        Dim licencia As New Licencia()
+        Dim vehiculo As New Padron()
 
         If MsgBox("Desea eliminar registro?." + vbNewLine + "Por favor confirme.", MsgBoxStyle.YesNo, "Confirmacion") = MsgBoxResult.No Then
             Exit Sub
@@ -165,6 +172,16 @@
 
         If Me.txtCurp.Text.Length <> 18 Then
             MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If licencia.BuscarLicenciaByContribuyente(Me.txtCurp.Text).Rows.Count > 0 Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "Hay Licencias Activas.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If vehiculo.BuscarPadronByContribuyente(Me.txtCurp.Text).Rows.Count > 0 Then
+            MsgBox("No se pudo eliminar contribuyente." + vbNewLine + "Hay padrones registrados a su nombre.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -192,6 +209,11 @@
 
         If Me.txtCurp.Text.Length <> 18 Then
             MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.txtRfc.Text.Length < 12 Then
+            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -227,7 +249,7 @@
 
         limpiarDatos()
         Me.txtCurp.Text = ""
-        MsgBox("Empleado Actualizado Exitosamente.", MsgBoxStyle.Information, "Correcto")
+        MsgBox("contribuyente Actualizado Exitosamente.", MsgBoxStyle.Information, "Correcto")
     End Sub
 
 End Class

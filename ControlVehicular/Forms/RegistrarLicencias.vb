@@ -7,22 +7,6 @@
         Me.dateExpiracion.Value = Date.Now.AddYears(3)
     End Sub
 
-    Private Sub chkSiDonador_CheckedChanged(sender As Object, e As EventArgs) Handles chkSiDonador.CheckedChanged
-        If Me.chkSiDonador.Checked Then
-            Me.chkNoDonador.Checked = False
-        Else
-            Me.chkSiDonador.Checked = True
-        End If
-    End Sub
-
-    Private Sub chkNoDonador_CheckedChanged(sender As Object, e As EventArgs) Handles chkNoDonador.CheckedChanged
-        If Me.chkNoDonador.Checked Then
-            Me.chkSiDonador.Checked = False
-        Else
-            Me.chkNoDonador.Checked = True
-        End If
-    End Sub
-
     Private Sub poblarDatosLicencia(idLicencia As Integer)
         If Me.licencia.BuscarLicenciaById(idLicencia) Then
             Me.txtCurp.Text = Me.licencia.GetIdContribuyente()
@@ -31,6 +15,10 @@
             Me.dateExpiracion.Value = Me.licencia.GetFechaExpiracion()
             If Me.licencia.GetEstadoDonador Then
                 Me.chkSiDonador.Checked = True
+                Me.chkNoDonador.Checked = False
+            Else
+                Me.chkSiDonador.Checked = False
+                Me.chkNoDonador.Checked = True
             End If
             Me.txtContactoEmergencia.Text = Me.licencia.GetContactoEmergencia()
             Me.txtNumeroEmergencia.Text = Me.licencia.GetTelefonoEmergencia()
@@ -48,6 +36,7 @@
         Me.dateExpedicion.Value = Date.Now
         Me.dateExpiracion.Value = Date.Now.AddYears(3)
         Me.chkSiDonador.Checked = True
+        Me.chkNoDonador.Checked = False
         Me.txtContactoEmergencia.Text = ""
         Me.txtNumeroEmergencia.Text = ""
     End Sub
@@ -154,4 +143,21 @@
         MsgBox("Licencia Eliminada Exitosamente.", MsgBoxStyle.Information, "Correcto")
         limpiarDatos()
     End Sub
+
+    Private Sub chkSiDonador_Click(sender As Object, e As EventArgs) Handles chkSiDonador.Click
+        If Me.chkSiDonador.Checked Then
+            Me.chkNoDonador.Checked = False
+        Else
+            Me.chkSiDonador.Checked = True
+        End If
+    End Sub
+
+    Private Sub chkNoDonador_Click(sender As Object, e As EventArgs) Handles chkNoDonador.Click
+        If Me.chkNoDonador.Checked Then
+            Me.chkSiDonador.Checked = False
+        Else
+            Me.chkNoDonador.Checked = True
+        End If
+    End Sub
+
 End Class

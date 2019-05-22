@@ -188,6 +188,7 @@ Partial Class RegistrarLicencias
         'txtCurp
         '
         Me.txtCurp.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCurp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCurp.Location = New System.Drawing.Point(135, 28)
         Me.txtCurp.MaxLength = 18
         Me.txtCurp.Name = "txtCurp"
