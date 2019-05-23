@@ -27,13 +27,13 @@ Partial Class RegistrarPlacas
         Me.lbPropietario = New System.Windows.Forms.Label()
         Me.lbVehiculo = New System.Windows.Forms.Label()
         Me.txtIdPlacas = New System.Windows.Forms.TextBox()
-        Me.txtIdVehiculo = New System.Windows.Forms.TextBox()
         Me.tblLocalidades = New System.Windows.Forms.TableLayoutPanel()
         Me.txtIdLicencia = New System.Windows.Forms.NumericUpDown()
         Me.tblBotones = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
+        Me.cbNoSerie = New System.Windows.Forms.ComboBox()
         Me.tblLocalidades.SuspendLayout()
         CType(Me.txtIdLicencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tblBotones.SuspendLayout()
@@ -81,16 +81,6 @@ Partial Class RegistrarPlacas
         Me.txtIdPlacas.Size = New System.Drawing.Size(222, 20)
         Me.txtIdPlacas.TabIndex = 3
         '
-        'txtIdVehiculo
-        '
-        Me.txtIdVehiculo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtIdVehiculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtIdVehiculo.Location = New System.Drawing.Point(100, 53)
-        Me.txtIdVehiculo.MaxLength = 18
-        Me.txtIdVehiculo.Name = "txtIdVehiculo"
-        Me.txtIdVehiculo.Size = New System.Drawing.Size(222, 20)
-        Me.txtIdVehiculo.TabIndex = 5
-        '
         'tblLocalidades
         '
         Me.tblLocalidades.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -100,10 +90,10 @@ Partial Class RegistrarPlacas
         Me.tblLocalidades.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.tblLocalidades.Controls.Add(Me.lbVehiculo, 0, 2)
         Me.tblLocalidades.Controls.Add(Me.lbPropietario, 0, 1)
-        Me.tblLocalidades.Controls.Add(Me.txtIdVehiculo, 1, 2)
         Me.tblLocalidades.Controls.Add(Me.lbPlaca, 0, 0)
         Me.tblLocalidades.Controls.Add(Me.txtIdPlacas, 1, 0)
         Me.tblLocalidades.Controls.Add(Me.txtIdLicencia, 1, 1)
+        Me.tblLocalidades.Controls.Add(Me.cbNoSerie, 1, 2)
         Me.tblLocalidades.Location = New System.Drawing.Point(12, 12)
         Me.tblLocalidades.Name = "tblLocalidades"
         Me.tblLocalidades.RowCount = 3
@@ -182,6 +172,15 @@ Partial Class RegistrarPlacas
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
         '
+        'cbNoSerie
+        '
+        Me.cbNoSerie.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbNoSerie.FormattingEnabled = True
+        Me.cbNoSerie.Location = New System.Drawing.Point(100, 53)
+        Me.cbNoSerie.Name = "cbNoSerie"
+        Me.cbNoSerie.Size = New System.Drawing.Size(222, 21)
+        Me.cbNoSerie.TabIndex = 90
+        '
         'RegistrarPlacas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -206,11 +205,11 @@ Partial Class RegistrarPlacas
     Friend WithEvents lbPropietario As Label
     Friend WithEvents lbVehiculo As Label
     Friend WithEvents txtIdPlacas As TextBox
-    Friend WithEvents txtIdVehiculo As TextBox
     Friend WithEvents tblLocalidades As TableLayoutPanel
     Friend WithEvents tblBotones As TableLayoutPanel
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents txtIdLicencia As NumericUpDown
+    Friend WithEvents cbNoSerie As ComboBox
 End Class

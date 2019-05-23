@@ -267,6 +267,29 @@ Public Class Padron
         End If
     End Sub
 
+    Public Sub PoblarComboNoSerieByLicencia(cbNoSerie As ComboBox, idLicencia As Integer)
+        Dim database As Oracle = New Oracle()
+        Dim columnas As String() = {"PadronVehicular.noSerie"}
+        Dim joins As String() = {"INNER JOIN Contribuyentes ON Contribuyentes.curp = PadronVehicular.idContribuyente",
+                                 "INNER JOIN Licencias ON Licencias.idContribuyente = Contribuyentes.curp"}
+        Dim condiciones As String() = {"Licencias.idLicencia=" & idLicencia}
+        Dim result As DataTable = database.Buscar({Tabla}, columnas, joins, condiciones)
+        result = result.DefaultView.ToTable()
+
+        cbNoSerie.DisplayMember = "Value"
+        cbNoSerie.ValueMember = "Key"
+
+        If result.Rows.Count > 0 Then
+            Dim tiposDictionary As New Dictionary(Of String, String)
+            For index = 0 To result.Rows.Count - 1
+                tiposDictionary.Add(result.Rows(index)("noSerie"), result.Rows(index)("noSerie"))
+            Next
+            cbNoSerie.DataSource = New BindingSource(tiposDictionary, Nothing)
+        Else
+            cbNoSerie.DataSource = Nothing
+        End If
+    End Sub
+
     Public Function BuscarPadronByContribuyente(idContribuyente As String) As DataTable
         Dim database As Oracle = New Oracle()
         Dim columnas As String() = {"noSerie", "noFactura", "fechaFactura", "importeFactura", "implementacion", "color",

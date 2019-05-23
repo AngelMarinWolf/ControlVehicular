@@ -13,7 +13,7 @@
         If Me.placas.BuscarPlacasById(idPlacas) Then
             Me.txtIdPlacas.Text = Me.placas.GetIdPlacas()
             Me.txtIdLicencia.Value = Me.placas.GetIdLicencia()
-            Me.txtIdVehiculo.Text = Me.placas.GetIdVehiculo()
+            Me.cbNoSerie.SelectedValue = Me.placas.GetIdVehiculo()
         Else
             limpiarDatos()
         End If
@@ -23,7 +23,7 @@
         Me.placas = New Placas()
 
         Me.txtIdLicencia.Value = 0
-        Me.txtIdVehiculo.Text = ""
+        Me.cbNoSerie.SelectedItem = ""
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -32,11 +32,6 @@
 
         If Me.txtIdPlacas.Text.Length < 7 Then
             MsgBox("Insuficientes caracteres para el numero de Placas." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
-            Exit Sub
-        End If
-
-        If Me.txtIdVehiculo.Text.Length < 17 Then
-            MsgBox("Insuficientes caracteres en el No. de Serie." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -50,15 +45,10 @@
             Exit Sub
         End If
 
-        If Not vehiculo.BuscarVehiculoById(Me.txtIdVehiculo.Text) Then
-            MsgBox("No se pudo registrar placas." + vbNewLine + "Vehiculo no registrada en el sistema.", MsgBoxStyle.Critical, "Error")
-            Exit Sub
-        End If
-
         Me.placas = New Placas()
         Me.placas.SetIdPlacas(Me.txtIdPlacas.Text)
         Me.placas.SetIdLicencia(Me.txtIdLicencia.Value)
-        Me.placas.SetIdVehiculo(Me.txtIdVehiculo.Text)
+        Me.placas.SetIdVehiculo(Me.cbNoSerie.SelectedValue)
 
         If Not Me.placas.RegistrarPlacas() Then
             MsgBox("No se pudo registrar placa." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
@@ -78,11 +68,6 @@
             Exit Sub
         End If
 
-        If Me.txtIdVehiculo.Text.Length < 17 Then
-            MsgBox("Insuficientes caracteres en el No. de Serie." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
-            Exit Sub
-        End If
-
         If Not Me.placas.BuscarPlacasById(Me.txtIdPlacas.Text) Then
             MsgBox("No se pudo actualizar placas." + vbNewLine + "No se encontro registro con ese ID.", MsgBoxStyle.Critical, "Error")
             Exit Sub
@@ -93,15 +78,10 @@
             Exit Sub
         End If
 
-        If Not vehiculo.BuscarVehiculoById(Me.txtIdVehiculo.Text) Then
-            MsgBox("No se pudo registrar placas." + vbNewLine + "Vehiculo no registrada en el sistema.", MsgBoxStyle.Critical, "Error")
-            Exit Sub
-        End If
-
         Me.placas = New Placas()
         Me.placas.SetIdPlacas(Me.txtIdPlacas.Text)
         Me.placas.SetIdLicencia(Me.txtIdLicencia.Value)
-        Me.placas.SetIdVehiculo(Me.txtIdVehiculo.Text)
+        Me.placas.SetIdVehiculo(Me.cbNoSerie.SelectedValue)
 
         If Not Me.placas.ActualizarPlacas() Then
             MsgBox("No se pudo actualizar placas." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
@@ -140,5 +120,10 @@
 
         MsgBox("Placas Eliminadas Exitosamente.", MsgBoxStyle.Information, "Correcto")
         limpiarDatos()
+    End Sub
+
+    Private Sub txtIdLicencia_ValueChanged(sender As Object, e As EventArgs) Handles txtIdLicencia.ValueChanged
+        Dim padron As New Padron()
+        padron.PoblarComboNoSerieByLicencia(Me.cbNoSerie, Me.txtIdLicencia.Value)
     End Sub
 End Class
