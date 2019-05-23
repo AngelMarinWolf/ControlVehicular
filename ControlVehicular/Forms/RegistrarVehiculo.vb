@@ -34,7 +34,7 @@ Public Class RegistrarVehiculo
             Me.txtNoPasajeros.Value = Me.vehiculo.GetPasajeros()
             Me.cbUso.SelectedItem = Me.vehiculo.GetImplementacion()
         Else
-            limpiarDatos()
+            'limpiarDatos()
         End If
     End Sub
 

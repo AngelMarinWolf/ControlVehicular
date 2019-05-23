@@ -75,7 +75,7 @@
                                  "INNER JOIN Licencias ON Licencias.idLicencia=PlacasVehiculos.idLicencia",
                                  "INNER JOIN Contribuyentes ON Licencias.idContribuyente=Contribuyentes.curp"}
         Dim condiciones As String() = {"Multas.fechaExpedicionMulta > TO_DATE('" & Me.dateInit.Value.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')",
-                                       "Multas.fechaExpedicionMulta < TO_DATE('" & Me.dateEnd.Value.ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')"}
+                                       "Multas.fechaExpedicionMulta <= TO_DATE('" & Me.dateEnd.Value.AddMinutes(1).ToString("yyyy/MM/dd HH:mm:ss") & "', 'yyyy/mm/dd hh24:mi:ss')"}
 
         If Me.rbMultasPagadas.Checked Then
             condiciones = condiciones.Union({"NOT Multas.fechaLiquidacionMulta IS NULL"}).ToArray

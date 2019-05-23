@@ -48,8 +48,21 @@
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim contribuyente As New Contribuyente()
 
-        If Me.txtCurp.Text.Length < 17 Then
-            MsgBox("Insuficientes caracteres en el Curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+        If Me.txtCurp.Text.Length <> 18 Then
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine +
+                   "Inserte los 18 caracteres correspondientes." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.txtContactoEmergencia.Text.Length = 0 And Me.txtNumeroEmergencia.Text.Length = 0 Then
+            MsgBox("Por favor agrege informacion para el contacto de emergencia.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.txtIdLicencia.Value <> Me.licencia.BuscarUltimoId() + 1 Then
+            MsgBox("No se esta permitido agregar ids de forma manual." + vbNewLine +
+                   "Utilice el ultimo valor maximo disponible en el elemento.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -85,8 +98,15 @@
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim contribuyente As New Contribuyente()
 
-        If Me.txtCurp.Text.Length < 17 Then
-            MsgBox("Insuficientes caracteres en el Curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+        If Me.txtCurp.Text.Length <> 18 Then
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine +
+                   "Inserte los 18 caracteres correspondientes." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
+        If Me.txtContactoEmergencia.Text.Length = 0 And Me.txtNumeroEmergencia.Text.Length = 0 Then
+            MsgBox("Por favor agrege informacion para el contacto de emergencia.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 

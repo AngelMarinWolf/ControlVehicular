@@ -51,6 +51,12 @@
             Exit Sub
         End If
 
+        If Me.txtIdMulta.Value <> Me.multa.BuscarUltimoId() + 1 Then
+            MsgBox("No se esta permitido agregar ids de forma manual." + vbNewLine +
+                   "Utilice el ultimo valor maximo disponible en el elemento.", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+
         If multa.BuscarMultaById(Me.txtIdMulta.Value) Then
             MsgBox("No se pudo registrar multa." + vbNewLine + "id ya en uso.", MsgBoxStyle.Critical, "Error")
             Exit Sub

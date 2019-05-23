@@ -120,7 +120,7 @@ Public Class Multa
                 SetFechaExpedicion(CDate(result.Rows(0)("fechaExpedicionMulta")))
                 SetFechaLiquidacion(If(Not IsDBNull(result.Rows(0)("fechaLiquidacionMulta")), CDate(result.Rows(0)("fechaLiquidacionMulta")), Nothing))
                 SetImporte(CDbl(result.Rows(0)("importe")))
-                SetDescripcion(CStr(result.Rows(0)("descripcion")))
+                SetDescripcion(If(Not IsDBNull(result.Rows(0)("descripcion")), CStr(result.Rows(0)("descripcion")), ""))
                 Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")
@@ -152,7 +152,7 @@ Public Class Multa
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, {})
-        If result.Rows.Count = 1 Then
+        If result.Rows.Count = 1 And Not IsDBNull(result.Rows(0)("idMulta")) Then
             Return CInt(result.Rows(0)("idMulta"))
         Else
             Return 0

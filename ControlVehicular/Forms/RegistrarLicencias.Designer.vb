@@ -181,6 +181,7 @@ Partial Class RegistrarLicencias
         '
         Me.txtIdLicencia.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtIdLicencia.Location = New System.Drawing.Point(135, 3)
+        Me.txtIdLicencia.Maximum = New Decimal(New Integer() {1410065407, 2, 0, 0})
         Me.txtIdLicencia.Name = "txtIdLicencia"
         Me.txtIdLicencia.Size = New System.Drawing.Size(302, 20)
         Me.txtIdLicencia.TabIndex = 8

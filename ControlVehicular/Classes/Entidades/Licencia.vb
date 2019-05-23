@@ -171,7 +171,7 @@ Public Class Licencia
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, {})
-        If result.Rows.Count = 1 Then
+        If result.Rows.Count = 1 And Not IsDBNull(result.Rows(0)("idLicencia")) Then
             Return CInt(result.Rows(0)("idLicencia"))
         Else
             Return 0

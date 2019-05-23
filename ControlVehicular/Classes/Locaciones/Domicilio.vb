@@ -107,7 +107,7 @@ Public Class Domicilio
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, {})
-        If result.Rows.Count = 1 Then
+        If result.Rows.Count = 1 And Not IsDBNull(result.Rows(0)("idDomicilio")) Then
             Return CInt(result.Rows(0)("idDomicilio"))
         Else
             Return 0

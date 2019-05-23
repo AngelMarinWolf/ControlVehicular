@@ -77,7 +77,7 @@
                 Me.cmbColonia.SelectedValue = Me.colonia.GetIdColonia
             End If
         Else
-            limpiarDatos()
+            'limpiarDatos()
         End If
     End Sub
 
@@ -109,12 +109,16 @@
         Dim tmpEmpleado As Empleado = New Empleado()
 
         If Me.txtCurp.Text.Length <> 18 Then
-            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine +
+                   "Inserte los 18 caracteres correspondientes." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
         If Me.txtRfc.Text.Length < 12 Then
-            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine +
+                   "Inserte 12 o 13 caracteres segun corresponda." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -173,7 +177,9 @@
         End If
 
         If Me.txtCurp.Text.Length <> 18 Then
-            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine +
+                   "Inserte los 18 caracteres correspondientes." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
@@ -206,12 +212,16 @@
         Dim tmpEmpleado As Empleado = New Empleado()
 
         If Me.txtCurp.Text.Length <> 18 Then
-            MsgBox("Insuficientes caracteres en la curp." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            MsgBox("Insuficientes caracteres en la curp." + vbNewLine +
+                   "Inserte los 18 caracteres correspondientes." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
         If Me.txtRfc.Text.Length < 12 Then
-            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine + "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
+            MsgBox("Insuficientes caracteres en el RFC." + vbNewLine +
+                   "Inserte 12 o 13 caracteres segun corresponda." + vbNewLine +
+                   "compruebe sus datos.", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
