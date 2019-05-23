@@ -15,7 +15,7 @@
             Me.txtIdLicencia.Value = Me.placas.GetIdLicencia()
             Me.cbNoSerie.SelectedValue = Me.placas.GetIdVehiculo()
         Else
-            limpiarDatos()
+            'limpiarDatos()
         End If
     End Sub
 
